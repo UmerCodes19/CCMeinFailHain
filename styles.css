@@ -1,6 +1,6 @@
 /* ============================================================
    CLOUD COMPUTING FINALS – ACADEMIC HANDBOOK DESIGN SYSTEM
-   premium, editorial-grade dark academic style.
+   A premium, editorial-grade dark academic style.
    Crafted for readability, layout rhythm, and visual comfort.
    ============================================================ */
 
@@ -97,6 +97,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   background-color: var(--bg-canvas);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -106,6 +109,9 @@ body {
   line-height: 1.8; /* Generous line spacing to prevent fatigue */
   letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Scrollbar */
@@ -652,6 +658,90 @@ blockquote {
   color: var(--accent-breakeven);
 }
 
+/* Worked Examples Given Data Grid */
+.given-data {
+  background: var(--bg-deep);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+.given-data h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-theme, var(--text-title));
+  margin-bottom: 0.75rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.given-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.given-col ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* Mobile Nav Toggle Button */
+.nav-mobile-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1100;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+}
+.nav-mobile-toggle span {
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  background: var(--text-title);
+  position: relative;
+  transition: background 0.2s;
+}
+.nav-mobile-toggle span::before,
+.nav-mobile-toggle span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--text-title);
+  transition: transform 0.2s, top 0.2s;
+}
+.nav-mobile-toggle span::before {
+  top: -6px;
+}
+.nav-mobile-toggle span::after {
+  top: 6px;
+}
+.nav-mobile-toggle.active span {
+  background: transparent;
+}
+.nav-mobile-toggle.active span::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+.nav-mobile-toggle.active span::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
 /* ============================================================
    8. SOLVER INTERFACE
    ============================================================ */
@@ -744,12 +834,49 @@ blockquote {
    ============================================================ */
 @media (max-width: 768px) {
   body { font-size: 0.92rem; }
-  h1 { font-size: 2.2rem; }
-  .page-header { padding: 3rem 0; }
-  .question-card { padding: 1.5rem; }
-  .solution-card { padding: 1.5rem; }
-  .solver-container { padding: 1.5rem; }
-  .nav-links { display: none; }
+  h1 { font-size: 2.0rem; }
+  h2 { font-size: 1.5rem; }
+  .page-header { padding: 2.5rem 1rem; }
+  .question-card { padding: 1.25rem; }
+  .solution-card { padding: 1.25rem; }
+  .solver-container { padding: 1.25rem; }
+  .formula-box { padding: 1.5rem; margin: 2rem 0; }
+  .toc-section { padding: 1.5rem; }
+  
+  /* Given data layout becomes stacked on mobile */
+  .given-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  /* Ensure comparison tables scroll horizontally and don't squish */
+  .comparison-table {
+    min-width: 650px;
+  }
+  
+  /* Mobile Navigation Overrides */
+  .nav-header {
+    transform: translateX(-100%) !important; /* Move fully offscreen by default */
+    width: 280px;
+    box-shadow: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-header:hover {
+    transform: translateX(-100%) !important; /* Disable slide open on hover for touch devices */
+  }
+  .nav-header.open {
+    transform: translateX(0) !important; /* Slide open when class is active */
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.25);
+  }
+  .nav-header::after {
+    display: none !important; /* Hide side indicator tab on mobile */
+  }
+  .nav-mobile-toggle {
+    display: flex !important; /* Show hamburger button on mobile */
+  }
+  .nav-links {
+    display: flex !important; /* Make sure links are visible in sidebar */
+  }
 }
 
 /* Entry Animation */
