@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <script>
     if (localStorage.getItem('theme') === 'light') {
-      document.body.classList.add('light-theme');
+      document.documentElement.classList.add('light-theme');
     }
   </script>
 </head>
@@ -33,6 +33,7 @@
       <a href="#type-g">G — Break-Even</a>
       <a href="#diagram-numericals">Diagrams</a>
       <a href="#numerical-solver">Solver</a>
+      <a href="#cc-differences">Differences</a>
       <a href="#cheat-sheet">Cheat Sheet</a>
       <button id="theme-toggle" class="badge" style="cursor:pointer; margin-left:12px; font-family:var(--font-display); font-size:0.75rem;">◑ Mode</button>
     </div>
@@ -41,7 +42,7 @@
 
 <!-- ============================================================ -->
 <!-- HERO HEADER                                                  -->
-<!-- =========================================================== -->
+<!-- ============================================================ -->
 <header class="page-header" id="top">
   <div class="header-content">
     <p class="header-subtitle">Cloud Computing &middot; Engr. Dr. Mahawish &middot; Spring 2026</p>
@@ -114,6 +115,10 @@
     <a class="toc-item" href="#numerical-solver">
       <span class="toc-badge badge badge-a">SOLVER</span>
       <span class="toc-label">Interactive Numerical Solver</span>
+    </a>
+    <a class="toc-item" href="#cc-differences">
+      <span class="toc-badge badge badge-e">DIFFS</span>
+      <span class="toc-label">CC Finals Comparison &amp; Differences</span>
     </a>
     <a class="toc-item" href="#cheat-sheet">
       <span class="toc-badge badge badge-g">MASTER</span>
@@ -1884,8 +1889,74 @@
   <p class="section-intro">Master scenario-based firewall architecture, device placement, and stateful rule table design using premium interactive diagrams.</p>
 
   <h3 class="subsection-title">1. Guide: Design &amp; Classify Any Firewall Scenario</h3>
-    <div class="table-container" style="text-align: center; padding: 20px; margin: 20px 0;">
-    <img src="diagrams/decision_guide.png" alt="Firewall Decision Guide" style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-default);">
+    <div class="table-container" style="padding: 20px; background: var(--bg-sheet); border: 1px solid var(--accent-border);">
+    <svg viewBox="0 0 800 320" style="width: 100%; height: auto; font-family: var(--font-sans);">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 2 L 8 5 L 0 8 z" fill="var(--text-muted)" />
+        </marker>
+      </defs>
+      
+      <!-- Flowchart logic -->
+      <g transform="translate(10, 120)">
+        <rect x="0" y="0" width="130" height="70" rx="4" fill="var(--bg-deep)" stroke="var(--accent-border)" />
+        <text x="65" y="30" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="600">Read Scenario &amp;</text>
+        <text x="65" y="48" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="600">Analyze Needs</text>
+      </g>
+      
+      <path d="M 150 155 H 200" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+      
+      <!-- Choice 1: External public users? -->
+      <g transform="translate(210, 110)">
+        <polygon points="65,0 130,45 65,90 0,45" fill="var(--bg-deep)" stroke="var(--accent-arch)" stroke-width="1.5" />
+        <text x="65" y="42" text-anchor="middle" fill="var(--text-title)" font-size="9" font-weight="600">External public</text>
+        <text x="65" y="55" text-anchor="middle" fill="var(--text-title)" font-size="9" font-weight="600">users?</text>
+      </g>
+      
+      <!-- Path 1 (Yes): Require DMZ + Outer Firewall -->
+      <path d="M 275 110 V 50 H 370" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+      <text x="290" y="42" fill="var(--accent-rev)" font-size="9" font-weight="600">Yes</text>
+      
+      <g transform="translate(380, 20)">
+        <rect x="0" y="0" width="160" height="60" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-net)" stroke-width="1.5" />
+        <text x="80" y="28" text-anchor="middle" fill="var(--text-title)" font-size="10" font-weight="600">Require DMZ Zone</text>
+        <text x="80" y="44" text-anchor="middle" fill="var(--accent-net)" font-size="9" font-weight="600">+ Outer Packet Filter</text>
+      </g>
+      
+      <!-- Path 2 (No) -->
+      <path d="M 350 155 H 410" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+      <text x="375" y="145" fill="var(--accent-net)" font-size="9" font-weight="600">No</text>
+      
+      <!-- Choice 2: Multiple internal departments? -->
+      <g transform="translate(420, 110)">
+        <polygon points="65,0 130,45 65,90 0,45" fill="var(--bg-deep)" stroke="var(--accent-arch)" stroke-width="1.5" />
+        <text x="65" y="42" text-anchor="middle" fill="var(--text-title)" font-size="9" font-weight="600">Multiple internal</text>
+        <text x="65" y="55" text-anchor="middle" fill="var(--text-title)" font-size="9" font-weight="600">departments?</text>
+      </g>
+      
+      <!-- Connect DMZ to Choice 2 -->
+      <path d="M 550 50 H 570 V 155 H 560" stroke="var(--accent-muted)" stroke-width="1.5" />
+      
+      <!-- Path 3 (Yes): Stateful SPI Inner Firewall -->
+      <path d="M 485 110 V 50 H 580" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+      
+      <!-- Let's connect paths clearly -->
+      <!-- Let's place the options side-by-side or clean flowchart style -->
+      <g transform="translate(590, 50)">
+        <rect x="0" y="0" width="180" height="60" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-rev)" stroke-width="1.5" />
+        <text x="90" y="28" text-anchor="middle" fill="var(--text-title)" font-size="10" font-weight="600">Stateful SPI Inner Firewall</text>
+        <text x="90" y="44" text-anchor="middle" fill="var(--text-muted)" font-size="9">(Filters based on State Table)</text>
+      </g>
+      
+      <path d="M 485 200 V 250 H 580" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+      <text x="500" y="240" fill="var(--accent-net)" font-size="9" font-weight="600">No</text>
+      
+      <g transform="translate(590, 220)">
+        <rect x="0" y="0" width="180" height="60" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-border)" stroke-width="1" />
+        <text x="90" y="28" text-anchor="middle" fill="var(--text-title)" font-size="10" font-weight="600">Simple Edge Filter GW Router</text>
+        <text x="90" y="44" text-anchor="middle" fill="var(--text-muted)" font-size="9">(No internal zones, block basic ports)</text>
+      </g>
+    </svg>
     <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Logical decision guide for selecting and classifying firewall deployments based on network scenarios.</p>
   </div>
 
@@ -1930,9 +2001,108 @@
         </ul>
 
         <h4>(b) Network Diagram (Interactive)</h4>
-                <div class="table-container" style="text-align: center; padding: 20px; margin: 20px 0;">
-          <img src="diagrams/q1_network.png" alt="DMZ Firewall Network Topology" style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-default);">
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Premium multi-zone DMZ network architecture diagram.</p>
+                <div class="table-container" style="padding: 20px; background: var(--bg-sheet); border: 1px solid var(--accent-border);">
+          <svg viewBox="0 0 800 320" style="width: 100%; height: auto; font-family: var(--font-sans);">
+            <!-- Definitions for markers and filters -->
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 2 L 8 5 L 0 8 z" fill="var(--text-muted)" />
+              </marker>
+              <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3" />
+              </filter>
+            </defs>
+            
+            <!-- Grid / Alignment Helper lines (Visual design) -->
+            <line x1="10" y1="160" x2="790" y2="160" stroke="var(--accent-divider)" stroke-dasharray="4,4" stroke-width="1" />
+            
+            <!-- Zone: Internet (External) -->
+            <g transform="translate(10, 80)">
+              <rect x="0" y="0" width="120" height="160" rx="6" fill="var(--bg-deep)" stroke="var(--accent-border)" stroke-width="1" />
+              <text x="60" y="30" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="700" letter-spacing="0.05em">PUBLIC ZONE</text>
+              <!-- Internet icon -->
+              <circle cx="60" cy="90" r="24" fill="var(--bg-sheet)" stroke="var(--accent-muted)" stroke-dasharray="2,2" />
+              <text x="60" y="130" text-anchor="middle" fill="var(--text-muted)" font-size="10">Untrusted Client</text>
+              <text x="60" y="94" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="600">Internet</text>
+            </g>
+            
+            <!-- Connection: Internet -> Outer Firewall -->
+            <path d="M 130 160 H 190" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Outer Firewall (Packet Filter) -->
+            <g transform="translate(200, 100)">
+              <rect x="0" y="0" width="90" height="120" rx="4" fill="var(--bg-deep)" stroke="var(--accent-net)" stroke-width="2" filter="url(#shadow)" />
+              <text x="45" y="30" text-anchor="middle" fill="var(--accent-net)" font-size="9" font-weight="700" letter-spacing="0.05em">OUTER FIREWALL</text>
+              <text x="45" y="65" text-anchor="middle" fill="var(--text-title)" font-size="12" font-weight="700">Packet</text>
+              <text x="45" y="80" text-anchor="middle" fill="var(--text-title)" font-size="12" font-weight="700">Filter</text>
+              <text x="45" y="105" text-anchor="middle" fill="var(--text-muted)" font-size="9">(Layers 3 &amp; 4)</text>
+            </g>
+            
+            <!-- Connection: Outer Firewall -> DMZ Switch -->
+            <path d="M 290 160 H 330" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Zone: DMZ -->
+            <g transform="translate(340, 20)">
+              <rect x="0" y="0" width="160" height="280" rx="8" fill="var(--bg-deep)" stroke="var(--accent-arch)" stroke-dasharray="4,4" stroke-width="1.5" />
+              <text x="80" y="25" text-anchor="middle" fill="var(--accent-arch)" font-size="10" font-weight="700" letter-spacing="0.08em">DMZ ZONE</text>
+              
+              <!-- Web Server Node -->
+              <g transform="translate(15, 45)">
+                <rect x="0" y="0" width="130" height="65" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-border)" stroke-width="1" />
+                <text x="65" y="25" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="600">Web Server</text>
+                <text x="65" y="45" text-anchor="middle" fill="var(--accent-rev)" font-size="10" font-weight="600">Ports 80 &amp; 443</text>
+              </g>
+              
+              <!-- Proxy Node -->
+              <g transform="translate(15, 125)">
+                <rect x="0" y="0" width="130" height="65" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-border)" stroke-width="1" />
+                <text x="65" y="25" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="600">Proxy Server</text>
+                <text x="65" y="45" text-anchor="middle" fill="var(--text-muted)" font-size="10">Social Media Filter</text>
+              </g>
+
+              <!-- Mail Server Node -->
+              <g transform="translate(15, 205)">
+                <rect x="0" y="0" width="130" height="60" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-border)" stroke-width="1" />
+                <text x="65" y="25" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="600">Mail Gateway</text>
+                <text x="65" y="42" text-anchor="middle" fill="var(--accent-net)" font-size="9" font-weight="600">Port 25 blocked inbound</text>
+              </g>
+            </g>
+            
+            <!-- Connection: DMZ -> Inner Firewall -->
+            <path d="M 500 160 H 520" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Inner Firewall (Stateful SPI) -->
+            <g transform="translate(530, 100)">
+              <rect x="0" y="0" width="90" height="120" rx="4" fill="var(--bg-deep)" stroke="var(--accent-net)" stroke-width="2" filter="url(#shadow)" />
+              <text x="45" y="30" text-anchor="middle" fill="var(--accent-net)" font-size="9" font-weight="700" letter-spacing="0.05em">INNER FIREWALL</text>
+              <text x="45" y="65" text-anchor="middle" fill="var(--text-title)" font-size="12" font-weight="700">Stateful</text>
+              <text x="45" y="80" text-anchor="middle" fill="var(--text-title)" font-size="12" font-weight="700">SPI</text>
+              <text x="45" y="105" text-anchor="middle" fill="var(--text-muted)" font-size="9">Connection State</text>
+            </g>
+            
+            <!-- Connection: Inner Firewall -> Private Network -->
+            <path d="M 620 160 H 650" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Zone: Private LAN -->
+            <g transform="translate(660, 40)">
+              <rect x="0" y="0" width="130" height="240" rx="6" fill="var(--bg-deep)" stroke="var(--accent-border)" stroke-width="1" />
+              <text x="65" y="30" text-anchor="middle" fill="var(--text-title)" font-size="10" font-weight="700" letter-spacing="0.05em">PRIVATE LAN</text>
+              
+              <!-- IT Dept -->
+              <rect x="15" y="55" width="100" height="40" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-border)" />
+              <text x="65" y="80" text-anchor="middle" fill="var(--text-title)" font-size="10" font-weight="600">IT Admin</text>
+              
+              <!-- HR Server -->
+              <rect x="15" y="115" width="100" height="40" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-border)" />
+              <text x="65" y="140" text-anchor="middle" fill="var(--text-title)" font-size="10" font-weight="600">HR Server</text>
+              
+              <!-- Finance -->
+              <rect x="15" y="175" width="100" height="45" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-border)" />
+              <text x="65" y="195" text-anchor="middle" fill="var(--text-title)" font-size="10" font-weight="600">Finance</text>
+              <text x="65" y="210" text-anchor="middle" fill="var(--accent-net)" font-size="8">Secure Subnet</text>
+            </g>
+          </svg>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Detailed Multi-Zone DMZ Network Architecture with Outer Packet Filter and Inner Stateful SPI Gatekeepers.</p>
         </div>
 
         <h4>(c) Firewall Rules Table</h4>
@@ -2045,9 +2215,61 @@
         <p>A <strong>Simple Packet-Filtering Router/Firewall</strong> is sufficient here. Since this is a office with a flat network and no separate departments, a basic edge router inspecting headers secures the perimeter at minimal cost.</p>
 
         <h4>(b) Firewall Placement Diagram (Interactive)</h4>
-                <div class="table-container" style="text-align: center; padding: 20px; margin: 20px 0;">
-          <img src="diagrams/simple_fw.png" alt="Simple Packet-Filtering Firewall Placement" style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-default);">
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Perimeter Packet Filtering Router Placement topology.</p>
+                <div class="table-container" style="padding: 20px; background: var(--bg-sheet); border: 1px solid var(--accent-border);">
+          <svg viewBox="0 0 700 220" style="width: 100%; height: auto; font-family: var(--font-sans);">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 2 L 8 5 L 0 8 z" fill="var(--text-muted)" />
+              </marker>
+            </defs>
+            <line x1="10" y1="110" x2="690" y2="110" stroke="var(--accent-divider)" stroke-dasharray="4,4" />
+            
+            <!-- Internet -->
+            <g transform="translate(20, 60)">
+              <circle cx="50" cy="50" r="30" fill="var(--bg-deep)" stroke="var(--accent-border)" />
+              <text x="50" y="54" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="600">Internet</text>
+            </g>
+            
+            <path d="M 110 110 H 170" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Filtering Router -->
+            <g transform="translate(180, 50)">
+              <rect x="0" y="0" width="130" height="120" rx="6" fill="var(--bg-deep)" stroke="var(--accent-net)" stroke-width="2" />
+              <text x="65" y="25" text-anchor="middle" fill="var(--accent-net)" font-size="9" font-weight="700" letter-spacing="0.05em">GW ROUTER</text>
+              <text x="65" y="60" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="700">Packet Filtering</text>
+              <!-- Checking block -->
+              <rect x="15" y="80" width="100" height="25" rx="3" fill="var(--bg-sheet)" stroke="var(--accent-border)" />
+              <text x="65" y="96" text-anchor="middle" fill="var(--text-muted)" font-size="9">Inspecting Headers</text>
+            </g>
+            
+            <path d="M 320 110 H 380" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Switch -->
+            <g transform="translate(390, 75)">
+              <rect x="0" y="0" width="90" height="70" rx="4" fill="var(--bg-deep)" stroke="var(--accent-border)" />
+              <text x="45" y="30" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="600">Switch</text>
+              <text x="45" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="9">Local LAN</text>
+            </g>
+            
+            <!-- Switch to clients -->
+            <path d="M 490 90 L 540 60" stroke="var(--accent-muted)" stroke-width="1.5" marker-end="url(#arrow)" />
+            <path d="M 490 130 L 540 160" stroke="var(--accent-muted)" stroke-width="1.5" marker-end="url(#arrow)" />
+            
+            <!-- Clients -->
+            <g transform="translate(550, 20)">
+              <rect x="0" y="0" width="120" height="60" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-border)" />
+              <text x="60" y="28" text-anchor="middle" fill="var(--text-title)" font-size="10" font-weight="600">Workstations</text>
+              <text x="60" y="45" text-anchor="middle" fill="var(--text-muted)" font-size="9">Local Subnet</text>
+            </g>
+            
+            <!-- Database Server -->
+            <g transform="translate(550, 130)">
+              <rect x="0" y="0" width="120" height="60" rx="4" fill="var(--bg-sheet)" stroke="var(--accent-border)" />
+              <text x="60" y="28" text-anchor="middle" fill="var(--text-title)" font-size="10" font-weight="600">DB Server</text>
+              <text x="60" y="45" text-anchor="middle" fill="var(--accent-net)" font-size="9" font-weight="600">Telnet Port 23 Blocked</text>
+            </g>
+          </svg>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Gateway Packet-Filtering Router securing a single-subnet LAN.</p>
         </div>
 
         <h4>(c) Firewall Rules Table</h4>
@@ -2120,9 +2342,65 @@
         </ul>
 
         <h4>(b) Zero Trust Diagram (Interactive)</h4>
-                <div class="table-container" style="text-align: center; padding: 20px; margin: 20px 0;">
-          <img src="diagrams/ztn_diagram.png" alt="Zero Trust Architecture" style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-default);">
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Modern Zero Trust Architecture with PEP & PDP validation layers.</p>
+                <div class="table-container" style="padding: 20px; background: var(--bg-sheet); border: 1px solid var(--accent-border);">
+          <svg viewBox="0 0 700 260" style="width: 100%; height: auto; font-family: var(--font-sans);">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 2 L 8 5 L 0 8 z" fill="var(--text-muted)" />
+              </marker>
+            </defs>
+            
+            <!-- Control Plane / Data Plane line -->
+            <line x1="20" y1="130" x2="680" y2="130" stroke="var(--accent-border)" stroke-dasharray="6,6" />
+            <text x="670" y="120" text-anchor="end" fill="var(--text-muted)" font-size="9" font-weight="600" letter-spacing="0.05em">CONTROL PLANE</text>
+            <text x="670" y="150" text-anchor="end" fill="var(--text-muted)" font-size="9" font-weight="600" letter-spacing="0.05em">DATA PLANE</text>
+            
+            <!-- Subject/User -->
+            <g transform="translate(30, 140)">
+              <rect x="0" y="0" width="100" height="70" rx="4" fill="var(--bg-deep)" stroke="var(--accent-border)" />
+              <text x="50" y="30" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="600">Client / Subject</text>
+              <text x="50" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="9">(Untrusted Device)</text>
+            </g>
+            
+            <!-- Connection: User -> PEP -->
+            <path d="M 140 175 H 230" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Policy Enforcement Point (PEP) -->
+            <g transform="translate(240, 140)">
+              <rect x="0" y="0" width="150" height="70" rx="6" fill="var(--bg-deep)" stroke="var(--accent-arch)" stroke-width="2" />
+              <text x="75" y="25" text-anchor="middle" fill="var(--accent-arch)" font-size="9" font-weight="700" letter-spacing="0.05em">ENFORCER (PEP)</text>
+              <text x="75" y="45" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="700">Policy Enforcement</text>
+              <text x="75" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="9">Blocks or allows flows</text>
+            </g>
+            
+            <!-- Connection: PEP -> PDP (Query) and PDP -> PEP (Verdict) -->
+            <path d="M 290 140 V 100" stroke="var(--accent-muted)" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow)" />
+            <path d="M 340 100 V 140" stroke="var(--accent-arch)" stroke-width="1.5" marker-end="url(#arrow)" />
+            
+            <!-- Policy Decision Point (PDP) -->
+            <g transform="translate(200, 20)">
+              <rect x="0" y="0" width="220" height="70" rx="6" fill="var(--bg-sheet)" stroke="var(--accent-tco)" stroke-width="1.5" />
+              <text x="110" y="25" text-anchor="middle" fill="var(--accent-tco)" font-size="9" font-weight="700" letter-spacing="0.05em">DECISION MAKER (PDP)</text>
+              <text x="110" y="45" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="700">Policy Decision Point</text>
+              <text x="110" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="9">Evaluates identity &amp; posture</text>
+            </g>
+            
+            <!-- Connection: PEP -> Target -->
+            <path d="M 400 175 H 490" stroke="var(--accent-muted)" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Target Resources -->
+            <g transform="translate(500, 140)">
+              <rect x="0" y="0" width="160" height="80" rx="6" fill="var(--bg-deep)" stroke="var(--accent-border)" />
+              <text x="80" y="25" text-anchor="middle" fill="var(--text-title)" font-size="11" font-weight="700">Enterprise Resources</text>
+              
+              <rect x="15" y="40" width="60" height="30" rx="3" fill="var(--bg-sheet)" stroke="var(--accent-border)" />
+              <text x="45" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="9">App A</text>
+              
+              <rect x="85" y="40" width="60" height="30" rx="3" fill="var(--bg-sheet)" stroke="var(--accent-border)" />
+              <text x="115" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="9">Database</text>
+            </g>
+          </svg>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Zero Trust Architecture flow: The client requests access through PEP. PEP queries PDP, which evaluates credentials and policies, returning allow/deny verdicts back to PEP for enforcement.</p>
         </div>
 
         <h4>(c) The 3 Core Principles vs Traditional Firewalls</h4>
@@ -2257,6 +2535,1617 @@
 <!-- ============================================================ -->
 <!-- MASTER CHEAT SHEET                                           -->
 <!-- ============================================================ -->
+<!-- ============================================================ -->
+<!-- CC FINALS DIFFERENCES                                       -->
+<!-- ============================================================ -->
+<section class="section-card" id="cc-differences" style="--accent-theme: var(--accent-arch);">
+  <div class="section-header-bar" style="border-bottom-color: var(--accent-arch);">
+    <span class="badge" style="border-color: var(--accent-arch); color: var(--accent-arch);">DIFFERENCES</span>
+    <h2 class="section-title" style="color: var(--accent-arch);">CC Finals Comparison &amp; Differences</h2>
+  </div>
+  <p class="section-intro">Exam-ready comparisons, tabular differences, Roman Urdu summaries, and real-world examples from core lectures.</p>
+  <p>CC Finals Differences</p>
+  <p>Exam-Ready Tabular Comparisons | Easy English + Roman Urdu + Examples</p>
+  <p>Cloud Computing &amp; ACN | Engr. Dr. Mahawish | Spring 2026</p>
+  <p>Topics Covered:</p>
+  <p>Firewalls (Static vs Dynamic vs SPI vs Hybrid vs Packet-Filtering)  ·  Firewall vs Zero Trust Networking  ·  Traditional Security vs ZTN  ·  Microservices vs Monolithic  ·  Fog Computing vs Cloud Computing  ·  On-Demand vs Reserved VM  ·  Inbound vs Outbound vs Intra-Cloud  ·  IaaS vs PaaS vs SaaS Pricing  ·  Cloud Bursting vs Zero Downtime  ·  Non-Disruptive Relocation vs Zero Downtime  ·  IAM: Authentication vs Authorization  ·  Static vs Dynamic Packet Filtering vs SPI  ·  Hypervisor Clustering vs Load Balancing  ·  CDM vs ZTNA  ·  Resilient vs Clustered VMs</p>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Every difference table in this document is a potential exam question. Learn the KEY column — that one line captures the whole difference.</p>
+  </div>
+  <h3 class="subsection-title" style="margin-top: 3.5rem; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--accent-arch); border-bottom: 1px solid var(--accent-divider); padding-bottom: 0.5rem;">SECTION 1: FIREWALL DIFFERENCES</h3>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">1.1  Static vs Dynamic vs Stateful Packet Inspection (SPI) Firewalls</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Most exam questions ask to distinguish these three. Remember: Static = fixed rules, Dynamic = self-adjusting rules, SPI = tracks whole connection.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Static Packet Filtering</th>
+          <th>Dynamic Packet Filtering</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Stateful Packet Inspection (SPI)</strong></td>
+          <td>Intelligence Level</td>
+          <td>Lowest — dumb rules only</td>
+        </tr>
+        <tr>
+          <td><strong>Medium — adapts to traffic</strong></td>
+          <td>Highest — context-aware</td>
+          <td>Rules</td>
+        </tr>
+        <tr>
+          <td><strong>Fixed; written by human once</strong></td>
+          <td>Auto-created/modified based on live events</td>
+          <td>Uses state table + ACL as backup</td>
+        </tr>
+        <tr>
+          <td><strong>Rule Changes</strong></td>
+          <td>Manual human intervention required</td>
+          <td>Automatic within predefined limits</td>
+        </tr>
+        <tr>
+          <td><strong>Automatic, based on connection tracking</strong></td>
+          <td>What It Tracks</td>
+          <td>Nothing — each packet treated independently</td>
+        </tr>
+        <tr>
+          <td><strong>Limited per-session info in dynamic table</strong></td>
+          <td>Full connection state (sequence, port, IP)</td>
+          <td>State Table</td>
+        </tr>
+        <tr>
+          <td><strong>❌ No state table</strong></td>
+          <td>✅ Dynamic state table</td>
+          <td>✅ State table (core feature)</td>
+        </tr>
+        <tr>
+          <td><strong>Ports</strong></td>
+          <td>Fixed allow/deny on specific ports</td>
+          <td>Opens/closes ports dynamically</td>
+        </tr>
+        <tr>
+          <td><strong>Tracks which ports belong to which session</strong></td>
+          <td>Speed</td>
+          <td>Fastest — minimal processing</td>
+        </tr>
+        <tr>
+          <td><strong>Medium</strong></td>
+          <td>Slowest — heavy processing overhead</td>
+          <td>DoS/DDoS Risk</td>
+        </tr>
+        <tr>
+          <td><strong>Not directly vulnerable (but weak)</strong></td>
+          <td>Moderate risk</td>
+          <td>High risk if state table is flooded</td>
+        </tr>
+        <tr>
+          <td><strong>UDP/RPC Support</strong></td>
+          <td>Very limited</td>
+          <td>Limited</td>
+        </tr>
+        <tr>
+          <td><strong>✅ Can track connectionless UDP &amp; RPC</strong></td>
+          <td>Used In</td>
+          <td>Basic routers and gateways</td>
+        </tr>
+        <tr>
+          <td><strong>Intermediate firewalls</strong></td>
+          <td>Enterprise firewalls</td>
+          <td>ACL (Access Control List)</td>
+        </tr>
+        <tr>
+          <td><strong>Used as only filter</strong></td>
+          <td>Used with dynamic table</td>
+          <td>Used as fallback when packet not in state table</td>
+        </tr>
+        <tr>
+          <td><strong>Flexibility</strong></td>
+          <td>Rigid</td>
+          <td>Moderate</td>
+        </tr>
+        <tr>
+          <td><strong>High</strong></td>
+          <td>KEY DIFFERENCE</td>
+          <td>Rules never change automatically</td>
+        </tr>
+        <tr>
+          <td><strong>Rules auto-adjust to events</strong></td>
+          <td>Knows the full conversation history</td>
+          <td>🗣️ Static: rules insaan likhta hai, kabhi change nahi hoti. Dynamic: traffic dekh ke rules khud change ho jaati hain. SPI: poori conversation yaad rakhta hai — state table mein har connection ka record hota hai. SPI sabse smart hai, Static sabse simple.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Static: Block port 23 always. Dynamic: If a new FTP connection is established from inside, automatically open a return port. SPI: Remembers that Browser A opened a connection to Google — only allows Google&apos;s reply back through, nothing else.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">1.2  Packet-Filtering Firewall vs Application Layer Proxy Firewall</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Key distinction: Packet-filtering sees the envelope (header only). Proxy opens and reads the letter (full content inspection).</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Packet-Filtering Firewall</th>
+          <th>Application Layer Proxy Firewall</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>OSI Layer</strong></td>
+          <td>Network Layer (Layer 3/4)</td>
+          <td>Application Layer (Layer 7)</td>
+        </tr>
+        <tr>
+          <td><strong>What It Inspects</strong></td>
+          <td>Header only: source IP, dest IP, port, protocol</td>
+          <td>Full packet content including application data</td>
+        </tr>
+        <tr>
+          <td><strong>Speed</strong></td>
+          <td>Very fast — minimal inspection</td>
+          <td>Slower — deep content inspection</td>
+        </tr>
+        <tr>
+          <td><strong>Security Level</strong></td>
+          <td>Lower — cannot detect malicious content inside packets</td>
+          <td>Higher — can detect viruses, malicious payloads</td>
+        </tr>
+        <tr>
+          <td><strong>Anonymity</strong></td>
+          <td>❌ Does not hide internal IPs</td>
+          <td>✅ Acts as intermediary — hides internal network</td>
+        </tr>
+        <tr>
+          <td><strong>Connection</strong></td>
+          <td>Passes packets directly to destination</td>
+          <td>Creates two separate connections (client→proxy, proxy→server)</td>
+        </tr>
+        <tr>
+          <td><strong>Application Awareness</strong></td>
+          <td>❌ Does not understand HTTP, FTP etc.</td>
+          <td>✅ Understands application protocols fully</td>
+        </tr>
+        <tr>
+          <td><strong>Use Case</strong></td>
+          <td>Edge filtering, basic perimeter</td>
+          <td>Content filtering, web proxies, deep inspection</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>Reads the address label on the envelope</td>
+          <td>Opens and reads the letter inside the envelope</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Packet-filtering sirf header (bahari label) dekhta hai — andar kya hai nahi dekhta. Proxy poora content open karke check karta hai — jaise customs officer poora saman khol ke check kare.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Packet-filter: allows any packet to port 80. Proxy: allows port 80 but also checks that the HTTP content doesn&apos;t contain a virus.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">1.3  Single Firewall vs Hybrid Firewall</h4>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Single Type Firewall</th>
+          <th>Hybrid Firewall</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Components</strong></td>
+          <td>One type: either packet-filter, proxy, or MAC-layer</td>
+          <td>Combines two or more: packet-filter + proxy + MAC-layer</td>
+        </tr>
+        <tr>
+          <td><strong>Architecture</strong></td>
+          <td>One device/system</td>
+          <td>May consist of two separate firewall devices in tandem</td>
+        </tr>
+        <tr>
+          <td><strong>Security Depth</strong></td>
+          <td>Single layer of defense</td>
+          <td>Multiple layers — each filters differently</td>
+        </tr>
+        <tr>
+          <td><strong>Flexibility</strong></td>
+          <td>Limited to one approach</td>
+          <td>Adapts best approach for each threat type</td>
+        </tr>
+        <tr>
+          <td><strong>Implementation Cost</strong></td>
+          <td>Lower</td>
+          <td>Higher — more devices/software</td>
+        </tr>
+        <tr>
+          <td><strong>Upgrade Path</strong></td>
+          <td>Must replace entire firewall to improve</td>
+          <td>New layer can be added WITHOUT replacing existing firewall</td>
+        </tr>
+        <tr>
+          <td><strong>Common Use</strong></td>
+          <td>Small networks, basic protection</td>
+          <td>Enterprise networks requiring strong defense-in-depth</td>
+        </tr>
+        <tr>
+          <td><strong>Example</strong></td>
+          <td>A router with packet-filtering rules only</td>
+          <td>Packet-filter at edge → proxy server inside → web server deep inside</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>One guard at the gate</td>
+          <td>Multiple guards, each checking different things</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Single firewall: ek hi type ka ek guard. Hybrid: kai types ko combine karo — pehle packet filter, phir proxy. Fayda yeh hai ke purane firewall ko hataana nahi parta — naya layer upar add kar lo.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Hybrid: Packet-filter firewall blocks IP 192.168.x.x, then proxy server checks if the allowed requests contain malware before forwarding to the internal web server.</p>
+  </div>
+  <h3 class="subsection-title" style="margin-top: 3.5rem; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--accent-arch); border-bottom: 1px solid var(--accent-divider); padding-bottom: 0.5rem;">SECTION 2: FIREWALL vs ZERO TRUST NETWORKING</h3>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">2.1  Traditional Firewall (Perimeter Security) vs Zero Trust Networking</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">This is a VERY likely exam question. The core contrast: Firewall trusts insiders, ZTN trusts nobody.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Traditional Firewall / Perimeter Security</th>
+          <th>Zero Trust Networking (ZTN)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Core Principle</strong></td>
+          <td>Trust inside the network, distrust outside</td>
+          <td>Never trust anyone — inside or outside. Always verify.</td>
+        </tr>
+        <tr>
+          <td><strong>Model</strong></td>
+          <td>Castle &amp; moat — secure perimeter, free inside</td>
+          <td>Every resource is its own fortress — verify for each request</td>
+        </tr>
+        <tr>
+          <td><strong>Trust Basis</strong></td>
+          <td>Location-based: inside network = trusted</td>
+          <td>Identity-based: who you are + device health + context</td>
+        </tr>
+        <tr>
+          <td><strong>Authentication</strong></td>
+          <td>Typically once at the perimeter (login once, roam freely)</td>
+          <td>Continuous — every session, every request re-evaluated</td>
+        </tr>
+        <tr>
+          <td><strong>Lateral Movement</strong></td>
+          <td>Once inside, attackers can move freely</td>
+          <td>Microsegmentation limits attacker movement even if inside</td>
+        </tr>
+        <tr>
+          <td><strong>Access Granted</strong></td>
+          <td>Broad — access to the whole network zone</td>
+          <td>Granular — minimum access needed (Least Privilege)</td>
+        </tr>
+        <tr>
+          <td><strong>Remote Work</strong></td>
+          <td>Relies on VPN to extend the perimeter</td>
+          <td>No VPN needed — identity-based access from anywhere</td>
+        </tr>
+        <tr>
+          <td><strong>Cloud Compatibility</strong></td>
+          <td>Poor — perimeter doesn&apos;t exist in cloud</td>
+          <td>Excellent — designed for cloud and hybrid environments</td>
+        </tr>
+        <tr>
+          <td><strong>Insider Threats</strong></td>
+          <td>Blind to insider threats once authenticated</td>
+          <td>Continuous monitoring detects insider anomalies</td>
+        </tr>
+        <tr>
+          <td><strong>IoT/Mobile Devices</strong></td>
+          <td>Difficulty managing all connected devices</td>
+          <td>Evaluates every device&apos;s health before access</td>
+        </tr>
+        <tr>
+          <td><strong>Implementation</strong></td>
+          <td>Simpler — defined network boundary</td>
+          <td>Complex — requires IAM, microsegmentation, monitoring</td>
+        </tr>
+        <tr>
+          <td><strong>Compliance</strong></td>
+          <td>Basic logging</td>
+          <td>Strong — detailed access logs for GDPR, HIPAA</td>
+        </tr>
+        <tr>
+          <td><strong>Real-World Example</strong></td>
+          <td>Corporate VPN + firewall at office entry</td>
+          <td>Google&apos;s BeyondCorp — access from anywhere, no VPN</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>&apos;You are inside = safe&apos;</td>
+          <td>&apos;Nobody is safe by default — prove it every time&apos;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Traditional Security: agar tum office network ke andar ho, safe ho — ek baar login karo, phir freely ghoom. ZTN: andar ho ya bahar — koi fark nahi, har baar verify karo. Andar hona trust ka matlab nahi. ZTN mein na VPN chahiye, na fixed perimeter.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Traditional: Employee logs into office WiFi, gets access to everything. If laptop gets compromised, attacker can reach all servers. ZTN (BeyondCorp): Employee from a café must verify identity + device health for each app access — even compromised device gets blocked.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">2.2  Authentication vs Authorization (in ZTN and IAM)</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Classic exam question. Authentication = WHO. Authorization = WHAT. Simple but important.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Authentication</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Authorization</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Question Answered</strong></td>
+        </tr>
+        <tr>
+          <td><strong>WHO are you?</strong></td>
+        </tr>
+        <tr>
+          <td><strong>WHAT are you allowed to do?</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Purpose</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Verify identity</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Determine permissions and access rights</strong></td>
+        </tr>
+        <tr>
+          <td><strong>When It Happens</strong></td>
+        </tr>
+        <tr>
+          <td><strong>First — before any access is given</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Second — after identity is confirmed</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Methods</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Password, OTP, fingerprint, face recognition, MFA, hardware key</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Role-Based Access Control (RBAC), Access Control Lists (ACL), policies</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Examples</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Username + password login, Google 2FA, biometrics</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Manager can read financial records; Developer can edit code</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Output</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Confirmed identity (you are who you claim)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Access granted or denied for specific resource/action</strong></td>
+        </tr>
+        <tr>
+          <td><strong>In ZTN</strong></td>
+        </tr>
+        <tr>
+          <td><strong>PDP verifies identity (who is asking)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>PEP enforces the policy (what they can do)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Can Fail Independently</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Yes — wrong password = authentication fails (never reaches authorization)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Yes — correct identity but no permission = authorization fails</strong></td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Proving identity — &apos;I am the employee&apos;</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Proving rights — &apos;I have permission to open this file&apos;</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Authentication: prove karo ke tum kaun ho (password, fingerprint, OTP). Authorization: prove karo ke tumhara haq hai yeh kaam karne ka. Pehle authentication hoti hai, phir authorization. Dono alag hain — ek fail ho sakti hai doosri pass hone ke baad bhi.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Authentication: You enter your password at Gmail login ✓. Authorization: You try to delete someone else&apos;s email — Gmail says &apos;you don&apos;t have permission&apos; ✗. Identity confirmed, action denied.</p>
+  </div>
+  <h3 class="subsection-title" style="margin-top: 3.5rem; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--accent-arch); border-bottom: 1px solid var(--accent-divider); padding-bottom: 0.5rem;">SECTION 3: MICROSERVICES vs MONOLITHIC ARCHITECTURE</h3>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">3.1  Monolithic vs Microservices Architecture</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Most commonly tested difference in cloud/software design. Focus on: database, deployment, scaling, failure impact.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Monolithic Architecture</th>
+          <th>Microservices Architecture</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Structure</strong></td>
+          <td>Single, unified codebase — everything in one package</td>
+          <td>Many small, independent services each doing one job</td>
+        </tr>
+        <tr>
+          <td><strong>Database</strong></td>
+          <td>One shared database for all features/functions</td>
+          <td>Each service has its OWN separate database</td>
+        </tr>
+        <tr>
+          <td><strong>Deployment</strong></td>
+          <td>The entire application must be redeployed for any change</td>
+          <td>Only the changed service is redeployed — others unaffected</td>
+        </tr>
+        <tr>
+          <td><strong>Scaling</strong></td>
+          <td>Must scale the entire application even if only one feature needs it</td>
+          <td>Scale only the specific service that needs more resources</td>
+        </tr>
+        <tr>
+          <td><strong>Failure Impact</strong></td>
+          <td>One bug can crash the entire application</td>
+          <td>One service fails — others continue running (failure isolation)</td>
+        </tr>
+        <tr>
+          <td><strong>Technology</strong></td>
+          <td>Same programming language and framework throughout</td>
+          <td>Each service can use a different language (Polyglot Programming)</td>
+        </tr>
+        <tr>
+          <td><strong>Team Structure</strong></td>
+          <td>One large team works on the same codebase</td>
+          <td>Small, independent teams own individual services</td>
+        </tr>
+        <tr>
+          <td><strong>Development Speed</strong></td>
+          <td>Slower at scale — large codebase becomes hard to manage</td>
+          <td>Faster — teams work independently without blocking each other</td>
+        </tr>
+        <tr>
+          <td><strong>Testing</strong></td>
+          <td>Must test the whole app together</td>
+          <td>Each service tested independently</td>
+        </tr>
+        <tr>
+          <td><strong>Communication</strong></td>
+          <td>Internal function calls within the same process</td>
+          <td>Via APIs (HTTP, messaging protocols like RabbitMQ)</td>
+        </tr>
+        <tr>
+          <td><strong>Service Discovery</strong></td>
+          <td>Not needed — everything is internal</td>
+          <td>Required — services need to find each other&apos;s addresses</td>
+        </tr>
+        <tr>
+          <td><strong>API Gateway</strong></td>
+          <td>Not typically needed</td>
+          <td>Required — single entry point for all client requests</td>
+        </tr>
+        <tr>
+          <td><strong>Best For</strong></td>
+          <td>Small applications, simple projects, early startups</td>
+          <td>Large-scale, complex, high-availability applications</td>
+        </tr>
+        <tr>
+          <td><strong>Real Example</strong></td>
+          <td>Traditional banking core system (old)</td>
+          <td>Netflix, Amazon, Uber (each feature = a microservice)</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>One big app — change one thing, redeploy everything</td>
+          <td>Many small apps — change one, redeploy only that one</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Monolithic: ek bara app hai jismein sab kuch ek jagah hai — ek database, ek deployment. Microservices: har feature alag service hai, apna database, apna deployment. Monolithic mein ek bug se sab crash ho sakta hai. Microservices mein ek service fail hone par baki chal ti rehti hain.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Monolithic: Amazon in 2000 — one huge app. If payment breaks, entire website goes down. Microservices: Amazon today — &apos;Product Listing&apos;, &apos;Payment&apos;, &apos;Reviews&apos;, &apos;Recommendations&apos; are all separate. Payment breaks → listings still work.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">3.2  API Gateway vs Service Discovery (Microservices Components)</h4>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>API Gateway</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Service Discovery</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Role</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Entry point for all client requests</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Directory that tracks where each service is running</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Function</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Routes requests to the right microservice</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Tells services where to find each other</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Who Uses It</strong></td>
+        </tr>
+        <tr>
+          <td><strong>External clients (browsers, mobile apps)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Internal microservices communicating with each other</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Analogy</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Hotel reception — routes guests to the right room</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Hotel directory — lists all rooms and what&apos;s in them</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Aggregation</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Can combine responses from multiple services</strong></td>
+        </tr>
+        <tr>
+          <td><strong>❌ Not its job</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Authentication</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Can handle authentication at the gateway level</strong></td>
+        </tr>
+        <tr>
+          <td><strong>❌ Not its job</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Load Balancing</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Can distribute requests across service instances</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Sometimes integrates with load balancers</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Examples</strong></td>
+        </tr>
+        <tr>
+          <td><strong>AWS API Gateway, NGINX</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Consul, Eureka (Netflix), Kubernetes DNS</strong></td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Handles external traffic into the system</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Handles internal service-to-service location</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> API Gateway: clients (browser, mobile) ka single entry point — sab requests yahan aati hain, phir sahi service tak jaati hain. Service Discovery: services aapas mein kahan hain yeh track karta hai — ek ki dusri ko address batata hai. Gateway bahari traffic ke liye, Discovery andar ki traffic ke liye.</div>
+  </div>
+  <h3 class="subsection-title" style="margin-top: 3.5rem; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--accent-arch); border-bottom: 1px solid var(--accent-divider); padding-bottom: 0.5rem;">SECTION 4: FOG COMPUTING vs CLOUD COMPUTING</h3>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">4.1  Fog Computing vs Cloud Computing</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Focus on: processing location, latency, bandwidth, and best use cases. These are the four exam-favourite points.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Fog Computing</th>
+          <th>Cloud Computing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Processing Location</strong></td>
+          <td>Near the data source — on edge devices, routers, gateways</td>
+          <td>Far away — centralized data centers (may be across the world)</td>
+        </tr>
+        <tr>
+          <td><strong>Latency (Delay)</strong></td>
+          <td>Very low — near-instant response</td>
+          <td>Higher — data must travel to distant server and back</td>
+        </tr>
+        <tr>
+          <td><strong>Bandwidth Usage</strong></td>
+          <td>Low — only important data sent to cloud</td>
+          <td>High — all raw data sent over the network</td>
+        </tr>
+        <tr>
+          <td><strong>Network Congestion</strong></td>
+          <td>Reduces congestion — less data on main network</td>
+          <td>Can cause congestion with massive data transfers</td>
+        </tr>
+        <tr>
+          <td><strong>Real-Time Processing</strong></td>
+          <td>Excellent — ideal for real-time decisions</td>
+          <td>Poor — too slow for real-time critical tasks</td>
+        </tr>
+        <tr>
+          <td><strong>Storage Capacity</strong></td>
+          <td>Limited — small local devices</td>
+          <td>Virtually unlimited — massive data centers</td>
+        </tr>
+        <tr>
+          <td><strong>Computing Power</strong></td>
+          <td>Limited — constrained edge hardware</td>
+          <td>Virtually unlimited — thousands of servers</td>
+        </tr>
+        <tr>
+          <td><strong>Cost (per request)</strong></td>
+          <td>Lower operational cost for time-sensitive tasks</td>
+          <td>Higher for real-time; economical for bulk/storage</td>
+        </tr>
+        <tr>
+          <td><strong>Offline Capability</strong></td>
+          <td>✅ Can work without internet connection</td>
+          <td>❌ Requires internet connectivity</td>
+        </tr>
+        <tr>
+          <td><strong>Security</strong></td>
+          <td>Smaller attack surface (local)</td>
+          <td>Larger attack surface but professional security teams</td>
+        </tr>
+        <tr>
+          <td><strong>Best Use Cases</strong></td>
+          <td>IoT, autonomous vehicles, smart factories, real-time monitoring</td>
+          <td>Big data analytics, backups, ML model training, SaaS apps</td>
+        </tr>
+        <tr>
+          <td><strong>Relationship</strong></td>
+          <td>Extends the cloud — works WITH it, not instead of it</td>
+          <td>Centralized backbone; fog pushes some workloads down</td>
+        </tr>
+        <tr>
+          <td><strong>Architecture Layer</strong></td>
+          <td>Fog Layer and Edge Layer (between devices and cloud)</td>
+          <td>Cloud Layer (top of the hierarchy)</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>Bring processing to the data</td>
+          <td>Send data to the processing center</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Fog: processing paas ke devices par hoti hai — router, gateway, edge server. Cloud: sab kuch door ke data center par hota hai. Fog fast hai aur latency kam hai. Cloud powerful hai aur storage zyada hai. Fog IoT ke liye best hai (jaise smart traffic lights, autonomous cars). Cloud big data aur analytics ke liye.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Fog: A self-driving car processes sensor data LOCALLY in milliseconds — cannot wait to send to cloud and get response. Cloud: Netflix stores and streams millions of movies from centralized servers worldwide.</p>
+  </div>
+  <h3 class="subsection-title" style="margin-top: 3.5rem; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--accent-arch); border-bottom: 1px solid var(--accent-divider); padding-bottom: 0.5rem;">SECTION 5: CLOUD ARCHITECTURE DIFFERENCES</h3>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">5.1  Non-Disruptive Service Relocation vs Zero Downtime Architecture</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Students often confuse these two. KEY: Non-Disruptive = planned, service-level migration. Zero Downtime = unplanned, hardware failure recovery.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Non-Disruptive Service Relocation</th>
+          <th>Zero Downtime Architecture</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Trigger</strong></td>
+          <td>Planned: maintenance, migration, or over-capacity</td>
+          <td>Unplanned: physical server hardware failure</td>
+        </tr>
+        <tr>
+          <td><strong>What Moves</strong></td>
+          <td>The cloud service (application/VM) is duplicated or migrated</td>
+          <td>The virtual machines hosted on a failed physical server</td>
+        </tr>
+        <tr>
+          <td><strong>Mechanism</strong></td>
+          <td>Automated Scaling Listener + Live VM Migration</td>
+          <td>Fault Tolerance System + Live VM Migration</td>
+        </tr>
+        <tr>
+          <td><strong>Process</strong></td>
+          <td>Duplicate → Sync → Confirm → Remove original</td>
+          <td>Detect failure → Live-migrate VMs to another server</td>
+        </tr>
+        <tr>
+          <td><strong>Timing</strong></td>
+          <td>Can be proactive (before any problem)</td>
+          <td>Reactive — triggered by actual server failure</td>
+        </tr>
+        <tr>
+          <td><strong>Storage Requirement</strong></td>
+          <td>Uses either local copy or shared storage</td>
+          <td>Requires shared volume — all VMs accessible by any server</td>
+        </tr>
+        <tr>
+          <td><strong>Guarantee</strong></td>
+          <td>New service confirmed working BEFORE old one is shut down</td>
+          <td>VMs automatically moved — no disruption to users</td>
+        </tr>
+        <tr>
+          <td><strong>Goal</strong></td>
+          <td>Move/migrate a service without users noticing</td>
+          <td>Keep services alive when physical hardware dies</td>
+        </tr>
+        <tr>
+          <td><strong>Consumer Impact</strong></td>
+          <td>Zero disruption — seamless transition</td>
+          <td>Zero downtime — virtual servers survive physical failure</td>
+        </tr>
+        <tr>
+          <td><strong>Can Be Permanent?</strong></td>
+          <td>✅ Yes — permanent migration to new server</td>
+          <td>❌ No — emergency recovery, not planned migration</td>
+        </tr>
+        <tr>
+          <td><strong>Multiple Servers?</strong></td>
+          <td>Two: origin and destination</td>
+          <td>Group of servers in a fault-tolerance cluster</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>Planned relocation of a service (proactive)</td>
+          <td>Emergency recovery when a server dies (reactive)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Non-Disruptive: planned migration hai — pehle copy banao, confirm karo, phir original hatao. Zero Downtime: emergency hai — physical server fail ho gaya, VMs foran doosre server par shift ho jaate hain. Non-Disruptive proactive hai, Zero Downtime reactive hai.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Non-Disruptive: A company wants to move its web server to a bigger machine. They duplicate it, test the new one, then redirect traffic — users never notice. Zero Downtime: A server&apos;s power supply burns. The fault-tolerance system auto-migrates all VMs to backup servers — site stays up.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">5.2  Hypervisor Clustering vs Load Balanced Virtual Server Instances</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Both use live VM migration but for DIFFERENT reasons. Clustering = availability. Load Balancing = performance/fairness.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Hypervisor Clustering</th>
+          <th>Load Balanced Virtual Server Instances</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Primary Goal</strong></td>
+          <td>High Availability — keep VMs running if a server fails</td>
+          <td>Performance — distribute workload evenly across servers</td>
+        </tr>
+        <tr>
+          <td><strong>Problem Solved</strong></td>
+          <td>Server/hypervisor failure causing VMs to go down</td>
+          <td>Uneven workloads (some servers overloaded, others idle)</td>
+        </tr>
+        <tr>
+          <td><strong>Trigger</strong></td>
+          <td>Server failure — heartbeat stops responding</td>
+          <td>Over-utilization detected by Capacity Watchdog Monitor</td>
+        </tr>
+        <tr>
+          <td><strong>Controller</strong></td>
+          <td>VIM (Virtualization Infrastructure Manager)</td>
+          <td>VIM + Capacity Planner + Capacity Watchdog Monitor</td>
+        </tr>
+        <tr>
+          <td><strong>Key Monitor</strong></td>
+          <td>Heartbeat messages between servers and VIM</td>
+          <td>Capacity Watchdog Cloud Usage Monitor</td>
+        </tr>
+        <tr>
+          <td><strong>Decision Maker</strong></td>
+          <td>VIM selects least-loaded available hypervisor</td>
+          <td>Capacity Planner decides which VM to move and where</td>
+        </tr>
+        <tr>
+          <td><strong>VMs Moved</strong></td>
+          <td>Only the VMs from the FAILED server</td>
+          <td>VMs from over-utilized servers to under-utilized ones</td>
+        </tr>
+        <tr>
+          <td><strong>Storage</strong></td>
+          <td>Shared cloud storage (so any server can access VM files)</td>
+          <td>Builds on hypervisor cluster foundation</td>
+        </tr>
+        <tr>
+          <td><strong>Relationship</strong></td>
+          <td>Foundation — built first</td>
+          <td>Built ON TOP of hypervisor clustering</td>
+        </tr>
+        <tr>
+          <td><strong>Analogy</strong></td>
+          <td>Emergency room — keep patient alive</td>
+          <td>Traffic police — ensure no lane is too congested</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>Respond to failure (survival)</td>
+          <td>Respond to imbalance (optimization)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Hypervisor Clustering: ek server fail ho gaya — uske VMs doosre par shift kar do (survival ke liye). Load Balancing: koi server overloaded hai — kuch VMs doosre server par move kar do (performance ke liye). Clustering pehle set up hoti hai — Load Balancing ussi ke upar build hoti hai.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Clustering: Server B dies → VIM notices (no heartbeat) → moves VMs to Server C. Load Balancing: Server A has 10 VMs (overloaded), Server C has 2 (idle) → Watchdog moves 4 VMs from A to C.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">5.3  Cloud Bursting vs Regular Cloud Scaling</h4>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Cloud Bursting</th>
+          <th>Regular Cloud Scaling (Scale Out/In)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Environment</strong></td>
+          <td>Hybrid — extends from on-premise to cloud</td>
+          <td>Pure cloud — stays within the cloud environment</td>
+        </tr>
+        <tr>
+          <td><strong>Starting Point</strong></td>
+          <td>On-premise IT resources at base capacity</td>
+          <td>Cloud resources already active</td>
+        </tr>
+        <tr>
+          <td><strong>Trigger</strong></td>
+          <td>On-premise threshold exceeded (e.g., 80% CPU)</td>
+          <td>Cloud service&apos;s own threshold exceeded</td>
+        </tr>
+        <tr>
+          <td><strong>Cloud Resources</strong></td>
+          <td>Pre-deployed but INACTIVE until needed</td>
+          <td>Active cloud resources scaled up or added</td>
+        </tr>
+        <tr>
+          <td><strong>Cost Model</strong></td>
+          <td>Pay only when bursting — zero cost when inactive</td>
+          <td>Pay for cloud resources whenever they&apos;re running</td>
+        </tr>
+        <tr>
+          <td><strong>Mechanism</strong></td>
+          <td>Automated Scaling Listener + Resource Replication</td>
+          <td>Automated Scaling Listener + Cloud Orchestration</td>
+        </tr>
+        <tr>
+          <td><strong>State Sync</strong></td>
+          <td>Resource Replication keeps on-premise + cloud in sync</td>
+          <td>State managed within cloud only</td>
+        </tr>
+        <tr>
+          <td><strong>Direction</strong></td>
+          <td>Burst OUT to cloud; Burst IN back to on-premise</td>
+          <td>Scale OUT (add instances); Scale IN (remove instances)</td>
+        </tr>
+        <tr>
+          <td><strong>Use Case</strong></td>
+          <td>Seasonal spikes, unexpected demand surges</td>
+          <td>Consistent variable demand within cloud</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>Temporary extension from on-premise into cloud</td>
+          <td>Expansion purely within the cloud environment</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Cloud Bursting: on-premise resources overloaded hone par TEMPORARILY cloud use karo, phir wapas on-premise par aa jao. Regular Scaling: cloud ke andar hi scale out karo ya in karo. Bursting mein on-premise aur cloud dono involved hain. Regular scaling sirf cloud mein hoti hai.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Cloud Bursting: A retailer normally runs servers at office. During Eid sale, traffic spikes 10x → system bursts to AWS → after sale, AWS resources released. Regular Scaling: Netflix scales from 100 to 1000 cloud servers during prime time, back to 100 at night.</p>
+  </div>
+  <h3 class="subsection-title" style="margin-top: 3.5rem; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--accent-arch); border-bottom: 1px solid var(--accent-divider); padding-bottom: 0.5rem;">SECTION 6: CLOUD COST METRICS DIFFERENCES</h3>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">6.1  Inbound vs Outbound vs Intra-Cloud Network Usage</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">Simple but often tested. Direction of traffic determines the cost. Most providers charge MORE for outbound.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Inbound Network Usage</th>
+          <th>Outbound Network Usage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Intra-Cloud WAN Usage</strong></td>
+          <td>Direction</td>
+          <td>INTO the cloud (from user/internet to cloud)</td>
+        </tr>
+        <tr>
+          <td><strong>OUT of the cloud (from cloud to user/internet)</strong></td>
+          <td>Between cloud resources in different regions</td>
+          <td>Example</td>
+        </tr>
+        <tr>
+          <td><strong>Uploading a file to cloud storage</strong></td>
+          <td>Downloading a file from cloud / streaming video</td>
+          <td>Syncing data between US and EU data centers</td>
+        </tr>
+        <tr>
+          <td><strong>Typical Cost</strong></td>
+          <td>Often FREE (providers encourage migration)</td>
+          <td>More expensive — charged per GB</td>
+        </tr>
+        <tr>
+          <td><strong>Charged for WAN across geographic regions</strong></td>
+          <td>Example Rate</td>
+          <td>Up to 1 GB free, $0.001/GB after</td>
+        </tr>
+        <tr>
+          <td><strong>Up to 1 GB free, $0.01/GB (10× more!)</strong></td>
+          <td>$0.005–$0.01/GB depending on volume</td>
+          <td>Cloud Models</td>
+        </tr>
+        <tr>
+          <td><strong>IaaS, PaaS, SaaS</strong></td>
+          <td>IaaS, PaaS, SaaS</td>
+          <td>IaaS, PaaS, SaaS</td>
+        </tr>
+        <tr>
+          <td><strong>Measurement</strong></td>
+          <td>Σ inbound bytes over period</td>
+          <td>Σ outbound bytes over period</td>
+        </tr>
+        <tr>
+          <td><strong>Σ WAN bytes between geo-locations</strong></td>
+          <td>KEY DIFFERENCE</td>
+          <td>Traffic going IN — usually free</td>
+        </tr>
+        <tr>
+          <td><strong>Traffic going OUT — costs money</strong></td>
+          <td>Traffic between regions of same cloud</td>
+          <td>🗣️ Inbound: data cloud mein aa raha hai (upload) — usually free. Outbound: data cloud se ja raha hai (download, streaming) — paisa lagta hai, aur inbound se zyada. Intra-Cloud: same cloud ke alag-alag regions ke beech traffic — geographic distance ki wajah se charge hota hai.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: Inbound: You upload 5 TB of data to AWS S3 — free! Outbound: 5 TB of video streams go out to users — $50 charge. Intra-Cloud: AWS Mumbai region syncs backup to AWS London region — charged per GB between regions.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">6.2  On-Demand VM Allocation vs Reserved VM Allocation</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">On-Demand = pay as you go, expensive per-hour. Reserved = commit upfront, get big discount. This is a fundamental cloud pricing concept.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>On-Demand VM Instance</th>
+          <th>Reserved VM Instance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Payment Model</strong></td>
+          <td>Pay only for hours the VM is running</td>
+          <td>Pay upfront reservation fee + discounted hourly rate</td>
+        </tr>
+        <tr>
+          <td><strong>Commitment</strong></td>
+          <td>No commitment — start/stop anytime</td>
+          <td>1–3 year commitment required</td>
+        </tr>
+        <tr>
+          <td><strong>Cost per Hour</strong></td>
+          <td>Higher (premium for flexibility)</td>
+          <td>Lower (discount for commitment)</td>
+        </tr>
+        <tr>
+          <td><strong>Upfront Cost</strong></td>
+          <td>$0 upfront</td>
+          <td>Significant upfront fee (e.g., $55.10/small, $249.90/large)</td>
+        </tr>
+        <tr>
+          <td><strong>Flexibility</strong></td>
+          <td>Maximum — can terminate anytime</td>
+          <td>Low — committed for long period</td>
+        </tr>
+        <tr>
+          <td><strong>Best For</strong></td>
+          <td>Unpredictable workloads, testing, short-term projects</td>
+          <td>Predictable, stable, long-running workloads</td>
+        </tr>
+        <tr>
+          <td><strong>Scaling Cost</strong></td>
+          <td>Full price for any additional usage</td>
+          <td>Discounted pay-per-use for extra usage beyond reservation</td>
+        </tr>
+        <tr>
+          <td><strong>Measurement</strong></td>
+          <td>Start datetime to stop datetime</td>
+          <td>Reservation start date to expiry date</td>
+        </tr>
+        <tr>
+          <td><strong>Frequency</strong></td>
+          <td>Continuous, cumulative</td>
+          <td>Daily, monthly, yearly billing</td>
+        </tr>
+        <tr>
+          <td><strong>Cloud Models</strong></td>
+          <td>IaaS, PaaS</td>
+          <td>IaaS, PaaS</td>
+        </tr>
+        <tr>
+          <td><strong>DTGOV Example</strong></td>
+          <td>$0.10/hr small, $0.20/hr medium, $0.90/hr large</td>
+          <td>$55.10 small, $99.90 medium, $249.90 large (upfront)</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>Flexible and expensive per-hour — no commitment</td>
+          <td>Cheap per-hour but must commit for 1–3 years upfront</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> On-Demand: jab chahiye start karo, jab chahiye band karo — per-hour paisa dete ho. Zyada flexible lekin mehenga. Reserved: pehle ek saal ya zyada ka commitment do — upfront paisa do, phir har ghante ka rate kam hota hai. Stable workloads ke liye zyada economical hai.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: On-Demand: A developer spins up a VM for 3 hours to test code — pays $0.30, deletes it. Reserved: A company knows it needs a medium VM for 2 years — pays $99.90 upfront and saves 40% on hourly rates.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">6.3  On-Demand Storage Allocation vs I/O Data Transferred (Storage Costs)</h4>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>On-Demand Storage Space Allocation</th>
+          <th>I/O Data Transferred</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>What Is Measured</strong></td>
+          <td>How much storage space is allocated</td>
+          <td>How much data is read from / written to storage</td>
+        </tr>
+        <tr>
+          <td><strong>Unit</strong></td>
+          <td>Bytes (GB/TB of storage capacity)</td>
+          <td>Bytes (GB/TB of actual data operations)</td>
+        </tr>
+        <tr>
+          <td><strong>Analogy</strong></td>
+          <td>Rent for the warehouse space</td>
+          <td>Cost per truck loading/unloading the warehouse</td>
+        </tr>
+        <tr>
+          <td><strong>Frequency</strong></td>
+          <td>Continuous (hourly billing, expressed as GB/month)</td>
+          <td>Continuous (per-operation)</td>
+        </tr>
+        <tr>
+          <td><strong>Resets When</strong></td>
+          <td>Storage size changes (new allocation)</td>
+          <td>Cumulative, does not reset</td>
+        </tr>
+        <tr>
+          <td><strong>Example Rate</strong></td>
+          <td>$0.01/GB per hour (≈ $0.10/GB per month)</td>
+          <td>$0.10/TB of I/O data</td>
+        </tr>
+        <tr>
+          <td><strong>Cloud Models</strong></td>
+          <td>IaaS, PaaS, SaaS</td>
+          <td>IaaS, PaaS (some providers don&apos;t charge for it)</td>
+        </tr>
+        <tr>
+          <td><strong>DTGOV Rate</strong></td>
+          <td>$0.10/GB per month of allocated storage</td>
+          <td>$0.001/GB for I/O transfers</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>Space you reserve (even if empty)</td>
+          <td>Data you actually move in and out</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Storage Allocation: kitni jagah reserve ki hai — chahe khaali bhi ho. I/O Transfer: kitna data actually read/write kiya. Jaise godam ka kiraya alag hai (space ke liye) aur truck ka charge alag (loading/unloading ke liye).</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: You allocate 1 TB of cloud storage. It&apos;s mostly empty — you pay for the 1 TB space. When you back up 500 GB of data, you also pay the I/O transfer fee for moving that 500 GB.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">6.4  Pricing Models: IaaS vs PaaS vs SaaS</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">IaaS = infrastructure-based pricing. PaaS = platform-based pricing. SaaS = subscription-based pricing. These map to what the consumer actually uses.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>IaaS Pricing</th>
+          <th>PaaS Pricing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>SaaS Pricing</strong></td>
+          <td>Based On</td>
+          <td>IT resource allocation and usage</td>
+        </tr>
+        <tr>
+          <td><strong>Platform usage (similar to IaaS + software)</strong></td>
+          <td>Application subscription, users, transactions</td>
+          <td>What Is Charged</td>
+        </tr>
+        <tr>
+          <td><strong>Network data transferred, virtual servers, storage</strong></td>
+          <td>Network, virtual servers, storage + software config</td>
+          <td>App modules, nominated users, transactions</td>
+        </tr>
+        <tr>
+          <td><strong>Metrics Used</strong></td>
+          <td>On-demand/reserved VM, storage, network</td>
+          <td>VM, storage, network + dev tools, licensing</td>
+        </tr>
+        <tr>
+          <td><strong>Subscription duration, user count, transactions</strong></td>
+          <td>Consumer Controls</td>
+          <td>Infrastructure: VMs, storage, networking</td>
+        </tr>
+        <tr>
+          <td><strong>Platform: runtime, databases, dev tools</strong></td>
+          <td>Application only: uses what provider offers</td>
+          <td>Billing Granularity</td>
+        </tr>
+        <tr>
+          <td><strong>Per hour / per GB</strong></td>
+          <td>Per hour / per GB / per software feature</td>
+          <td>Per month / per user / per 1000 transactions</td>
+        </tr>
+        <tr>
+          <td><strong>Variable Factors</strong></td>
+          <td>VM size, storage capacity, bandwidth</td>
+          <td>Software configurations, licensing</td>
+        </tr>
+        <tr>
+          <td><strong>Number of users, transaction volume</strong></td>
+          <td>Example Rates</td>
+          <td>$0.10/hr VM, $0.01/GB storage</td>
+        </tr>
+        <tr>
+          <td><strong>$0.20/hr medium env + licensing fees</strong></td>
+          <td>$69.90/month subscription + $0.90/extra user</td>
+          <td>KEY DIFFERENCE</td>
+        </tr>
+        <tr>
+          <td><strong>Pay for raw infrastructure</strong></td>
+          <td>Pay for platform + tools to build on</td>
+          <td>Pay for finished software as a service</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> IaaS: raw infrastructure ke liye pay karo (VMs, storage, network). PaaS: platform ke liye — IaaS jaisa plus development tools aur software. SaaS: ready-made application use karo — subscription do, users add karo, transactions count hoti hain. IaaS sabse zyada control deta hai, SaaS sabse kam.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: IaaS: AWS EC2 — you pay for VMs and storage. PaaS: Heroku — you deploy code; they manage VMs, OS, scaling. SaaS: Microsoft 365 — pay per user per month, Microsoft manages everything.</p>
+  </div>
+  <h3 class="subsection-title" style="margin-top: 3.5rem; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--accent-arch); border-bottom: 1px solid var(--accent-divider); padding-bottom: 0.5rem;">SECTION 7: ZTN COMPONENT DIFFERENCES</h3>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">7.1  Policy Decision Point (PDP) vs Policy Enforcement Point (PEP)</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">PDP decides YES or NO. PEP actually blocks or allows the traffic. Two separate jobs in ZT architecture.</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Policy Decision Point (PDP)</th>
+          <th>Policy Enforcement Point (PEP)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Role</strong></td>
+          <td>Decision-maker — evaluates the access request</td>
+          <td>Enforcer — executes the decision</td>
+        </tr>
+        <tr>
+          <td><strong>What It Does</strong></td>
+          <td>Analyzes identity, device health, context, policies</td>
+          <td>Either blocks or allows the traffic flow</td>
+        </tr>
+        <tr>
+          <td><strong>Analogy</strong></td>
+          <td>Judge in a court — decides verdict</td>
+          <td>Police officer — executes the judge&apos;s verdict</td>
+        </tr>
+        <tr>
+          <td><strong>Input</strong></td>
+          <td>User identity, device posture, location, time, risk</td>
+          <td>The decision from PDP (allow/deny)</td>
+        </tr>
+        <tr>
+          <td><strong>Output</strong></td>
+          <td>Allow or Deny verdict</td>
+          <td>Actual network allow or block</td>
+        </tr>
+        <tr>
+          <td><strong>Intelligence</strong></td>
+          <td>High — complex policy evaluation</td>
+          <td>Low — simple execution</td>
+        </tr>
+        <tr>
+          <td><strong>Location</strong></td>
+          <td>Logical component — often in control plane</td>
+          <td>Sits between subject and resource</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>Thinks and decides</td>
+          <td>Acts on the decision</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> PDP: judge hai — request evaluate karta hai, policy check karta hai, decide karta hai: allow ya deny. PEP: police hai — judge ka faisala execute karta hai — traffic ko actually allow ya block karta hai. PDP sochta hai, PEP karta hai.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: PDP: User from unknown location requests payroll access. PDP checks: identity ✓, device health ✓, but location = suspicious → verdict: DENY. PEP: blocks the network connection to the payroll server.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">7.2  Zero Trust Network Access (ZTNA) vs Traditional VPN</h4>
+  <div class="quick-revision" style="border-left-color: var(--accent-arch); margin-bottom: 1.5rem;">
+    <h4 style="color: var(--accent-arch); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem;">⭐ EXAM TIP</h4>
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);">ZTNA is the modern replacement for VPN. The exam may ask &apos;why is VPN insufficient for Zero Trust?&apos;</p>
+  </div>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Traditional VPN</th>
+          <th>Zero Trust Network Access (ZTNA)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Access Model</strong></td>
+          <td>Grants access to entire network segment once connected</td>
+          <td>Grants access to specific application/resource only</td>
+        </tr>
+        <tr>
+          <td><strong>Trust Model</strong></td>
+          <td>Implicit — once connected = trusted</td>
+          <td>Zero trust — every request verified every time</td>
+        </tr>
+        <tr>
+          <td><strong>Lateral Movement</strong></td>
+          <td>High risk — attackers can move across network</td>
+          <td>Prevented — only the specific app is accessible</td>
+        </tr>
+        <tr>
+          <td><strong>Authentication</strong></td>
+          <td>Once at connection time</td>
+          <td>Continuous — re-evaluated per session</td>
+        </tr>
+        <tr>
+          <td><strong>Device Verification</strong></td>
+          <td>Minimal or none</td>
+          <td>Device health checked before access</td>
+        </tr>
+        <tr>
+          <td><strong>User Location</strong></td>
+          <td>Must connect to VPN server (may require office proximity)</td>
+          <td>Works from anywhere — no VPN server needed</td>
+        </tr>
+        <tr>
+          <td><strong>Performance</strong></td>
+          <td>Can be slow — all traffic tunneled through VPN</td>
+          <td>Faster — direct access to specific apps</td>
+        </tr>
+        <tr>
+          <td><strong>Visibility</strong></td>
+          <td>Limited visibility into user behavior inside VPN</td>
+          <td>Full logging and monitoring of all access</td>
+        </tr>
+        <tr>
+          <td><strong>Cloud Compatibility</strong></td>
+          <td>Poor — designed for on-premise networks</td>
+          <td>Excellent — built for cloud-native environments</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>All-or-nothing network access</td>
+          <td>Precise, per-application, per-request access</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> VPN: connect karo aur puri network tak access mil jaati hai — ek baar trust mil gayi. ZTNA: sirf woh specific app access kar sako jiske liye allowed ho — har baar verify, lateral movement impossible. VPN ek purana tareeqa hai. ZTNA cloud aur remote work ke liye modern solution hai.</div>
+  </div>
+  <div class="memory-trick" style="border-left-color: var(--accent-vm); margin: 1.5rem 0;">
+    <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><strong>💡 Example:</strong> Example: VPN: Employee connects to company VPN from home → can now access HR database, payroll, internal wiki, dev servers — all exposed. ZTNA: Same employee → can only access the internal wiki app they&apos;re authorized for → payroll, dev servers completely invisible.</p>
+  </div>
+  <h4 style="margin-top: 2.5rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; text-transform: none; border-bottom: 1px dashed var(--accent-divider); padding-bottom: 0.35rem; color: var(--text-title);">7.3  Microsegmentation vs Traditional Network Segmentation</h4>
+  <div class="table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Traditional Network Segmentation</th>
+          <th>Microsegmentation (ZTN)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Granularity</strong></td>
+          <td>Divides network into large zones (e.g., DMZ, internal, external)</td>
+          <td>Divides into very small zones — down to individual workload/VM</td>
+        </tr>
+        <tr>
+          <td><strong>Control Level</strong></td>
+          <td>Zone-level — all resources in a zone share same rules</td>
+          <td>Workload-level — each service/VM has its own rules</td>
+        </tr>
+        <tr>
+          <td><strong>Lateral Movement</strong></td>
+          <td>Attacker in one zone can reach all resources in that zone</td>
+          <td>Attacker reaches one workload — cannot move to adjacent ones</td>
+        </tr>
+        <tr>
+          <td><strong>Policy Management</strong></td>
+          <td>Fewer, coarser policies</td>
+          <td>Many, fine-grained policies per segment</td>
+        </tr>
+        <tr>
+          <td><strong>Technology</strong></td>
+          <td>VLANs, subnets, physical firewalls</td>
+          <td>Software-defined networking, identity-based policies</td>
+        </tr>
+        <tr>
+          <td><strong>Adaptability</strong></td>
+          <td>Static — hard to change as network grows</td>
+          <td>Dynamic — policies update automatically</td>
+        </tr>
+        <tr>
+          <td><strong>KEY DIFFERENCE</strong></td>
+          <td>Large rooms with one lock each</td>
+          <td>Every desk has its own lock</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Traditional: network ko chand bade zones mein divide karo (jaise office mein HR floor, IT floor). Microsegmentation: har ek VM ya service ka apna zone — attacker ek kone mein ghus bhi jaye toh baaki kuch nahi dekh sakta. Microsegmentation ZTN ka bohot important part hai.</div>
+  </div>
+  <h3 class="subsection-title" style="margin-top: 3.5rem; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 0.05em; color: var(--accent-arch); border-bottom: 1px solid var(--accent-divider); padding-bottom: 0.5rem;">SECTION 8: MASTER QUICK REFERENCE — ALL DIFFERENCES AT A GLANCE</h3>
+  <p>Use this table for last-minute revision before the exam:</p>
+  <p>Comparison</p>
+  <p>Concept A</p>
+  <p>Concept B</p>
+  <p>KEY Single-Line Difference</p>
+  <p>Static vs Dynamic Firewall</p>
+  <p>Fixed rules, manual changes</p>
+  <p>Rules self-update based on traffic</p>
+  <p>Static = human changes rules; Dynamic = self-changing</p>
+  <p>Dynamic vs SPI</p>
+  <p>Auto-adapts rules</p>
+  <p>Tracks full connection state</p>
+  <p>Dynamic adapts; SPI REMEMBERS the whole conversation</p>
+  <p>Packet-Filter vs Proxy</p>
+  <p>Header only (Layer 3/4)</p>
+  <p>Full content (Layer 7)</p>
+  <p>Filter reads envelope; Proxy reads the letter</p>
+  <p>Single vs Hybrid Firewall</p>
+  <p>One firewall type</p>
+  <p>Combination of types</p>
+  <p>Hybrid = multiple layers, add without replacing old</p>
+  <p>Firewall vs ZTN</p>
+  <p>Trust inside network</p>
+  <p>Trust nobody automatically</p>
+  <p>Firewall = secure border; ZTN = verify everyone always</p>
+  <p>Authentication vs Authorization</p>
+  <p>Prove WHO you are</p>
+  <p>Prove WHAT you can do</p>
+  <p>Auth-N = identity; Auth-Z = permission</p>
+  <p>Monolithic vs Microservices</p>
+  <p>One app, one DB</p>
+  <p>Many services, each own DB</p>
+  <p>One big app vs. many small independent apps</p>
+  <p>API Gateway vs Service Discovery</p>
+  <p>External client entry point</p>
+  <p>Internal service directory</p>
+  <p>Gateway = front door; Discovery = internal address book</p>
+  <p>Fog vs Cloud Computing</p>
+  <p>Processing near devices</p>
+  <p>Processing at distant center</p>
+  <p>Fog = bring cloud to data; Cloud = send data to cloud</p>
+  <p>Non-Disruptive vs Zero Downtime</p>
+  <p>Planned service migration</p>
+  <p>Emergency server failure recovery</p>
+  <p>Non-Disruptive = proactive; Zero Downtime = reactive</p>
+  <p>Hypervisor Clustering vs Load Balancing</p>
+  <p>Availability: survive failure</p>
+  <p>Performance: balance workload</p>
+  <p>Clustering = survival; Load Balancing = optimization</p>
+  <p>Cloud Bursting vs Regular Scaling</p>
+  <p>On-premise → burst to cloud</p>
+  <p>Cloud-only scaling</p>
+  <p>Bursting = hybrid on-premise+cloud; Scaling = cloud only</p>
+  <p>On-Demand vs Reserved VM</p>
+  <p>Pay per hour, no commitment</p>
+  <p>Pay upfront, discounted hours</p>
+  <p>On-Demand = flexible/expensive; Reserved = committed/cheap</p>
+  <p>Inbound vs Outbound Network</p>
+  <p>Data INTO cloud</p>
+  <p>Data OUT of cloud</p>
+  <p>Inbound usually free; Outbound usually charged</p>
+  <p>IaaS vs PaaS vs SaaS Pricing</p>
+  <p>Raw infra (VMs, storage)</p>
+  <p>Platform + tools</p>
+  <p>Finished app (users, transactions)</p>
+  <p>PDP vs PEP</p>
+  <p>Decides (allow/deny)</p>
+  <p>Enforces (blocks/allows)</p>
+  <p>PDP = judge; PEP = police</p>
+  <p>VPN vs ZTNA</p>
+  <p>Full network access once connected</p>
+  <p>Per-app access, always verified</p>
+  <p>VPN = all-or-nothing; ZTNA = precise per-request</p>
+  <p>Storage Allocation vs I/O Transfer</p>
+  <p>Space reserved (even if empty)</p>
+  <p>Data actually moved in/out</p>
+  <p>Allocation = warehouse rent; I/O = truck loading cost</p>
+  <p>Microseg vs Trad Segmentation</p>
+  <p>Large network zones</p>
+  <p>Per-workload zones</p>
+  <p>Trad = big rooms; Micro = every desk has its own lock</p>
+  <p>Fog Edge Layer vs Fog Layer</p>
+  <p>Closest to devices</p>
+  <p>Between edge and cloud</p>
+  <p>Edge = device-level; Fog = intermediate processing layer</p>
+  <p><strong>FINAL EXAM STRATEGY TIPS</strong></p>
+  <p><strong>Top 5 Most Likely Exam Questions:</strong></p>
+  <p>1. Difference between Static, Dynamic, and SPI firewalls — know all three in one answer</p>
+  <p>2. Firewall vs Zero Trust Networking — traditional perimeter vs. identity-based verification</p>
+  <p>3. Monolithic vs Microservices — structure, database, deployment, failure impact</p>
+  <p>4. On-Demand vs Reserved VM pricing — when to use each and cost structure</p>
+  <p>5. Authentication vs Authorization — definition, sequence, examples</p>
+  <p><strong>How to Write a Perfect Difference Answer:</strong></p>
+  <p>Start with the DEFINITION of each concept (1 sentence each)</p>
+  <p>State the KEY DIFFERENCE in one clear sentence</p>
+  <p>Give a real-world example for each</p>
+  <p>End with a note on when/where each is used</p>
+  <div class="callout-roman" style="border-left-color: var(--accent-breakeven); margin: 1.5rem 0;">
+    <div class="callout-icon" style="color: var(--accent-breakeven);">&#9998;</div>
+    <div class="callout-content"><strong>Roman Urdu Note:</strong> Exam mein difference likhte waqt: pehle dono ki definition likho, phir ek line mein KEY difference batao, phir example do, phir use case likho. Yeh sequence apna ke tumhara jawab complete aur structured lagega.</div>
+  </div>
+  <p>CC Finals Differences  |  All the best!  |  Engr. Dr. Mahawish  |  Spring 2026</p>
+</section>
+
 <section class="section-card cheat-sheet-section" id="cheat-sheet">
   <div class="section-header-bar badge-g-bg">
     <span class="badge badge-g">MASTER</span>
@@ -3154,15 +5043,43 @@ function calculateNumerical() {
 const toggleBtn = document.getElementById('theme-toggle');
 if (toggleBtn) {
   toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-theme');
-    localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    document.documentElement.classList.toggle('light-theme');
+    localStorage.setItem('theme', document.documentElement.classList.contains('light-theme') ? 'light' : 'dark');
   });
 }
 
 // Load saved preference
 if (localStorage.getItem('theme') === 'light') {
-  document.body.classList.add('light-theme');
+  document.documentElement.classList.add('light-theme');
 }
+
+
+// Active section tracking for sidebar links
+const scrollSections = document.querySelectorAll('section[id]');
+const scrollNavLinks = document.querySelectorAll('.nav-links a');
+
+const scrollObserverOptions = {
+  root: null,
+  rootMargin: '0px 0px -40% 0px',
+  threshold: 0.1
+};
+
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      scrollNavLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${id}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  });
+}, scrollObserverOptions);
+
+scrollSections.forEach(sec => scrollObserver.observe(sec));
 
 </script>
 

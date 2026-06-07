@@ -54,7 +54,7 @@
 /* ============================================================
    0b. LIGHT THEME OVERRIDES
    ============================================================ */
-body.light-theme {
+html.light-theme {
   /* --- Light Palette --- */
   --bg-canvas:        #fbfaf8; /* Soft natural paper off-white */
   --bg-sheet:         #ffffff; /* Clean white card surfaces */
@@ -219,47 +219,87 @@ blockquote {
    3. STICKY NAV & EDITORIAL HERO
    ============================================================ */
 .nav-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
-  background: rgba(12, 13, 18, 0.9);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--accent-divider);
-  padding: 0.85rem 1.5rem;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  z-index: 1000;
+  background: var(--bg-sheet);
+  border-right: 1px solid var(--accent-border);
+  padding: 2rem 1.25rem;
+  transform: translateX(-235px); /* Tucked away, leaving 15px trigger strip */
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 10px 0 30px rgba(0,0,0,0.2);
+}
+.nav-header:hover {
+  transform: translateX(0); /* Slide open */
+}
+/* Side vertical handle tab */
+.nav-header::after {
+  content: '◑ TOC INDEX';
+  position: absolute;
+  top: 50px;
+  right: -24px;
+  transform: rotate(90deg);
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  background: var(--bg-sheet);
+  padding: 6px 12px;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid var(--accent-border);
+  border-bottom: none;
+  pointer-events: none;
+  transform-origin: top left;
+  transition: opacity 0.25s;
+}
+.nav-header:hover::after {
+  opacity: 0;
 }
 .nav-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  flex-direction: column;
+  height: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.5rem;
 }
 .nav-brand {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-title);
+  border-bottom: 1px solid var(--accent-divider);
+  padding-bottom: 0.75rem;
+  width: 100%;
 }
 .nav-links {
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+  overflow-y: auto;
 }
 .nav-links a {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-decoration: none;
   color: var(--text-muted);
-  padding: 0.35rem 0.6rem;
+  padding: 0.45rem 0.75rem;
   border-radius: var(--radius-sm);
-  transition: all 0.15s;
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+  display: block;
 }
-.nav-links a:hover {
+.nav-links a:hover, .nav-links a.active {
   color: var(--text-title);
-  background: var(--bg-sheet);
+  background: var(--bg-sheet-hover);
+  border-left-color: var(--accent-theme, var(--text-title));
 }
 
 /* Page Header Hero */
@@ -267,6 +307,18 @@ blockquote {
   padding: 5rem 0 3.5rem;
   border-bottom: 1px solid var(--accent-divider);
   margin-bottom: 4rem;
+  text-align: center;
+}
+.header-desc {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.header-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
 }
 .header-subtitle {
   font-family: var(--font-mono);
@@ -505,7 +557,7 @@ blockquote {
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
-  text-align: left;
+  text-align: center;
   font-size: 0.88rem;
 }
 .comparison-table th, .comparison-table td {
@@ -712,3 +764,52 @@ blockquote {
 /* ============================================================
    END OF DESIGN SYSTEM
    ============================================================ */
+
+/* ============================================================
+   10. TABLE OF CONTENTS
+   ============================================================ */
+.toc-section {
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  margin-bottom: 4rem;
+}
+.toc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-deep);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-body);
+  transition: all 0.2s;
+}
+.toc-item:hover {
+  border-color: var(--accent-theme, var(--text-title));
+  background: var(--bg-sheet-hover);
+  color: var(--text-title);
+  transform: translateY(-2px);
+}
+.toc-badge {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  background: var(--bg-canvas);
+  border: 1px solid var(--accent-border);
+  color: var(--text-title);
+}
