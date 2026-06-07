@@ -1,0 +1,714 @@
+/* ============================================================
+   CLOUD COMPUTING FINALS – ACADEMIC HANDBOOK DESIGN SYSTEM
+   A premium, editorial-grade dark academic style.
+   Crafted for readability, layout rhythm, and visual comfort.
+   ============================================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ============================================================
+   0. DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* --- Editorial Grayscale & Slate Palette --- */
+  --bg-canvas:        #0c0d12;
+  --bg-sheet:         #12141c;
+  --bg-sheet-hover:   #171a24;
+  --bg-contrast:      #1a1d29;
+  --bg-deep:          #06070a;
+
+  /* --- Muted Academic Accents (Not flashy, but distinct) --- */
+  --accent-primary:   #e2e8f0;
+  --accent-muted:     #64748b;
+  --accent-border:    #222632;
+  --accent-divider:   #1b1e28;
+
+  /* --- Typographic Palette --- */
+  --text-title:       #f8fafc;
+  --text-body:        #cbd5e1;
+  --text-muted:       #64748b;
+  --text-highlight:   #ffffff;
+
+  /* --- Layout spacing (Generous breathing room) --- */
+  --max-width: 900px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  
+  /* --- Fonts --- */
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* --- Section-specific Color Accents (Subtle text/border highlights) --- */
+  --accent-tco:        #94a3b8; /* Muted Slate */
+  --accent-rev:        #86efac; /* Muted Sage */
+  --accent-vm:         #fde047; /* Muted Gold */
+  --accent-net:        #fca5a5; /* Muted Coral */
+  --accent-arch:       #d8b4fe; /* Muted Lavender */
+  --accent-pricing:    #99f6e4; /* Muted Teal */
+  --accent-breakeven:  #fda4af; /* Muted Rose */
+}
+
+/* ============================================================
+   0b. LIGHT THEME OVERRIDES
+   ============================================================ */
+body.light-theme {
+  /* --- Light Palette --- */
+  --bg-canvas:        #fbfaf8; /* Soft natural paper off-white */
+  --bg-sheet:         #ffffff; /* Clean white card surfaces */
+  --bg-sheet-hover:   #f4f3ef;
+  --bg-contrast:      #e4e4e7;
+  --bg-deep:          #f2f1ec; /* Contrast gray for step blocks */
+
+  /* --- Light Theme Accents --- */
+  --accent-primary:   #0f172a;
+  --accent-muted:     #64748b;
+  --accent-border:    #e2e2e9;
+  --accent-divider:   #e5e5ec;
+
+  /* --- Typographic --- */
+  --text-title:       #0f172a;
+  --text-body:        #334155;
+  --text-muted:       #64748b;
+  --text-highlight:   #000000;
+
+  /* --- Light Mode Section Accents --- */
+  --accent-tco:        #475569;
+  --accent-rev:        #047857;
+  --accent-vm:         #b45309;
+  --accent-net:        #b91c1c;
+  --accent-arch:       #6d28d9;
+  --accent-pricing:    #0f766e;
+  --accent-breakeven:  #be185d;
+}
+
+/* ============================================================
+   1. RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-canvas);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-body);
+  background-color: var(--bg-canvas);
+  line-height: 1.8; /* Generous line spacing to prevent fatigue */
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-muted);
+}
+
+/* ============================================================
+   2. TYPOGRAPHY & VISUAL HIERARCHY
+   ============================================================ */
+h1, h2, h3, h4 {
+  color: var(--text-title);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  border-bottom: 1px solid var(--accent-divider);
+  padding-bottom: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--text-title);
+  margin-top: 1.5rem;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-highlight);
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+strong, b {
+  color: var(--text-highlight);
+  font-weight: 600;
+}
+
+/* Math Variables & Clean Serif styling */
+.math-var {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-highlight);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 0.15rem 0.35rem;
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-highlight);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: var(--sp-4);
+  background: var(--bg-deep);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+blockquote {
+  border-left: 2px solid var(--text-muted);
+  padding: 0.5rem 0 0.5rem var(--sp-5);
+  margin: 1.5rem 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   3. STICKY NAV & EDITORIAL HERO
+   ============================================================ */
+.nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(12, 13, 18, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--accent-divider);
+  padding: 0.85rem 1.5rem;
+}
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-title);
+}
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+}
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-muted);
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s;
+}
+.nav-links a:hover {
+  color: var(--text-title);
+  background: var(--bg-sheet);
+}
+
+/* Page Header Hero */
+.page-header {
+  padding: 5rem 0 3.5rem;
+  border-bottom: 1px solid var(--accent-divider);
+  margin-bottom: 4rem;
+}
+.header-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+}
+.header-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin-bottom: 1.5rem;
+}
+.header-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* ============================================================
+   4. LAYOUT GRID & SECTION PERSISTENCE
+   ============================================================ */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+
+.section-card {
+  margin-bottom: 7rem; /* Substantial spacing between section blocks */
+}
+
+/* Section specific highlights */
+#type-a { --accent-theme: var(--accent-tco); }
+#type-b { --accent-theme: var(--accent-rev); }
+#type-c { --accent-theme: var(--accent-vm); }
+#type-d { --accent-theme: var(--accent-net); }
+#type-e { --accent-theme: var(--accent-arch); }
+#type-f { --accent-theme: var(--accent-pricing); }
+#type-g { --accent-theme: var(--accent-breakeven); }
+#diagram-numericals { --accent-theme: var(--accent-arch); }
+#cheat-sheet { --accent-theme: var(--accent-breakeven); }
+#numerical-solver { --accent-theme: var(--accent-tco); }
+
+.section-header-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--accent-theme, var(--accent-divider));
+}
+.section-header-bar .section-title {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.section-header-bar .badge {
+  background: var(--bg-sheet);
+  border-color: var(--accent-theme);
+  color: var(--accent-theme);
+}
+
+/* ============================================================
+   5. QUESTION & SOLUTION HANDBOOK PATTERNS
+   ============================================================ */
+.question-card {
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--accent-divider);
+  padding-bottom: 1rem;
+}
+.question-label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-theme, var(--text-title));
+}
+
+.problem-statement {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+
+/* Solution walkthrough layout */
+.solution-toggle {
+  margin-top: 1.5rem;
+}
+.solution-toggle summary {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-contrast);
+  border: 1px solid var(--accent-border);
+  color: var(--text-title);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  transition: all 0.2s;
+}
+.solution-toggle summary:hover {
+  background: var(--bg-sheet-hover);
+  border-color: var(--accent-theme, var(--text-title));
+}
+.solution-toggle[open] summary {
+  margin-bottom: 1rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.solution-card {
+  background: var(--bg-deep);
+  border: 1px solid var(--accent-border);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  padding: 2.5rem;
+  border-top: none;
+  margin-top: -1px;
+}
+.solution-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-title);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px dashed var(--accent-divider);
+  padding-bottom: 0.35rem;
+}
+.solution-card h4:first-of-type {
+  margin-top: 0;
+}
+
+/* Step list block */
+.step-block {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.step-number {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--accent-theme, var(--text-title));
+  padding: 0.25rem 0.5rem;
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  height: fit-content;
+}
+.step-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-title);
+  margin-bottom: 0.35rem;
+}
+.step-formula {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-theme, var(--text-title));
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-sheet-hover);
+  border-left: 2px solid var(--accent-theme);
+  margin: 0.5rem 0;
+}
+.step-result {
+  margin-top: 1rem;
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.final-answer {
+  background: var(--bg-sheet-hover);
+  border: 1px solid var(--accent-theme, var(--text-title));
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-highlight);
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+/* Formula Presentation Box */
+.formula-box {
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+.formula-box h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-theme, var(--text-title));
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   6. RESPONSIVE TABLES (Financial Ledger Style)
+   ============================================================ */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-md);
+  margin: 1.5rem 0 2rem;
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+.comparison-table th, .comparison-table td {
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--accent-divider);
+}
+.comparison-table th {
+  background: var(--bg-sheet-hover);
+  color: var(--text-title);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+.comparison-table tr:hover td {
+  background: var(--bg-sheet);
+}
+
+.decision-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.decision-table th, .decision-table td {
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--accent-border);
+}
+.decision-table th {
+  background: var(--bg-sheet-hover);
+}
+
+/* ============================================================
+   7. HANDBOOK BADGES & ACADEMIC NOTES
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  color: var(--text-title);
+}
+
+/* Callouts for strategics */
+.quick-revision, .exam-trap, .memory-trick {
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.75rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+.quick-revision { border-left: 2px solid var(--accent-pricing); }
+.quick-revision h4 { color: var(--accent-pricing); font-size: 0.95rem; margin-bottom: 0.25rem; }
+
+.exam-trap { border-left: 2px solid var(--accent-net); }
+.exam-trap strong { color: var(--accent-net); }
+
+.memory-trick { border-left: 2px solid var(--accent-vm); }
+.memory-trick strong { color: var(--accent-vm); }
+
+/* Roman Urdu Note Callouts */
+.callout-roman {
+  display: flex;
+  gap: 1rem;
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  border-left: 2px solid var(--accent-breakeven);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.75rem;
+  margin-top: 2rem;
+}
+.callout-icon {
+  font-size: 1rem;
+  color: var(--accent-breakeven);
+}
+.callout-content {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+}
+.callout-content strong {
+  color: var(--accent-breakeven);
+}
+
+/* ============================================================
+   8. SOLVER INTERFACE
+   ============================================================ */
+.solver-container {
+  background: var(--bg-sheet);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  border: 1px solid var(--accent-border);
+}
+.solver-input-group {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: var(--bg-deep);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+}
+.solver-input-group h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-theme, var(--text-title));
+}
+.solver-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.solver-field label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.solver-field input, .solver-field select {
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-sheet);
+  border: 1px solid var(--accent-border);
+  color: var(--text-title);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+.solver-field input:focus, .solver-field select:focus {
+  border-color: var(--accent-theme, var(--text-title));
+  outline: none;
+}
+
+.solve-btn {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--text-title);
+  color: var(--bg-canvas);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: opacity 0.2s;
+}
+.solve-btn:hover {
+  opacity: 0.9;
+}
+
+.solver-result {
+  margin-top: 2rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-border);
+  overflow: hidden;
+}
+.solver-result-header {
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-sheet-hover);
+  border-bottom: 1px solid var(--accent-border);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.solver-result-body {
+  padding: 1.5rem;
+  background: var(--bg-deep);
+}
+
+/* ============================================================
+   9. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+@media (max-width: 768px) {
+  body { font-size: 0.92rem; }
+  h1 { font-size: 2.2rem; }
+  .page-header { padding: 3rem 0; }
+  .question-card { padding: 1.5rem; }
+  .solution-card { padding: 1.5rem; }
+  .solver-container { padding: 1.5rem; }
+  .nav-links { display: none; }
+}
+
+/* Entry Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in {
+  animation: fadeIn 0.35s ease-out forwards;
+}
+
+/* ============================================================
+   END OF DESIGN SYSTEM
+   ============================================================ */

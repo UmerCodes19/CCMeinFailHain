@@ -1,0 +1,3170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cloud Computing Finals — Complete Numerical Practice Workbook with step-by-step solutions, cheat sheets, and Roman Urdu explanations. Engr. Dr. Mahawish, Spring 2026.">
+  <title>CC Finals — Premium Numerical Workbook | Spring 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-theme');
+    }
+  </script>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- STICKY NAVIGATION                                            -->
+<!-- ============================================================ -->
+<nav class="nav-header" id="main-nav">
+  <div class="nav-inner">
+    <span class="nav-brand">CC Finals Workbook</span>
+    <div class="nav-links">
+      <a href="#type-a">A — TCO</a>
+      <a href="#type-b">B — Revenue</a>
+      <a href="#type-c">C — VM</a>
+      <a href="#type-d">D — Network</a>
+      <a href="#type-e">E — Arch</a>
+      <a href="#type-f">F — Pricing</a>
+      <a href="#type-g">G — Break-Even</a>
+      <a href="#diagram-numericals">Diagrams</a>
+      <a href="#numerical-solver">Solver</a>
+      <a href="#cheat-sheet">Cheat Sheet</a>
+      <button id="theme-toggle" class="badge" style="cursor:pointer; margin-left:12px; font-family:var(--font-display); font-size:0.75rem;">◑ Mode</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- HERO HEADER                                                  -->
+<!-- =========================================================== -->
+<header class="page-header" id="top">
+  <div class="header-content">
+    <p class="header-subtitle">Cloud Computing &middot; Engr. Dr. Mahawish &middot; Spring 2026</p>
+    <h1 class="header-title">Finals — Numerical Practice Workbook</h1>
+    <p class="header-desc">Complete Practice Book &nbsp;|&nbsp; All Question Types &nbsp;|&nbsp; Step-by-Step Solutions &nbsp;|&nbsp; Cheat Sheets &nbsp;|&nbsp; Roman Urdu</p>
+    <div class="header-badges">
+      <span class="badge badge-a">TYPE A &middot; TCO</span>
+      <span class="badge badge-b">TYPE B &middot; Revenue</span>
+      <span class="badge badge-c">TYPE C &middot; VM Pricing</span>
+      <span class="badge badge-d">TYPE D &middot; Network</span>
+      <span class="badge badge-e">TYPE E &middot; Architecture</span>
+      <span class="badge badge-f">TYPE F &middot; Pricing Model</span>
+      <span class="badge badge-g">TYPE G &middot; Break-Even</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- TABLE OF CONTENTS                                            -->
+<!-- ============================================================ -->
+<main class="container">
+
+<section class="section-card toc-section" id="toc">
+  <h2 class="section-title">Table of Contents</h2>
+  <div class="toc">
+    <a class="toc-item" href="#question-id">
+      <span class="toc-badge badge badge-a">START</span>
+      <span class="toc-label">How to Identify the Question Type</span>
+    </a>
+    <a class="toc-item" href="#type-a">
+      <span class="toc-badge badge badge-a">TYPE A</span>
+      <span class="toc-label">TCO Analysis — Cloud vs On-Premise</span>
+    </a>
+    <a class="toc-item" href="#type-b">
+      <span class="toc-badge badge badge-b">TYPE B</span>
+      <span class="toc-label">Revenue &amp; Cost Calculations</span>
+    </a>
+    <a class="toc-item" href="#type-c">
+      <span class="toc-badge badge badge-c">TYPE C</span>
+      <span class="toc-label">VM Instance Pricing Calculations</span>
+    </a>
+    <a class="toc-item" href="#type-d">
+      <span class="toc-badge badge badge-d">TYPE D</span>
+      <span class="toc-label">Network &amp; Storage Cost Calculations</span>
+    </a>
+    <a class="toc-item" href="#type-e">
+      <span class="toc-badge badge badge-e">TYPE E</span>
+      <span class="toc-label">Cloud Architecture Selection</span>
+    </a>
+    <a class="toc-item" href="#type-f">
+      <span class="toc-badge badge badge-f">TYPE F</span>
+      <span class="toc-label">Pricing Model Selection</span>
+    </a>
+    <a class="toc-item" href="#type-g">
+      <span class="toc-badge badge badge-g">TYPE G</span>
+      <span class="toc-label">Break-Even Analysis</span>
+    </a>
+    <a class="toc-item" href="#additional-costs">
+      <span class="toc-badge badge badge-a">EXTRA</span>
+      <span class="toc-label">Additional Cost Concepts</span>
+    </a>
+    <a class="toc-item" href="#mixed-practice">
+      <span class="toc-badge badge badge-c">MIXED</span>
+      <span class="toc-label">Comprehensive Mixed Practice Questions</span>
+    </a>
+    <a class="toc-item" href="#diagram-numericals">
+      <span class="toc-badge badge badge-b">DIAGRAMS</span>
+      <span class="toc-label">Diagram-Based Network &amp; Firewall Numericals</span>
+    </a>
+    <a class="toc-item" href="#numerical-solver">
+      <span class="toc-badge badge badge-a">SOLVER</span>
+      <span class="toc-label">Interactive Numerical Solver</span>
+    </a>
+    <a class="toc-item" href="#cheat-sheet">
+      <span class="toc-badge badge badge-g">MASTER</span>
+      <span class="toc-label">Master Cheat Sheet — Last-Minute Revision</span>
+    </a>
+  </div>
+</section>
+
+<div class="callout-tip">
+  <div class="callout-icon">&#9733;</div>
+  <div class="callout-content">
+    <strong>Exam Strategy:</strong> Read the <a href="#cheat-sheet">CHEAT SHEET</a> first (last section), then practice every question type. The exam will mix these types — learn to <strong>IDENTIFY</strong> which type it is.
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- QUESTION TYPE IDENTIFICATION                                 -->
+<!-- ============================================================ -->
+<section class="section-card" id="question-id">
+  <h2 class="section-title">How to Identify the Question Type</h2>
+  <p class="section-intro">Read the keywords in the question and instantly know what type of problem it is and what formula to apply.</p>
+
+  <div class="table-container"><table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Keywords in Question</th>
+        <th>Type</th>
+        <th>What You Must Do</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>"TCO"</strong>, "3-year", "should they migrate?", "on-premise vs cloud"</td>
+        <td><span class="badge badge-a">TYPE A</span></td>
+        <td>Calculate total 3-year cost for both, compare, recommend</td>
+      </tr>
+      <tr>
+        <td><strong>"Total revenue"</strong>, "price &times; usage", "how much earned"</td>
+        <td><span class="badge badge-b">TYPE B</span></td>
+        <td>Revenue = Price &times; Usage. Sum all services.</td>
+      </tr>
+      <tr>
+        <td><strong>"On-demand"</strong>, "reserved", "how many hours", "VM cost"</td>
+        <td><span class="badge badge-c">TYPE C</span></td>
+        <td>Identify on-demand or reserved, multiply rate &times; time</td>
+      </tr>
+      <tr>
+        <td><strong>"Inbound"</strong>, "outbound", "WAN", "GB of traffic", "network cost"</td>
+        <td><span class="badge badge-d">TYPE D</span></td>
+        <td>Match traffic type to rate, multiply GB &times; $/GB</td>
+      </tr>
+      <tr>
+        <td><strong>"Which architecture?"</strong>, "what should they implement?"</td>
+        <td><span class="badge badge-e">TYPE E</span></td>
+        <td>Apply decision rules: failure &rarr; clustering. Spike &rarr; bursting.</td>
+      </tr>
+      <tr>
+        <td><strong>"IaaS vs PaaS vs SaaS"</strong>, "which pricing model?"</td>
+        <td><span class="badge badge-f">TYPE F</span></td>
+        <td>Match service type to model using table</td>
+      </tr>
+      <tr>
+        <td><strong>"Break-even"</strong>, "when does cloud become cheaper?"</td>
+        <td><span class="badge badge-g">TYPE G</span></td>
+        <td>Set Cloud TCO = On-Premise TCO, solve for months</td>
+      </tr>
+      <tr>
+        <td><strong>"On-demand or reserved?"</strong>, "which is cheaper?"</td>
+        <td><span class="badge badge-c">TYPE C<sub>var</sub></span></td>
+        <td>Calculate both, compare, pick lower cost</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> Question padhte hi keywords dhundho: TCO / migrate / 3-year &rarr; Type A. Revenue / price &times; usage &rarr; Type B. On-demand / reserved / per hour &rarr; Type C. Inbound / outbound / WAN / GB &rarr; Type D. Which architecture &rarr; Type E. IaaS/PaaS/SaaS &rarr; Type F. Break-even / kab sasta hoga &rarr; Type G.
+    </div>
+  </div>
+
+  <div class="quick-revision">
+    <h4>Quick Revision Summary</h4>
+    <ul>
+      <li>7 question types: A (TCO), B (Revenue), C (VM), D (Network), E (Architecture), F (Pricing Model), G (Break-Even)</li>
+      <li>First step always: <strong>read the keywords</strong> and identify the type</li>
+      <li>Each type has its own formula — learn to match keywords to formulas</li>
+    </ul>
+  </div>
+  <div class="exam-trap">
+    <strong>Most Common Exam Trap:</strong> Mixed questions combine 2-3 types in one problem. Don't panic — solve each sub-part independently using its matching type.
+  </div>
+  <div class="memory-trick">
+    <strong>2-Line Memory Trick:</strong> "TCO migrate? A. Revenue earned? B. VM hours? C. GB traffic? D. Which tech? E. Which model? F. When cheaper? G." — Just match the keyword to the letter.
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- TYPE A: TCO ANALYSIS                                         -->
+<!-- ============================================================ -->
+<section class="section-card" id="type-a">
+  <div class="section-header-bar badge-a-bg">
+    <span class="badge badge-a">TYPE A</span>
+    <h2 class="section-title">TCO Analysis — Cloud vs On-Premise Decision</h2>
+  </div>
+
+  <!-- Concept -->
+  <div class="concept-block">
+    <h3 class="subsection-title">What is TCO?</h3>
+    <p><strong>Total Cost of Ownership (TCO)</strong> is the complete 3-year cost of an IT solution.</p>
+    <ul>
+      <li>Calculate it for <strong>BOTH</strong> on-premise and cloud</li>
+      <li>Compare the two totals</li>
+      <li>The <strong>lower TCO wins</strong> — that's your recommendation</li>
+    </ul>
+  </div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> TCO matlab 3 saal ki puri cost — hardware, software, labor, monthly charges sab mila ke. Dono ke liye calculate karo (on-premise aur cloud), phir compare karo. Jo sasta ho, woh choose karo.
+    </div>
+  </div>
+
+  <!-- Master TCO Formula -->
+  <div class="formula-box">
+    <div class="formula-label">The Master TCO Formula</div>
+    <div class="formula-content">
+      <span class="formula-var">TCO</span> = <span class="formula-var">Up-Front Cost</span> + (<span class="formula-var">Monthly On-Going Cost</span> &times; <span class="formula-var">Number of Months</span>)
+    </div>
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">3-Year TCO (most common)</div>
+    <div class="formula-content">
+      <span class="formula-var">3-Year TCO</span> = <span class="formula-var">Up-Front Cost</span> + (<span class="formula-var">Monthly On-Going Cost</span> &times; <strong>36</strong>)
+    </div>
+  </div>
+
+  <!-- Cost Categories Table -->
+  <h3 class="subsection-title">What Goes Into Each Cost Category?</h3>
+  <div class="table-container"><table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Cost Category</th>
+        <th>On-Premise Includes</th>
+        <th>Cloud Includes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Up-Front</strong> (one-time)</td>
+        <td>Hardware purchase &times; number of servers</td>
+        <td>Labor for setup/integration only (NO hardware)</td>
+      </tr>
+      <tr>
+        <td><strong>Up-Front</strong> (one-time)</td>
+        <td>Software/licensing (full purchase)</td>
+        <td>No software purchase (leased)</td>
+      </tr>
+      <tr>
+        <td><strong>Up-Front</strong> (one-time)</td>
+        <td>Labor for deployment</td>
+        <td>Integration testing labor (can be HIGH if porting old app)</td>
+      </tr>
+      <tr>
+        <td><strong>Monthly</strong></td>
+        <td>Environmental fees (power, cooling)</td>
+        <td>Server instance usage fees ($/hr &times; hours &times; VMs)</td>
+      </tr>
+      <tr>
+        <td><strong>Monthly</strong></td>
+        <td>Licensing fees</td>
+        <td>Database storage fees ($/GB &times; GB)</td>
+      </tr>
+      <tr>
+        <td><strong>Monthly</strong></td>
+        <td>Hardware maintenance</td>
+        <td>Network/WAN outbound fees ($/GB &times; GB)</td>
+      </tr>
+      <tr>
+        <td><strong>Monthly</strong></td>
+        <td>Labor/administration</td>
+        <td>Labor/cloud resource administration</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> On-premise mein upfront zyada hota hai — hardware kharidna, software kharidna, labor. Cloud mein upfront kam hota hai — sirf labor (setup/integration). Monthly costs mein cloud ka zyada ho sakta hai — per-hour VM charges, storage, network. Long-term mein compare karo.
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- ===== WORKED EXAMPLE A1 ===== -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Worked Example A1</span>
+      <span class="question-tag">Product Catalog Browser — ATN Case Study</span>
+    </div>
+
+    <div class="problem-statement">
+      <h4>Problem Statement</h4>
+      <p>ATN wants to migrate its Product Catalog Browser to PaaS cloud. It runs on 4 virtual servers on 2 physical servers with a 300 GB database. Evaluate using a 3-year TCO analysis.</p>
+    </div>
+
+    <div class="given-data">
+      <h4>Given Data</h4>
+      <div class="given-grid">
+        <div class="given-col">
+          <strong>On-Premise</strong>
+          <ul>
+            <li>Physical server: <strong>$7,500</strong> each (&times;2)</li>
+            <li>Software for 4 VMs: <strong>$30,500</strong></li>
+            <li>Deployment labor: <strong>$5,500</strong></li>
+            <li>Monthly — Env: $750, Licensing: $520, HW Maintenance: $100, Labor: $2,600</li>
+          </ul>
+        </div>
+        <div class="given-col">
+          <strong>Cloud</strong>
+          <ul>
+            <li>Upfront: <strong>$5,000</strong> labor only</li>
+            <li>Server: 2.3 VMs &times; ($1.25 &times; 720)</li>
+            <li>DB: 300 GB &times; $1.09</li>
+            <li>Network: 420 GB &times; $0.10</li>
+            <li>Labor: $800/month</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="solution-card">
+      <h4>Step-by-Step Solution</h4>
+
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">Calculate ON-PREMISE UP-FRONT Cost</div>
+          <ul>
+            <li>Hardware: $7,500 &times; 2 physical servers = <strong>$15,000</strong></li>
+            <li>Software: <strong>$30,500</strong></li>
+            <li>Labor: <strong>$5,500</strong></li>
+          </ul>
+          <div class="step-result">Total On-Premise Up-Front = $15,000 + $30,500 + $5,500 = <strong>$51,000</strong></div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">Calculate ON-PREMISE MONTHLY Cost</div>
+          <ul>
+            <li>Environmental Fees: $750</li>
+            <li>Licensing Fees: $520</li>
+            <li>Hardware Maintenance: $100</li>
+            <li>Labor: $2,600</li>
+          </ul>
+          <div class="step-result">Total Monthly On-Premise = $750 + $520 + $100 + $2,600 = <strong>$3,970/month</strong></div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-number">Step 3</div>
+        <div class="step-content">
+          <div class="step-title">Calculate CLOUD UP-FRONT Cost</div>
+          <ul>
+            <li>No hardware, no software purchase</li>
+            <li>Labor only: $5,000</li>
+          </ul>
+          <div class="step-result">Total Cloud Up-Front = <strong>$5,000</strong></div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-number">Step 4</div>
+        <div class="step-content">
+          <div class="step-title">Calculate CLOUD MONTHLY Cost</div>
+          <ul>
+            <li>Server Instance: 2.3 VMs &times; ($1.25/hr &times; 720 hrs) = 2.3 &times; $900 = <strong>$2,070</strong></li>
+            <li>Database/Storage: 300 GB &times; $1.09/GB = <strong>$327</strong></li>
+            <li>Network/WAN: 420 GB &times; $0.10/GB = <strong>$42</strong></li>
+            <li>Labor: <strong>$800</strong></li>
+          </ul>
+          <div class="step-result">Total Monthly Cloud = $2,070 + $327 + $42 + $800 = <strong>$3,239/month</strong></div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-number">Step 5</div>
+        <div class="step-content">
+          <div class="step-title">Calculate 3-YEAR TCO for Both</div>
+          <div class="formula-box formula-inline">
+            <div class="formula-content">On-Premise TCO = $51,000 + ($3,970 &times; 36) = $51,000 + $142,920 = <strong>$193,920</strong></div>
+          </div>
+          <div class="formula-box formula-inline">
+            <div class="formula-content">Cloud TCO = $5,000 + ($3,239 &times; 36) = $5,000 + $116,604 = <strong>$121,604</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-number">Step 6</div>
+        <div class="step-content">
+          <div class="step-title">Compare and DECIDE</div>
+        </div>
+      </div>
+
+      <div class="final-answer">
+        Cloud TCO ($121,604) &lt; On-Premise TCO ($193,920) &rarr; <strong>MIGRATE TO CLOUD</strong><br>
+        Savings = <strong>$72,316</strong> over 3 years.
+      </div>
+    </div>
+
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content">
+        <strong>Roman Urdu:</strong> Step 1: On-premise ka upfront nikalo (hardware + software + labor). Step 2: On-premise ka monthly nikalo (sab monthly costs jodo). Step 3: Cloud upfront nikalo (usually sirf labor). Step 4: Cloud monthly nikalo (VM + DB + network + labor). Step 5: Dono ka TCO = Upfront + (Monthly &times; 36). Step 6: Jo kam hai woh choose karo.
+      </div>
+    </div>
+
+    <div class="callout-tip">
+      <div class="callout-icon">&#9733;</div>
+      <div class="callout-content">
+        <strong>Exam Tip:</strong> The <strong>720</strong> in "hours per month" = 24 hours/day &times; 30 days. Always use 720 unless told otherwise.
+      </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- ===== WORKED EXAMPLE A2 ===== -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Worked Example A2</span>
+      <span class="question-tag">Client Database — Cloud NOT Recommended</span>
+    </div>
+
+    <div class="problem-statement">
+      <h4>Problem Statement</h4>
+      <p>ATN's Client Database: 8 virtual servers, 2 physical servers, 1.5 TB database. Old code needs heavy porting.</p>
+    </div>
+
+    <div class="given-data">
+      <h4>Given Data</h4>
+      <div class="given-grid">
+        <div class="given-col">
+          <strong>On-Premise</strong>
+          <ul>
+            <li>Physical server: <strong>$7,500</strong> each (&times;2)</li>
+            <li>Software for 8 VMs: <strong>$15,200</strong></li>
+            <li>Labor: <strong>$5,500</strong></li>
+            <li>Monthly — Env: $1,050, Licensing: $300, HW Maint: $100, Admin: $4,500</li>
+          </ul>
+        </div>
+        <div class="given-col">
+          <strong>Cloud</strong>
+          <ul>
+            <li>Upfront: <strong>$45,000</strong> (high integration/porting labor)</li>
+            <li>Server: 3.8 VMs &times; $1.25 &times; 720</li>
+            <li>DB: 1,500 GB &times; $1.09</li>
+            <li>Network: 800 GB &times; $0.10</li>
+            <li>Labor: $1,200/month</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="solution-card">
+      <h4>Step-by-Step Solution</h4>
+
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">ON-PREMISE UP-FRONT</div>
+          <ul>
+            <li>Hardware: $7,500 &times; 2 = $15,000</li>
+            <li>Software: $15,200</li>
+            <li>Labor: $5,500</li>
+          </ul>
+          <div class="step-result">Total = $15,000 + $15,200 + $5,500 = <strong>$35,700</strong></div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">ON-PREMISE MONTHLY</div>
+          <div class="step-result">$1,050 + $300 + $100 + $4,500 = <strong>$5,950/month</strong></div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-number">Step 3</div>
+        <div class="step-content">
+          <div class="step-title">CLOUD UP-FRONT</div>
+          <p>Labor only (heavy integration/porting): <strong>$45,000</strong></p>
+          <div class="callout-warning callout-inline">
+            <strong>Warning:</strong> High because application code is old and hard to port!
+          </div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-number">Step 4</div>
+        <div class="step-content">
+          <div class="step-title">CLOUD MONTHLY</div>
+          <ul>
+            <li>Server: 3.8 &times; ($1.25 &times; 720) = 3.8 &times; $900 = $3,420</li>
+            <li>DB: 1,500 GB &times; $1.09 = $1,635</li>
+            <li>Network: 800 GB &times; $0.10 = $80</li>
+            <li>Labor: $1,200</li>
+          </ul>
+          <div class="step-result">Total = $3,420 + $1,635 + $80 + $1,200 = <strong>$6,335/month</strong></div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-number">Step 5</div>
+        <div class="step-content">
+          <div class="step-title">3-YEAR TCO</div>
+          <div class="formula-box formula-inline">
+            <div class="formula-content">On-Premise TCO = $35,700 + ($5,950 &times; 36) = $35,700 + $214,200 = <strong>$249,900</strong></div>
+          </div>
+          <div class="formula-box formula-inline">
+            <div class="formula-content">Cloud TCO = $45,000 + ($6,335 &times; 36) = $45,000 + $228,060 = <strong>$273,060</strong></div>
+          </div>
+          <p class="text-muted">Note: Slides show $251,700 — slight rounding difference. Use your calculated value.</p>
+        </div>
+      </div>
+
+      <div class="final-answer final-answer-danger">
+        On-Premise TCO ($249,900) &lt; Cloud TCO ($273,060) &rarr; <strong>DO NOT MIGRATE</strong><br>
+        Staying on-premise saves ~<strong>$23,160</strong> over 3 years.
+      </div>
+    </div>
+
+    <div class="callout-warning">
+      <div class="callout-icon">!</div>
+      <div class="callout-content">
+        <strong>Why Cloud Lost:</strong>
+        <ul>
+          <li>Old application code requires very expensive porting (<strong>$45,000</strong> upfront)</li>
+          <li>Large 1.5 TB database makes cloud storage costs high monthly (<strong>$1,635/mo</strong>)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content">
+        <strong>Roman Urdu:</strong> Yahan cloud mehenga kyun pada? Do wajuhaat: (1) Purani application ka code cloud ke liye convert karne mein $45,000 labor lagi — yeh upfront bahut zyada hai. (2) 1.5 TB database ka monthly charge $1,635 hai — on-premise se zyada. Is liye on-premise better nikla.
+      </div>
+    </div>
+
+    <div class="callout-tip">
+      <div class="callout-icon">&#9733;</div>
+      <div class="callout-content">
+        <strong>KEY LESSON:</strong> Cloud is <strong>not always cheaper!</strong> High integration/porting costs + large database = cloud may lose. <strong>Always calculate both!</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- ===== PRACTICE Q1 ===== -->
+  <h3 class="subsection-title">Practice Questions — TYPE A</h3>
+
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Question 1</span>
+      <span class="badge badge-a">TYPE A</span>
+    </div>
+    <div class="problem-statement">
+      <p>A company has 3 physical servers at $8,000 each. Software costs $20,000. Labor $6,000. Monthly on-going: Env=$900, Licensing=$400, Maintenance=$150, Labor=$3,000. Cloud: upfront labor $7,000. Monthly: 2 VMs &times; $1.25/hr &times; 720, DB 200GB &times; $1.09, Network 300GB &times; $0.10, Labor $900. Calculate 3-year TCO for both and decide.</p>
+    </div>
+
+    <details class="solution-toggle">
+      <summary>Show Solution</summary>
+      <div class="solution-card">
+        <div class="step-block">
+          <div class="step-number">Step 1</div>
+          <div class="step-content">
+            <div class="step-title">On-Premise Up-Front</div>
+            <div class="step-result">(3 &times; $8,000) + $20,000 + $6,000 = $24,000 + $20,000 + $6,000 = <strong>$50,000</strong></div>
+          </div>
+        </div>
+        <div class="step-block">
+          <div class="step-number">Step 2</div>
+          <div class="step-content">
+            <div class="step-title">On-Premise Monthly</div>
+            <div class="step-result">$900 + $400 + $150 + $3,000 = <strong>$4,450/month</strong></div>
+          </div>
+        </div>
+        <div class="step-block">
+          <div class="step-number">Step 3</div>
+          <div class="step-content">
+            <div class="step-title">Cloud Up-Front</div>
+            <div class="step-result"><strong>$7,000</strong> (labor only)</div>
+          </div>
+        </div>
+        <div class="step-block">
+          <div class="step-number">Step 4</div>
+          <div class="step-content">
+            <div class="step-title">Cloud Monthly</div>
+            <div class="step-result">(2 &times; $1.25 &times; 720) + (200 &times; $1.09) + (300 &times; $0.10) + $900 = $1,800 + $218 + $30 + $900 = <strong>$2,948/month</strong></div>
+          </div>
+        </div>
+        <div class="step-block">
+          <div class="step-number">Step 5</div>
+          <div class="step-content">
+            <div class="step-title">3-Year TCO</div>
+            <div class="formula-box formula-inline">
+              <div class="formula-content">On-Premise = $50,000 + ($4,450 &times; 36) = $50,000 + $160,200 = <strong>$210,200</strong></div>
+            </div>
+            <div class="formula-box formula-inline">
+              <div class="formula-content">Cloud = $7,000 + ($2,948 &times; 36) = $7,000 + $106,128 = <strong>$113,128</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="final-answer">
+          Cloud saves <strong>$97,072</strong> &rarr; <strong>MIGRATE TO CLOUD</strong>
+        </div>
+        <div class="callout-roman">
+          <div class="callout-icon">&#9998;</div>
+          <div class="callout-content">
+            <strong>Roman Urdu:</strong> On-premise upfront: 3 servers &times; $8,000 + software + labor. Cloud upfront: sirf labor $7,000. Monthly dono ke nikalo phir &times; 36. Cloud $113,128 vs On-premise $210,200 — cloud bahut sasta hai.
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ===== PRACTICE Q2 ===== -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Question 2</span>
+      <span class="badge badge-a">TYPE A</span>
+    </div>
+    <div class="problem-statement">
+      <p>An organization has a very old legacy app. Cloud porting labor = $80,000. On-premise upfront = $30,000. On-premise monthly = $4,000. Cloud monthly = $3,500. Time frame = 3 years. Should they migrate?</p>
+    </div>
+
+    <details class="solution-toggle">
+      <summary>Show Solution</summary>
+      <div class="solution-card">
+        <div class="formula-box formula-inline">
+          <div class="formula-content">On-Premise TCO = $30,000 + ($4,000 &times; 36) = $30,000 + $144,000 = <strong>$174,000</strong></div>
+        </div>
+        <div class="formula-box formula-inline">
+          <div class="formula-content">Cloud TCO = $80,000 + ($3,500 &times; 36) = $80,000 + $126,000 = <strong>$206,000</strong></div>
+        </div>
+        <div class="final-answer final-answer-danger">
+          On-Premise ($174,000) &lt; Cloud ($206,000) &rarr; <strong>DO NOT MIGRATE</strong><br>
+          Old app porting cost kills cloud advantage.
+        </div>
+        <div class="callout-tip">
+          <div class="callout-icon">&#9733;</div>
+          <div class="callout-content">
+            <strong>Exam Shortcut:</strong> If cloud upfront is extremely high (old legacy app, heavy porting), on-premise often wins even if monthly cloud is cheaper.
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Section End -->
+  <div class="quick-revision">
+    <h4>Quick Revision Summary — TYPE A</h4>
+    <ul>
+      <li>TCO = Up-Front + (Monthly &times; 36) for 3 years</li>
+      <li>Calculate for <strong>both</strong> on-premise and cloud</li>
+      <li>On-premise upfront: hardware + software + labor</li>
+      <li>Cloud upfront: usually labor only (but can be high for legacy apps)</li>
+      <li>Cloud monthly: VMs &times; rate &times; 720 + DB + network + labor</li>
+      <li>Lower TCO wins</li>
+    </ul>
+  </div>
+  <div class="exam-trap">
+    <strong>Most Common Exam Trap:</strong> Forgetting to multiply monthly by <strong>36</strong> (not 3, not 12). Three years = 36 months. Also: cloud is NOT always cheaper — always calculate both.
+  </div>
+  <div class="memory-trick">
+    <strong>2-Line Memory Trick:</strong> "Up-front plus monthly times thirty-six, compare the two and make your picks." On-premise: hardware+software+labor up front. Cloud: labor-only up front.
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- TYPE B: REVENUE & COST CALCULATIONS                          -->
+<!-- ============================================================ -->
+<section class="section-card" id="type-b">
+  <div class="section-header-bar badge-b-bg">
+    <span class="badge badge-b">TYPE B</span>
+    <h2 class="section-title">Revenue &amp; Cost Calculations</h2>
+  </div>
+
+  <h3 class="subsection-title">The Core Formulas</h3>
+
+  <div class="formula-box">
+    <div class="formula-label">Basic Revenue</div>
+    <div class="formula-content"><span class="formula-var">Revenue</span> = <span class="formula-var">Price</span> &times; <span class="formula-var">Usage</span></div>
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">Total Revenue (multiple services)</div>
+    <div class="formula-content"><span class="formula-var">Total Revenue</span> = &Sigma; (<span class="formula-var">Price<sub>i</sub></span> &times; <span class="formula-var">Usage<sub>i</sub></span>) &nbsp; for all services</div>
+  </div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> Revenue ka simple formula hai: Price &times; Usage. Agar kai services hain toh har ek ke liye alag calculate karo phir sab jodo. Hourly aur daily alag alag calculate ho sakte hain.
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Worked Example B1 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Worked Example B1</span>
+      <span class="question-tag">Basic Revenue</span>
+    </div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>A cloud company offers 3 services: Storage $10/month (5 units), Database $20/month (3 units), Computing $30/month (2 units). Find total revenue.</p>
+    </div>
+    <div class="solution-card">
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">Revenue = Price &times; Usage for each</div>
+          <ul>
+            <li>Storage: $10 &times; 5 = $50</li>
+            <li>Database: $20 &times; 3 = $60</li>
+            <li>Computing: $30 &times; 2 = $60</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">Sum all services</div>
+          <div class="step-result">$50 + $60 + $60 = <strong>$170</strong></div>
+        </div>
+      </div>
+      <div class="final-answer">Total Revenue = <strong>$170</strong></div>
+    </div>
+  </div>
+
+  <!-- Worked Example B2 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Worked Example B2</span>
+      <span class="question-tag">Hourly &amp; Daily Revenue</span>
+    </div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>Service rates: Storage=$10, Database=$20, Computing=$30. Hourly usage: Storage=2, Database=1, Computing=3. Daily usage: Storage=3, Database=4, Computing=2. Find hourly and daily earnings.</p>
+    </div>
+    <div class="solution-card">
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">HOURLY Revenue</div>
+          <ul>
+            <li>Storage: $10 &times; 2 = $20</li>
+            <li>Database: $20 &times; 1 = $20</li>
+            <li>Computing: $30 &times; 3 = $90</li>
+          </ul>
+          <div class="step-result">Total Hourly = $20 + $20 + $90 = <strong>$130/hour</strong></div>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">DAILY Revenue</div>
+          <ul>
+            <li>Storage: $10 &times; 3 = $30</li>
+            <li>Database: $20 &times; 4 = $80</li>
+            <li>Computing: $30 &times; 2 = $60</li>
+          </ul>
+          <div class="step-result">Total Daily = $30 + $80 + $60 = <strong>$170/day</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content">
+        <strong>Roman Urdu:</strong> Hourly aur daily alag hain: hourly ke liye hourly usage use karo, daily ke liye daily usage. Formula same hai — Price &times; Usage — sirf usage column badal jaata hai.
+      </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <h3 class="subsection-title">Practice Questions — TYPE B</h3>
+
+  <!-- Practice Q3 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Question 3</span>
+      <span class="badge badge-b">TYPE B</span>
+    </div>
+    <div class="problem-statement">
+      <p>A cloud provider offers: Compute at $15/hr, Storage at $0.05/GB, Database at $25/month. Usage: Compute=10 hrs, Storage=500 GB, Database=4 units. Find total cost.</p>
+    </div>
+    <details class="solution-toggle">
+      <summary>Show Solution</summary>
+      <div class="solution-card">
+        <ul>
+          <li>Compute: $15 &times; 10 = $150</li>
+          <li>Storage: $0.05 &times; 500 = $25</li>
+          <li>Database: $25 &times; 4 = $100</li>
+        </ul>
+        <div class="final-answer">Total = $150 + $25 + $100 = <strong>$275</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Practice Q4 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Question 4</span>
+      <span class="badge badge-b">TYPE B</span>
+    </div>
+    <div class="problem-statement">
+      <p>Monthly usage: Service A ($5, 8 units), Service B ($12, 3 units), Service C ($8, 6 units), Service D ($20, 1 unit). Find total monthly revenue.</p>
+    </div>
+    <details class="solution-toggle">
+      <summary>Show Solution</summary>
+      <div class="solution-card">
+        <ul>
+          <li>A: $5 &times; 8 = $40</li>
+          <li>B: $12 &times; 3 = $36</li>
+          <li>C: $8 &times; 6 = $48</li>
+          <li>D: $20 &times; 1 = $20</li>
+        </ul>
+        <div class="final-answer">Total = $40 + $36 + $48 + $20 = <strong>$144</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Lec 15 Numericals - Bahria Cloud P1 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Lec 15 Question &middot; Bahria Cloud P1 (Corrected)</span>
+      <span class="badge badge-b">TYPE B</span>
+    </div>
+    <div class="problem-statement">
+      <p><strong>Scenario (Lec 15 - Bahria Cloud):</strong> Suppose Bahria Cloud has multiple cloud services. They manage users under multiple packages. Compute the profit/revenue from the given services for three users/consumers. <strong>CRITICAL:</strong> The prices given in the table are <strong>per month</strong>. To compute charges, we must first convert the monthly rates to matching units (per hour, per day, per week):</p>
+      <ul>
+        <li><strong>Unit Assumptions:</strong> 1 Month = 30 Days = 4 Weeks = 720 Hours.</li>
+        <li><strong>User-1:</strong> Bills based on <strong>hours</strong>. Rate/hour = Monthly Price &divide; 720.</li>
+        <li><strong>User-2:</strong> Bills based on <strong>days</strong>. Rate/day = Monthly Price &divide; 30.</li>
+        <li><strong>User-3:</strong> Bills based on <strong>weeks</strong>. Rate/week = Monthly Price &divide; 4.</li>
+      </ul>
+      <p><strong>Pricing &amp; Usage Matrix:</strong></p>
+      <div class="table-container"><table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Cloud Services</th>
+            <th>Price $/Month</th>
+            <th>User-1 (Hours)</th>
+            <th>User-2 (Days)</th>
+            <th>User-3 (Weeks)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Storage</td><td>$33</td><td>5</td><td>17</td><td>3</td></tr>
+          <tr><td>DB software</td><td>$45</td><td>6</td><td>20</td><td>2</td></tr>
+          <tr><td>Android Platform</td><td>$75</td><td>3</td><td>25</td><td>4</td></tr>
+          <tr><td>Computing Services</td><td>$90</td><td>24</td><td>12</td><td>4</td></tr>
+          <tr><td>Cloud Security</td><td>$50</td><td>16</td><td>28</td><td>2</td></tr>
+          <tr><td>Linux OS Platform</td><td>$20</td><td>10</td><td>11</td><td>3</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <details class="solution-toggle">
+      <summary>Show Solution &amp; Working</summary>
+      <div class="solution-card">
+        <h4>Step 1: Calculate Unit-Converted Rates for Services</h4>
+        <div class="table-container"><table class="comparison-table" style="font-size: 0.85rem; margin-bottom: 20px;">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Monthly Price</th>
+              <th>Hourly Rate (Price/720)</th>
+              <th>Daily Rate (Price/30)</th>
+              <th>Weekly Rate (Price/4)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Storage</td><td>$33</td><td>$0.0458</td><td>$1.10</td><td>$8.25</td></tr>
+            <tr><td>DB software</td><td>$45</td><td>$0.0625</td><td>$1.50</td><td>$11.25</td></tr>
+            <tr><td>Android Platform</td><td>$75</td><td>$0.1042</td><td>$2.50</td><td>$18.75</td></tr>
+            <tr><td>Computing Services</td><td>$90</td><td>$0.1250</td><td>$3.00</td><td>$22.50</td></tr>
+            <tr><td>Cloud Security</td><td>$50</td><td>$0.0694</td><td>$1.6667</td><td>$12.50</td></tr>
+            <tr><td>Linux OS Platform</td><td>$20</td><td>$0.0278</td><td>$0.6667</td><td>$5.00</td></tr>
+          </tbody>
+        </table></div>
+
+        <h4>Step 2: Calculate User-1 Billing (Hours-based &times; Hourly Rate)</h4>
+        <ul>
+          <li>Storage: 5 hrs &times; $0.0458 = $0.23</li>
+          <li>DB software: 6 hrs &times; $0.0625 = $0.38</li>
+          <li>Android Platform: 3 hrs &times; $0.1042 = $0.31</li>
+          <li>Computing Services: 24 hrs &times; $0.1250 = $3.00</li>
+          <li>Cloud Security: 16 hrs &times; $0.0694 = $1.11</li>
+          <li>Linux OS Platform: 10 hrs &times; $0.0278 = $0.28</li>
+        </ul>
+        <div class="step-result">User-1 Total = $0.23 + $0.38 + $0.31 + $3.00 + $1.11 + $0.28 = <strong>$5.31</strong></div>
+
+        <h4>Step 3: Calculate User-2 Billing (Days-based &times; Daily Rate)</h4>
+        <ul>
+          <li>Storage: 17 days &times; $1.10 = $18.70</li>
+          <li>DB software: 20 days &times; $1.50 = $30.00</li>
+          <li>Android Platform: 25 days &times; $2.50 = $62.50</li>
+          <li>Computing Services: 12 days &times; $3.00 = $36.00</li>
+          <li>Cloud Security: 28 days &times; $1.6667 = $46.67</li>
+          <li>Linux OS Platform: 11 days &times; $0.6667 = $7.33</li>
+        </ul>
+        <div class="step-result">User-2 Total = $18.70 + $30.00 + $62.50 + $36.00 + $46.67 + $7.33 = <strong>$201.20</strong></div>
+
+        <h4>Step 4: Calculate User-3 Billing (Weeks-based &times; Weekly Rate)</h4>
+        <ul>
+          <li>Storage: 3 weeks &times; $8.25 = $24.75</li>
+          <li>DB software: 2 weeks &times; $11.25 = $22.50</li>
+          <li>Android Platform: 4 weeks &times; $18.75 = $75.00</li>
+          <li>Computing Services: 4 weeks &times; $22.50 = $90.00</li>
+          <li>Cloud Security: 2 weeks &times; $12.50 = $25.00</li>
+          <li>Linux OS Platform: 3 weeks &times; $5.00 = $15.00</li>
+        </ul>
+        <div class="step-result">User-3 Total = $24.75 + $22.50 + $75.00 + $90.00 + $25.00 + $15.00 = <strong>$252.25</strong></div>
+
+        <div class="final-answer">
+          Total Combined Revenue (P1 Corrected) = $5.31 + $201.20 + $252.25 = <strong>$458.76</strong>
+        </div>
+        <div class="callout-roman">
+          <div class="callout-icon">&#9998;</div>
+          <div class="callout-content">
+            <strong>Roman Urdu:</strong> Slide mein agar prices $/Month hain toh direct usage value se multiply nahi kar sakte. Pehle units same karni hongi. User-1 ke liye monthly prices ko 720 (hours) se divide karo, User-2 ke liye 30 (days) se, aur User-3 ke liye 4 (weeks) se divide karo. Phir correct values aayengi!
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Lec 15 Numericals - Bahria Cloud P2 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Lec 15 Question &middot; Bahria Cloud P2 (Corrected)</span>
+      <span class="badge badge-b">TYPE B</span>
+    </div>
+    <div class="problem-statement">
+      <p><strong>Scenario (Lec 15 - Bahria Cloud P2):</strong> Same pricing, but with User-4 added billing on <strong>Months</strong> (Monthly Rate = Monthly Price). Compute total revenue:</p>
+      <div class="table-container"><table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Cloud Services</th>
+            <th>Price $/Month</th>
+            <th>User-1 (Hours)</th>
+            <th>User-2 (Days)</th>
+            <th>User-3 (Weeks)</th>
+            <th>User-4 (Months)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Storage</td><td>$33</td><td>6</td><td>19</td><td>4</td><td>2</td></tr>
+          <tr><td>DB software</td><td>$45</td><td>17</td><td>13</td><td>3</td><td>1</td></tr>
+          <tr><td>Android Platform</td><td>$75</td><td>9</td><td>8</td><td>4</td><td>4</td></tr>
+          <tr><td>Computing Services</td><td>$90</td><td>22</td><td>20</td><td>2</td><td>5</td></tr>
+          <tr><td>Cloud Security</td><td>$50</td><td>10</td><td>21</td><td>1</td><td>6</td></tr>
+          <tr><td>Linux OS Platform</td><td>$20</td><td>18</td><td>4</td><td>3</td><td>2</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <details class="solution-toggle">
+      <summary>Show Solution &amp; Working</summary>
+      <div class="solution-card">
+        <h4>User-1 Billing (Hours-based &times; Hourly Rate)</h4>
+        <ul>
+          <li>Storage: 6 &times; $0.0458 = $0.27</li>
+          <li>DB software: 17 &times; $0.0625 = $1.06</li>
+          <li>Android Platform: 9 &times; $0.1042 = $0.94</li>
+          <li>Computing Services: 22 &times; $0.1250 = $2.75</li>
+          <li>Cloud Security: 10 &times; $0.0694 = $0.69</li>
+          <li>Linux OS Platform: 18 &times; $0.0278 = $0.50</li>
+        </ul>
+        <div class="step-result">User-1 Total = <strong>$6.21</strong></div>
+
+        <h4>User-2 Billing (Days-based &times; Daily Rate)</h4>
+        <ul>
+          <li>Storage: 19 &times; $1.10 = $20.90</li>
+          <li>DB software: 13 &times; $1.50 = $19.50</li>
+          <li>Android Platform: 8 &times; $2.50 = $20.00</li>
+          <li>Computing Services: 20 &times; $3.00 = $60.00</li>
+          <li>Cloud Security: 21 &times; $1.6667 = $35.00</li>
+          <li>Linux OS Platform: 4 &times; $0.6667 = $2.67</li>
+        </ul>
+        <div class="step-result">User-2 Total = <strong>$158.07</strong></div>
+
+        <h4>User-3 Billing (Weeks-based &times; Weekly Rate)</h4>
+        <ul>
+          <li>Storage: 4 &times; $8.25 = $33.00</li>
+          <li>DB software: 3 &times; $11.25 = $33.75</li>
+          <li>Android Platform: 4 &times; $18.75 = $75.00</li>
+          <li>Computing Services: 2 &times; $22.50 = $45.00</li>
+          <li>Cloud Security: 1 &times; $12.50 = $12.50</li>
+          <li>Linux OS Platform: 3 &times; $5.00 = $15.00</li>
+        </ul>
+        <div class="step-result">User-3 Total = <strong>$214.25</strong></div>
+
+        <h4>User-4 Billing (Months-based &times; Monthly Rate)</h4>
+        <ul>
+          <li>Storage: 2 &times; $33 = $66.00</li>
+          <li>DB software: 1 &times; $45 = $45.00</li>
+          <li>Android Platform: 4 &times; $75 = $300.00</li>
+          <li>Computing Services: 5 &times; $90 = $450.00</li>
+          <li>Cloud Security: 6 &times; $50 = $300.00</li>
+          <li>Linux OS Platform: 2 &times; $20 = $40.00</li>
+        </ul>
+        <div class="step-result">User-4 Total = <strong>$1,201.00</strong></div>
+
+        <div class="final-answer">
+          Total Combined Revenue (P2 Corrected) = $6.21 + $158.07 + $214.25 + $1,201.00 = <strong>$1,579.53</strong>
+        </div>
+      </div>
+    </details>
+  </div>
+
+
+  <div class="quick-revision">
+    <h4>Quick Revision Summary — TYPE B</h4>
+    <ul>
+      <li>Revenue = Price &times; Usage (per service)</li>
+      <li>Total = sum of all individual revenues</li>
+      <li>Watch for different time units (hourly vs daily vs monthly)</li>
+    </ul>
+  </div>
+  <div class="exam-trap">
+    <strong>Most Common Exam Trap:</strong> Mixing up hourly and daily usage columns. Always check which time period the question asks for.
+  </div>
+  <div class="memory-trick">
+    <strong>2-Line Memory Trick:</strong> "Price times usage, service by service. Sum them all — that's your total."
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- TYPE C: VM INSTANCE PRICING                                  -->
+<!-- ============================================================ -->
+<section class="section-card" id="type-c">
+  <div class="section-header-bar badge-c-bg">
+    <span class="badge badge-c">TYPE C</span>
+    <h2 class="section-title">VM Instance Pricing Calculations</h2>
+  </div>
+
+  <h3 class="subsection-title">The Two VM Pricing Models</h3>
+
+  <div class="table-container"><table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>On-Demand</th>
+        <th>Reserved</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Payment</strong></td>
+        <td>Per hour of actual use</td>
+        <td>Upfront fee + discounted hourly rate</td>
+      </tr>
+      <tr>
+        <td><strong>Commitment</strong></td>
+        <td>None — start/stop anytime</td>
+        <td>1–3 year commitment</td>
+      </tr>
+      <tr>
+        <td><strong>Rate (example)</strong></td>
+        <td>S: $0.10/hr &nbsp; M: $0.20/hr &nbsp; L: $0.90/hr</td>
+        <td>S: $55.10 &nbsp; M: $99.90 &nbsp; L: $249.90 (upfront)</td>
+      </tr>
+      <tr>
+        <td><strong>When to Use</strong></td>
+        <td>Short-term, variable, unpredictable</td>
+        <td>Long-term, stable, predictable</td>
+      </tr>
+      <tr>
+        <td><strong>Calculation</strong></td>
+        <td>Hours Used &times; Hourly Rate</td>
+        <td>Upfront + (Discounted Rate &times; Hours)</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="formula-box">
+    <div class="formula-label">On-Demand Cost</div>
+    <div class="formula-content"><span class="formula-var">Cost</span> = <span class="formula-var">VMs</span> &times; <span class="formula-var">Hourly Rate</span> &times; <span class="formula-var">Hours Used</span></div>
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">Monthly On-Demand</div>
+    <div class="formula-content"><span class="formula-var">Monthly</span> = <span class="formula-var">VMs</span> &times; (<span class="formula-var">Rate</span> &times; <strong>720</strong>)</div>
+  </div>
+  <div class="formula-box">
+    <div class="formula-label">Reserved Cost</div>
+    <div class="formula-content"><span class="formula-var">Cost</span> = <span class="formula-var">Upfront Fee</span> + (<span class="formula-var">Discounted Rate</span> &times; <span class="formula-var">Hours</span>)</div>
+  </div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> On-demand: VM chalao aur per-hour paisa do — flexible lekin mehenga. Reserved: pehle ek baar bada payment karo (upfront), phir har ghante ka rate kam hoga — long-term ke liye sasta.
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Worked Example C1 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Worked Example C1</span>
+      <span class="question-tag">Server Instance Cost — ATN Style</span>
+    </div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>4 virtual servers, rate = $1.25/hour per VM. Due to auto-scaling, actual usage = equivalent to 2.3 VMs. Calculate monthly cost.</p>
+    </div>
+    <div class="solution-card">
+      <div class="step-block"><div class="step-number">Step 1</div><div class="step-content">Hours in a month = 24 &times; 30 = <strong>720 hours</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 2</div><div class="step-content">Cost per VM per month = $1.25 &times; 720 = <strong>$900</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 3</div><div class="step-content">With scaling, actual usage = <strong>2.3 VMs</strong> (not 4!)</div></div>
+      <div class="step-block"><div class="step-number">Step 4</div><div class="step-content">Monthly cost = 2.3 &times; $900</div></div>
+      <div class="final-answer">Monthly Server Cost = <strong>$2,070</strong></div>
+    </div>
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content">
+        <strong>Roman Urdu:</strong> 4 VMs hain lekin auto-scaling ki wajah se sirf 2.3 VMs ke barabar use hota hai. Rate $1.25/hr. Month mein 720 hours. 2.3 &times; 1.25 &times; 720 = $2,070.
+      </div>
+    </div>
+  </div>
+
+  <!-- Worked Example C2 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Worked Example C2</span>
+      <span class="question-tag">On-Demand vs Reserved Comparison</span>
+    </div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>A company needs 2 medium VMs for 12 months. On-Demand rate: $0.20/hr. Reserved: $99.90 upfront per VM + $0.10/hr (discounted). Which is cheaper?</p>
+    </div>
+    <div class="solution-card">
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">ON-DEMAND for 12 months</div>
+          <p>Hours = 720 &times; 12 = 8,640 hours</p>
+          <div class="formula-box formula-inline">
+            <div class="formula-content">On-Demand = 2 &times; $0.20 &times; 8,640 = <strong>$3,456</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">RESERVED for 12 months</div>
+          <p>Upfront = 2 &times; $99.90 = $199.80</p>
+          <p>Usage = 2 &times; $0.10 &times; 8,640 = $1,728</p>
+          <div class="formula-box formula-inline">
+            <div class="formula-content">Reserved = $199.80 + $1,728 = <strong>$1,927.80</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="final-answer">Reserved ($1,927.80) &lt; On-Demand ($3,456) &rarr; <strong>Use Reserved</strong>. Savings = <strong>$1,528.20</strong></div>
+    </div>
+  </div>
+
+  <!-- Worked Example C3 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Worked Example C3</span>
+      <span class="question-tag">DTGOV Pricing with Surcharges</span>
+    </div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>DTGOV charges: Small VM on-demand = $0.10/hr. Surcharge for CLUSTERED = 100% (double). Surcharge for RESILIENT = 120% (2.2&times;). A company runs 2 clustered small VMs for 500 hours. Calculate cost.</p>
+    </div>
+    <div class="solution-card">
+      <div class="step-block"><div class="step-number">Step 1</div><div class="step-content">Base cost = 2 VMs &times; $0.10/hr &times; 500 hrs = <strong>$100</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 2</div><div class="step-content">Clustered surcharge = 100% extra &rarr; multiply by (1 + 1.00) = <strong>2.0</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 3</div><div class="step-content">Total = $100 &times; 2.0</div></div>
+      <div class="final-answer">Clustered Cost = <strong>$200</strong></div>
+    </div>
+    <div class="callout-danger">
+      <div class="callout-icon">!</div>
+      <div class="callout-content">
+        <strong>Don't Confuse:</strong> Clustered surcharge = 100% &rarr; multiply by <strong>2.0</strong>. Resilient surcharge = 150% &rarr; multiply by <strong>2.5</strong>. These are different!
+      </div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <h3 class="subsection-title">Practice Questions — TYPE C</h3>
+
+  <!-- Q5 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Question 5</span><span class="badge badge-c">TYPE C</span></div>
+    <div class="problem-statement">
+      <p>A company runs 3 large on-demand VMs continuously for 1 month. Rate = $0.90/hr. What is the monthly cost?</p>
+    </div>
+    <details class="solution-toggle">
+      <summary>Show Solution</summary>
+      <div class="solution-card">
+        <p>Hours = 720</p>
+        <p>Cost = 3 &times; $0.90 &times; 720 = 3 &times; $648</p>
+        <div class="final-answer">Monthly Cost = <strong>$1,944</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Question 6</span><span class="badge badge-c">TYPE C</span></div>
+    <div class="problem-statement">
+      <p>Compare on-demand vs reserved for 6 months, 1 small VM. On-demand: $0.10/hr. Reserved: $55.10 upfront + $0.05/hr.</p>
+    </div>
+    <details class="solution-toggle">
+      <summary>Show Solution</summary>
+      <div class="solution-card">
+        <p>On-Demand = 1 &times; $0.10 &times; (720 &times; 6) = $0.10 &times; 4,320 = <strong>$432</strong></p>
+        <p>Reserved = $55.10 + ($0.05 &times; 4,320) = $55.10 + $216 = <strong>$271.10</strong></p>
+        <div class="final-answer">Reserved ($271.10) cheaper by <strong>$160.90</strong> &rarr; Use Reserved.</div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Question 7</span><span class="badge badge-c">TYPE C</span></div>
+    <div class="problem-statement">
+      <p>4 VMs running, but auto-scaling reduces actual consumption to equivalent of 2.3 VMs. Rate = $1.25/hr. Find monthly cost.</p>
+    </div>
+    <details class="solution-toggle">
+      <summary>Show Solution</summary>
+      <div class="solution-card">
+        <div class="formula-box formula-inline">
+          <div class="formula-content">Cost = 2.3 &times; $1.25 &times; 720 = 2.3 &times; $900 = <strong>$2,070</strong></div>
+        </div>
+        <div class="final-answer">Monthly VM cost = <strong>$2,070</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="quick-revision">
+    <h4>Quick Revision Summary — TYPE C</h4>
+    <ul>
+      <li>On-Demand: VMs &times; Rate &times; Hours (flexible, more expensive)</li>
+      <li>Reserved: Upfront + (Discounted Rate &times; Hours) (commitment, cheaper long-term)</li>
+      <li>Auto-scaling: use <strong>effective VMs</strong>, not total installed</li>
+      <li>Hours/month = <strong>720</strong> (24 &times; 30)</li>
+      <li>DTGOV: Clustered = &times;2.0, Resilient = &times;2.5</li>
+    </ul>
+  </div>
+  <div class="exam-trap">
+    <strong>Most Common Exam Trap:</strong> Using "number of VMs installed" instead of "effective VMs after auto-scaling." If auto-scaling is mentioned, always use the effective number.
+  </div>
+  <div class="memory-trick">
+    <strong>2-Line Memory Trick:</strong> "On-demand: VMs times rate times hours, no commitment, pay as you go. Reserved: upfront first, then discounted — long-term, lower total."
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- TYPE D: NETWORK & STORAGE COSTS                              -->
+<!-- ============================================================ -->
+<section class="section-card" id="type-d">
+  <div class="section-header-bar badge-d-bg">
+    <span class="badge badge-d">TYPE D</span>
+    <h2 class="section-title">Network &amp; Storage Cost Calculations</h2>
+  </div>
+
+  <h3 class="subsection-title">All Network &amp; Storage Formulas</h3>
+
+  <div class="formula-box"><div class="formula-label">Inbound Network</div><div class="formula-content"><span class="formula-var">Cost</span> = <span class="formula-var">GB</span> &times; <span class="formula-var">$/GB</span> &nbsp;&nbsp; <em>(usually $0 — free!)</em></div></div>
+  <div class="formula-box"><div class="formula-label">Outbound Network</div><div class="formula-content"><span class="formula-var">Cost</span> = <span class="formula-var">GB</span> &times; <span class="formula-var">$/GB</span> &nbsp;&nbsp; <em>(e.g. $0.01/GB or $0.10/GB)</em></div></div>
+  <div class="formula-box"><div class="formula-label">Intra-Cloud WAN</div><div class="formula-content"><span class="formula-var">Cost</span> = <span class="formula-var">GB</span> &times; <span class="formula-var">$/GB</span> &nbsp;&nbsp; <em>(between regions)</em></div></div>
+  <div class="formula-box"><div class="formula-label">Storage (monthly)</div><div class="formula-content"><span class="formula-var">Cost</span> = <span class="formula-var">GB allocated</span> &times; <span class="formula-var">$/GB/month</span></div></div>
+  <div class="formula-box"><div class="formula-label">I/O Transfer</div><div class="formula-content"><span class="formula-var">Cost</span> = <span class="formula-var">GB transferred</span> &times; <span class="formula-var">$/GB</span> &nbsp;&nbsp; <em>(e.g. $0.001/GB)</em></div></div>
+
+  <h3 class="subsection-title">Rate Reference Table</h3>
+
+  <div class="table-container"><table class="comparison-table">
+    <thead>
+      <tr><th>Metric</th><th>Direction</th><th>Typical Rate</th><th>Free Tier</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Inbound</strong></td><td>INTO cloud</td><td>Often $0</td><td>Up to 1 GB free</td></tr>
+      <tr><td><strong>Outbound</strong></td><td>OUT of cloud</td><td>$0.01–$0.10/GB</td><td>Up to 1 GB free</td></tr>
+      <tr><td><strong>Intra-Cloud WAN</strong></td><td>Same cloud, diff regions</td><td>$0.005–$0.01/GB</td><td>500 MB free/day</td></tr>
+      <tr><td><strong>Storage Allocation</strong></td><td>Space reserved</td><td>$0.10/GB/month</td><td>None typically</td></tr>
+      <tr><td><strong>I/O Transfer</strong></td><td>Data in/out of storage</td><td>$0.0001/GB ($0.10/TB)</td><td>Varies</td></tr>
+      <tr><td><strong>DTGOV Outbound</strong></td><td>Out of DTGOV cloud</td><td>$0.01/GB</td><td>None</td></tr>
+      <tr><td><strong>DTGOV Storage</strong></td><td>Storage space</td><td>$0.10/GB/month</td><td>60 GB first 90 days</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> Network costs: inbound (cloud mein aane wala data) usually free hota hai. Outbound (cloud se bahar jaane wala) charge hota hai. Same cloud ke alag regions ke beech (intra-cloud) bhi charge hota hai. Storage: kitni jagah reserve ki. I/O: kitna data actually move kiya.
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Worked Example D1 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example D1</span><span class="question-tag">Network Cost — ATN Style</span></div>
+    <div class="problem-statement"><h4>Problem</h4><p>Monthly outbound WAN traffic = 420 GB at $0.10/GB. Monthly DB storage = 300 GB at $1.09/GB. Calculate monthly network + storage cost.</p></div>
+    <div class="solution-card">
+      <div class="step-block"><div class="step-number">Step 1</div><div class="step-content">Outbound WAN = 420 GB &times; $0.10/GB = <strong>$42</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 2</div><div class="step-content">Database Storage = 300 GB &times; $1.09/GB = <strong>$327</strong></div></div>
+      <div class="final-answer">Network = $42 &nbsp;|&nbsp; Storage = $327 &nbsp;|&nbsp; Combined = <strong>$369/month</strong></div>
+    </div>
+  </div>
+
+  <!-- Worked Example D2 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example D2</span><span class="question-tag">DTGOV Billing Scenario</span></div>
+    <div class="problem-statement"><h4>Problem</h4><p>A company uses DTGOV: 200 GB storage ($0.10/GB/month), 50 GB I/O ($0.001/GB), 400 GB outbound WAN ($0.01/GB), inbound 100 GB (free). Calculate total monthly bill.</p></div>
+    <div class="solution-card">
+      <div class="step-block"><div class="step-number">Step 1</div><div class="step-content">Storage = 200 GB &times; $0.10 = <strong>$20</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 2</div><div class="step-content">I/O Transfer = 50 GB &times; $0.001 = <strong>$0.05</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 3</div><div class="step-content">Outbound WAN = 400 GB &times; $0.01 = <strong>$4</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 4</div><div class="step-content">Inbound = 100 GB &times; $0 = <strong>$0</strong> (free)</div></div>
+      <div class="final-answer">Total = $20 + $0.05 + $4 + $0 = <strong>$24.05/month</strong></div>
+    </div>
+    <div class="callout-tip">
+      <div class="callout-icon">&#9733;</div>
+      <div class="callout-content"><strong>Exam Tip:</strong> Always check: is the traffic <strong>INBOUND</strong> (usually free) or <strong>OUTBOUND</strong> (charged)? This is a classic trick question.</div>
+    </div>
+  </div>
+
+  <!-- Worked Example D3 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example D3</span><span class="question-tag">Tiered Pricing Calculation</span></div>
+    <div class="problem-statement"><h4>Problem</h4><p>Outbound pricing: first 1 GB free, then $0.01/GB from 1 GB to 10 TB. Monthly volume = 500 GB. Calculate cost.</p></div>
+    <div class="solution-card">
+      <div class="step-block"><div class="step-number">Step 1</div><div class="step-content">First 1 GB = <strong>free</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 2</div><div class="step-content">Remaining = 500 - 1 = <strong>499 GB</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 3</div><div class="step-content">Cost = 499 GB &times; $0.01/GB = <strong>$4.99</strong></div></div>
+      <div class="final-answer">Monthly outbound cost = <strong>$4.99</strong></div>
+    </div>
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content"><strong>Roman Urdu:</strong> Tiered pricing mein pehle check karo kitna free hai (yahan 1 GB). Usse ghata do. Baaki par rate lagao. 500 - 1 = 499 GB &times; $0.01 = $4.99.</div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+  <h3 class="subsection-title">Practice Questions — TYPE D</h3>
+
+  <!-- Q8 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Question 8</span><span class="badge badge-d">TYPE D</span></div>
+    <div class="problem-statement"><p>Monthly usage: Outbound WAN = 800 GB at $0.10/GB. DB Storage = 1,500 GB at $1.09/GB. Network admin labor = $80. Calculate total monthly network+storage cost.</p></div>
+    <details class="solution-toggle"><summary>Show Solution</summary>
+      <div class="solution-card">
+        <ul><li>Outbound: 800 &times; $0.10 = $80</li><li>Storage: 1,500 &times; $1.09 = $1,635</li><li>Labor: $80</li></ul>
+        <div class="final-answer">Total = $80 + $1,635 + $80 = <strong>$1,795/month</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Question 9</span><span class="badge badge-d">TYPE D</span></div>
+    <div class="problem-statement"><p>A company transfers: 2,000 GB inbound (rate: first 1GB free, $0.001/GB after), 1,000 GB outbound ($0.01/GB, first 1GB free). Calculate total network cost.</p></div>
+    <details class="solution-toggle"><summary>Show Solution</summary>
+      <div class="solution-card">
+        <ul><li>Inbound: 1 GB free + 1,999 GB &times; $0.001 = $2.00</li><li>Outbound: 1 GB free + 999 GB &times; $0.01 = $9.99</li></ul>
+        <div class="final-answer">Total network cost = $2.00 + $9.99 = <strong>$11.99</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="quick-revision">
+    <h4>Quick Revision Summary — TYPE D</h4>
+    <ul>
+      <li>Inbound = usually <strong>FREE</strong></li>
+      <li>Outbound = <strong>CHARGED</strong> ($0.01–$0.10/GB)</li>
+      <li>Storage = GB &times; rate/month</li>
+      <li>For tiered pricing: subtract free tier first, then apply rate</li>
+    </ul>
+  </div>
+  <div class="exam-trap">
+    <strong>Most Common Exam Trap:</strong> Treating INBOUND traffic as chargeable. It's usually <strong>FREE</strong>. Don't add it to the total cost!
+  </div>
+  <div class="memory-trick">
+    <strong>2-Line Memory Trick:</strong> "Inbound is free, outbound you pay. Subtract the free tier, rate the rest away."
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- TYPE E: ARCHITECTURE SELECTION                               -->
+<!-- ============================================================ -->
+<section class="section-card" id="type-e">
+  <div class="section-header-bar badge-e-bg">
+    <span class="badge badge-e">TYPE E</span>
+    <h2 class="section-title">Cloud Architecture Selection Questions</h2>
+  </div>
+
+  <h3 class="subsection-title">The Architecture Decision Framework</h3>
+  <p>When a question asks <em>"Which architecture should they use?"</em> — apply this decision table:</p>
+
+  <table class="comparison-table decision-table">
+    <thead>
+      <tr><th>Scenario / Problem</th><th>Architecture</th><th>Key Mechanism</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Server/hypervisor fails &rarr; VMs go down</td><td><strong>Hypervisor Clustering</strong></td><td>VIM + Heartbeat + Live VM Migration</td></tr>
+      <tr><td>Some servers overloaded, others idle</td><td><strong>Load Balanced VM Instances</strong></td><td>Capacity Watchdog + Planner + Live Migration</td></tr>
+      <tr><td>Service migration without user disruption</td><td><strong>Non-Disruptive Service Relocation</strong></td><td>Scaling Listener + Duplicate + Live Migration</td></tr>
+      <tr><td>Physical server failure, zero downtime needed</td><td><strong>Zero Downtime Architecture</strong></td><td>Fault Tolerance + Shared Volume + Live Migration</td></tr>
+      <tr><td>On-premise overloaded during peak traffic</td><td><strong>Cloud Bursting</strong></td><td>Scaling Listener + Resource Replication</td></tr>
+      <tr><td>Real-time IoT data, low latency needed</td><td><strong>Fog Computing</strong></td><td>Edge/Fog nodes near devices</td></tr>
+      <tr><td>Many independent features, separate teams</td><td><strong>Microservices</strong></td><td>API Gateway + Service Discovery + Own DBs</td></tr>
+      <tr><td>Secure access, don't trust internal network</td><td><strong>Zero Trust Networking</strong></td><td>IAM + Microsegmentation + ZTNA + Monitoring</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> Ek line mein yaad karo: Server fail &rarr; Clustering. Uneven load &rarr; Load Balancing. Migration bina disruption &rarr; Non-Disruptive. Hardware fail &rarr; Zero Downtime. On-premise overload &rarr; Cloud Bursting. Real-time IoT &rarr; Fog. Many features separately &rarr; Microservices. Network trust &rarr; Zero Trust.
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Worked Example E1 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example E1</span><span class="question-tag">Multi-Scenario Question</span></div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>ATN has three situations:</p>
+      <ul>
+        <li><strong>(a)</strong> During Eid sales, on-premise servers hit 95% CPU — users experience slowness.</li>
+        <li><strong>(b)</strong> Physical Server 2 suddenly stopped working, causing 3 VMs to go offline.</li>
+        <li><strong>(c)</strong> They want to update a cloud service but cannot afford any downtime.</li>
+      </ul>
+    </div>
+    <div class="solution-card">
+      <div class="step-block"><div class="step-number">(a)</div><div class="step-content"><strong>Cloud Bursting Architecture</strong> — burst to cloud when on-premise threshold exceeded, burst back when done.</div></div>
+      <div class="step-block"><div class="step-number">(b)</div><div class="step-content"><strong>Hypervisor Clustering Architecture</strong> — VIM detects failed heartbeat, live-migrates VMs to healthy server.</div></div>
+      <div class="step-block"><div class="step-number">(c)</div><div class="step-content"><strong>Non-Disruptive Service Relocation</strong> — duplicate service, sync, confirm new works, remove old.</div></div>
+    </div>
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content">
+        <strong>Roman Urdu:</strong> (a) On-premise peak mein thoda hoga &rarr; Cloud Bursting. (b) Server kharab &rarr; Hypervisor Clustering (VMs automatically shift). (c) Update bina band kiye &rarr; Non-Disruptive Relocation (copy banao phir original hatao).
+      </div>
+    </div>
+  </div>
+
+  <!-- Worked Example E2 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example E2</span><span class="question-tag">Cost Optimization Architecture</span></div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>A company has 3 physical servers: Server A has 80% CPU (10 VMs), Server B has 40% CPU (5 VMs), Server C has 20% CPU (2 VMs). Which architecture?</p>
+    </div>
+    <div class="solution-card">
+      <div class="final-answer"><strong>Load Balanced Virtual Server Instances</strong> — Capacity Watchdog detects over-utilization on Server A and under-utilization on Server C. Capacity Planner signals the Load Balancer to live-migrate VMs from A to C.</div>
+    </div>
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content"><strong>Roman Urdu:</strong> Server A overloaded, Server C khaali — uneven workload. Capacity Watchdog detect karta hai aur VMs shift karta hai &rarr; Load Balanced VM Instances.</div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+  <h3 class="subsection-title">Practice Questions — TYPE E</h3>
+
+  <!-- Q10 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Question 10</span><span class="badge badge-e">TYPE E</span></div>
+    <div class="problem-statement"><p>A hospital's cloud monitoring service must NEVER go offline. Even if the hardware breaks, the service must keep running. What architecture ensures this?</p></div>
+    <details class="solution-toggle"><summary>Show Solution</summary>
+      <div class="solution-card">
+        <div class="final-answer"><strong>Zero Downtime Architecture</strong> — multiple physical servers in a fault-tolerance group. If any server fails, VMs are automatically live-migrated. All VMs on shared volume accessible by any server.</div>
+        <div class="callout-roman"><div class="callout-icon">&#9998;</div><div class="callout-content"><strong>Roman Urdu:</strong> Hospital system kabhi band nahi ho sakta — Zero Downtime Architecture. Fault tolerance group + shared volume + live VM migration = hardware fail hone par bhi service chalti rehti hai.</div></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Question 11</span><span class="badge badge-e">TYPE E</span></div>
+    <div class="problem-statement"><p>A startup builds an e-commerce app with separate teams: user login, product catalog, payment, reviews, notifications. Each team deploys independently. What architecture?</p></div>
+    <details class="solution-toggle"><summary>Show Solution</summary>
+      <div class="solution-card">
+        <div class="final-answer"><strong>Microservices Architecture</strong> — each feature is an independent service with its own database, deployable separately, communicating via APIs through an API Gateway.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="quick-revision">
+    <h4>Quick Revision Summary — TYPE E</h4>
+    <ul>
+      <li>Server fail &rarr; <strong>Hypervisor Clustering</strong></li>
+      <li>Uneven load &rarr; <strong>Load Balanced VMs</strong></li>
+      <li>Update without downtime &rarr; <strong>Non-Disruptive Relocation</strong></li>
+      <li>Hardware fail, zero downtime &rarr; <strong>Zero Downtime Architecture</strong></li>
+      <li>Peak traffic on-prem &rarr; <strong>Cloud Bursting</strong></li>
+      <li>IoT/low latency &rarr; <strong>Fog Computing</strong></li>
+      <li>Separate teams/features &rarr; <strong>Microservices</strong></li>
+      <li>Don't trust network &rarr; <strong>Zero Trust</strong></li>
+    </ul>
+  </div>
+  <div class="exam-trap">
+    <strong>Most Common Exam Trap:</strong> Confusing "Hypervisor Clustering" (server fails) with "Zero Downtime" (guaranteed uptime). Clustering = reactive recovery. Zero Downtime = proactive fault tolerance with shared volumes.
+  </div>
+  <div class="memory-trick">
+    <strong>2-Line Memory Trick:</strong> "Fail: Cluster. Uneven: Balance. Peak: Burst. Update: Relocate. IoT: Fog. Teams: Micro. Trust: Zero."
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- TYPE F: PRICING MODEL SELECTION                              -->
+<!-- ============================================================ -->
+<section class="section-card" id="type-f">
+  <div class="section-header-bar badge-f-bg">
+    <span class="badge badge-f">TYPE F</span>
+    <h2 class="section-title">Pricing Model Selection Questions</h2>
+  </div>
+
+  <h3 class="subsection-title">IaaS vs PaaS vs SaaS — Which Model?</h3>
+
+  <div class="table-container"><table class="comparison-table">
+    <thead>
+      <tr><th>If the consumer...</th><th>Model</th><th>Pricing Basis</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Needs raw VMs, storage, networking — manages own OS</td><td><strong>IaaS</strong></td><td>VM hours + storage GB + network GB</td><td>AWS EC2, DTGOV</td></tr>
+      <tr><td>Deploys code/apps on managed platform — no OS mgmt</td><td><strong>PaaS</strong></td><td>VM hours + storage + network + licensing</td><td>Heroku, ATN PaaS</td></tr>
+      <tr><td>Just uses a finished application — no servers</td><td><strong>SaaS</strong></td><td>Subscription + per user + per transaction</td><td>Microsoft 365</td></tr>
+      <tr><td>Needs to store files and serve globally</td><td><strong>IaaS (Storage)</strong></td><td>Storage GB/month + I/O + outbound</td><td>AWS S3</td></tr>
+      <tr><td>Wants to sell app as a service to end users</td><td><strong>SaaS pricing</strong></td><td>Subscription + users + transactions</td><td>Any cloud SaaS</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="formula-box">
+    <div class="formula-label">SaaS Revenue Formula</div>
+    <div class="formula-content"><span class="formula-var">SaaS Revenue</span> = (<span class="formula-var">Subscription</span> &times; <span class="formula-var">Duration</span>) + (<span class="formula-var">Users</span> &times; <span class="formula-var">Per-User Fee</span>) + (<span class="formula-var">Transactions &divide; 1,000</span> &times; <span class="formula-var">Rate</span>)</div>
+  </div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> IaaS: raw infrastructure — VMs, storage, network. PaaS: platform — code deploy karo, OS khud manage nahi karna. SaaS: ready app — per user/month subscription. Rule: jitna zyada manage karte ho utna IaaS. Jitna kam manage karte ho utna SaaS.
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Worked Example F1 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example F1</span><span class="question-tag">SaaS Revenue Calculation</span></div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>SaaS charges: $69.90/month subscription + $0.90/additional user/month + $0.05 per 1,000 transactions. January: 50 users (base includes 10, so 40 additional), 500,000 transactions. Calculate revenue.</p>
+    </div>
+    <div class="solution-card">
+      <div class="step-block"><div class="step-number">Step 1</div><div class="step-content">Subscription = <strong>$69.90</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 2</div><div class="step-content">Additional Users = 40 &times; $0.90 = <strong>$36</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 3</div><div class="step-content">Transactions = 500,000 &divide; 1,000 &times; $0.05 = 500 &times; $0.05 = <strong>$25</strong></div></div>
+      <div class="final-answer">Total SaaS Revenue = $69.90 + $36 + $25 = <strong>$130.90/month</strong></div>
+    </div>
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content"><strong>Roman Urdu:</strong> SaaS revenue: subscription fee + extra users &times; rate + (transactions &divide; 1000) &times; rate. Yahan: $69.90 + $36 + $25 = $130.90.</div>
+    </div>
+  </div>
+
+  <!-- Worked Example F2 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example F2</span><span class="question-tag">Integrated vs Separate Pricing</span></div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>Consumer leases SaaS from Provider A ($200/month). Provider A leases IaaS from Provider B ($80/month). Describe the money flow.</p>
+    </div>
+    <div class="solution-card">
+      <ul>
+        <li>Consumer pays Provider A: <strong>$200/month</strong> (single payment)</li>
+        <li>Provider A pays Provider B: <strong>$80/month</strong> (leasing IaaS backend)</li>
+        <li>Provider A profit = $200 - $80 = <strong>$120/month</strong></li>
+      </ul>
+      <div class="final-answer">Consumer sees <strong>ONE invoice</strong> — to Provider A only. Provider A handles the IaaS relationship with Provider B.</div>
+    </div>
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content"><strong>Roman Urdu:</strong> Consumer sirf Provider A ko paisa deta hai ($200). Provider A apne andar se Provider B ko IaaS ka paisa deta hai ($80). Consumer ko Provider B se seedha lena-dena nahi.</div>
+    </div>
+  </div>
+
+  <div class="quick-revision">
+    <h4>Quick Revision Summary — TYPE F</h4>
+    <ul>
+      <li><strong>IaaS:</strong> You manage everything above the hardware (OS, apps) — pay for VMs, storage, network</li>
+      <li><strong>PaaS:</strong> You manage your code only — platform handles OS, runtime</li>
+      <li><strong>SaaS:</strong> You manage nothing — just use the app, pay subscription</li>
+      <li>SaaS Revenue = Subscription + Users &times; Rate + Transactions/1000 &times; Rate</li>
+    </ul>
+  </div>
+  <div class="exam-trap">
+    <strong>Most Common Exam Trap:</strong> Confusing PaaS and SaaS. PaaS = you deploy code. SaaS = you just use it. If the question says "finished application" &rarr; SaaS.
+  </div>
+  <div class="memory-trick">
+    <strong>2-Line Memory Trick:</strong> "IaaS: you build it. PaaS: you code it. SaaS: you use it. More management = more I, less management = more S."
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- TYPE G: BREAK-EVEN ANALYSIS                                  -->
+<!-- ============================================================ -->
+<section class="section-card" id="type-g">
+  <div class="section-header-bar badge-g-bg">
+    <span class="badge badge-g">TYPE G</span>
+    <h2 class="section-title">Break-Even Analysis</h2>
+  </div>
+
+  <div class="concept-block">
+    <h3 class="subsection-title">What is Break-Even?</h3>
+    <p><strong>Break-even</strong> is the point in time when the cumulative cost of Cloud equals the cumulative cost of On-Premise.</p>
+    <ul>
+      <li><strong>Before</strong> this point: one option is cheaper</li>
+      <li><strong>After</strong> this point: the other takes over</li>
+    </ul>
+  </div>
+
+  <div class="formula-box">
+    <div class="formula-label">Break-Even Month Formula</div>
+    <div class="formula-content">
+      <span class="formula-var">N</span> = (<span class="formula-var">OP Up-Front</span> &minus; <span class="formula-var">Cloud Up-Front</span>) &divide; (<span class="formula-var">Cloud Monthly</span> &minus; <span class="formula-var">OP Monthly</span>)
+    </div>
+  </div>
+
+  <div class="callout-warning">
+    <div class="callout-icon">!</div>
+    <div class="callout-content">
+      <strong>Important:</strong> This formula only works when <strong>Cloud Monthly &gt; On-Premise Monthly</strong>. If cloud monthly is LOWER, cloud is cheaper from day 1 after upfront comparison.
+    </div>
+  </div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> Break-even matlab: kis mahine dono ki total cost equal ho jaati hai. Isse pehle ek sasta, baad mein doosra. Formula: (OP Upfront - Cloud Upfront) &divide; (Cloud Monthly - OP Monthly) = break-even month.
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Worked Example G1 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example G1</span><span class="question-tag">No Break-Even Needed</span></div>
+    <div class="problem-statement"><h4>Problem</h4><p>On-Premise: $51,000 upfront, $3,970/month. Cloud: $5,000 upfront, $3,239/month. Find the break-even point.</p></div>
+    <div class="solution-card">
+      <div class="step-block">
+        <div class="step-number">Analysis</div>
+        <div class="step-content">
+          <ul>
+            <li>On-Premise upfront ($51,000) &gt;&gt; Cloud upfront ($5,000)</li>
+            <li>Cloud monthly ($3,239) &lt; On-Premise monthly ($3,970)</li>
+          </ul>
+          <p>Cloud is cheaper BOTH in upfront AND monthly!</p>
+        </div>
+      </div>
+      <div class="final-answer">Cloud is cheaper from <strong>Month 1</strong> — no break-even needed. Use cloud immediately.</div>
+    </div>
+  </div>
+
+  <!-- Worked Example G2 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example G2</span><span class="question-tag">Cloud Monthly is Higher</span></div>
+    <div class="problem-statement"><h4>Problem</h4><p>On-Premise: $10,000 upfront, $2,000/month. Cloud: $1,000 upfront, $2,500/month. Find break-even.</p></div>
+    <div class="solution-card">
+      <div class="step-block"><div class="step-number">Step 1</div><div class="step-content">Up-front difference = $10,000 - $1,000 = <strong>$9,000</strong> (on-premise costs more upfront)</div></div>
+      <div class="step-block"><div class="step-number">Step 2</div><div class="step-content">Monthly difference = $2,500 - $2,000 = <strong>$500/month</strong> (cloud costs more per month)</div></div>
+      <div class="step-block"><div class="step-number">Step 3</div><div class="step-content">Break-even = $9,000 &divide; $500 = <strong>18 months</strong></div></div>
+      <div class="final-answer">Break-even = <strong>Month 18</strong>. Before Month 18 &rarr; Cloud is cheaper. After Month 18 &rarr; On-Premise is cheaper.</div>
+
+      <div class="callout-info">
+        <div class="callout-icon">&#10003;</div>
+        <div class="callout-content">
+          <strong>Verification:</strong><br>
+          Cloud at Month 18 = $1,000 + ($2,500 &times; 18) = $46,000<br>
+          On-Premise at Month 18 = $10,000 + ($2,000 &times; 18) = $46,000 &check;
+        </div>
+      </div>
+    </div>
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content"><strong>Roman Urdu:</strong> On-premise ka upfront zyada ($10,000 vs $1,000). Cloud ka monthly zyada ($2,500 vs $2,000). Break-even = $9,000 &divide; $500 = 18 months. 18 mahine ke baad on-premise sasta.</div>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+  <h3 class="subsection-title">Practice Questions — TYPE G</h3>
+
+  <!-- Q12 -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Question 12</span><span class="badge badge-g">TYPE G</span></div>
+    <div class="problem-statement"><p>On-Premise: $30,000 upfront, $1,500/month. Cloud: $2,000 upfront, $2,000/month. When does on-premise become cheaper?</p></div>
+    <details class="solution-toggle"><summary>Show Solution</summary>
+      <div class="solution-card">
+        <div class="step-block"><div class="step-number">Step 1</div><div class="step-content">Upfront diff: $30,000 - $2,000 = <strong>$28,000</strong></div></div>
+        <div class="step-block"><div class="step-number">Step 2</div><div class="step-content">Monthly diff: $2,000 - $1,500 = <strong>$500/month</strong></div></div>
+        <div class="step-block"><div class="step-number">Step 3</div><div class="step-content">Break-even = $28,000 &divide; $500 = <strong>56 months</strong> (~4.7 years)</div></div>
+        <div class="final-answer">Planning &lt; 56 months &rarr; <strong>Cloud cheaper</strong>. Planning &gt; 56 months &rarr; <strong>On-Premise cheaper</strong>.</div>
+        <div class="callout-roman"><div class="callout-icon">&#9998;</div><div class="callout-content"><strong>Roman Urdu:</strong> Upfront diff: $28,000. Monthly diff: $500. 28,000 &divide; 500 = 56 mahine. 56 ke baad on-premise sasta.</div></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="quick-revision">
+    <h4>Quick Revision Summary — TYPE G</h4>
+    <ul>
+      <li>Break-even = (OP Upfront - Cloud Upfront) &divide; (Cloud Monthly - OP Monthly)</li>
+      <li>Only applies when cloud monthly &gt; OP monthly</li>
+      <li>If cloud wins both upfront AND monthly &rarr; no break-even, cloud always cheaper</li>
+      <li>Always verify your answer by plugging the break-even month back in</li>
+    </ul>
+  </div>
+  <div class="exam-trap">
+    <strong>Most Common Exam Trap:</strong> Applying the break-even formula when cloud is cheaper in BOTH upfront and monthly. In that case, there is no crossover — cloud always wins.
+  </div>
+  <div class="memory-trick">
+    <strong>2-Line Memory Trick:</strong> "Upfront difference on top, monthly difference below. Divide to find the month where costs equal."
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- ADDITIONAL COST CONCEPTS                                     -->
+<!-- ============================================================ -->
+<section class="section-card" id="additional-costs">
+  <div class="section-header-bar badge-a-bg">
+    <span class="badge badge-a">EXTRA</span>
+    <h2 class="section-title">Additional Cost Concepts: Sunk, Integration, Locked-in, Capital</h2>
+  </div>
+
+  <div class="table-container"><table class="comparison-table">
+    <thead>
+      <tr><th>Cost Type</th><th>Definition</th><th>Cloud or On-Premise?</th><th>Exam Trick</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Cost of Capital</strong></td>
+        <td>Cost of raising/borrowing money to fund IT investment</td>
+        <td>Both — higher for on-premise (bigger upfront)</td>
+        <td>If interest rate given, add it to up-front cost</td>
+      </tr>
+      <tr>
+        <td><strong>Sunk Costs</strong></td>
+        <td>Money already spent — can't recover</td>
+        <td>On-Premise (existing hardware)</td>
+        <td class="highlight-danger"><strong>IGNORE them in decisions</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Integration Costs</strong></td>
+        <td>Effort to make new system work with existing</td>
+        <td>Cloud (especially legacy apps)</td>
+        <td>Key reason cloud migration can be expensive</td>
+      </tr>
+      <tr>
+        <td><strong>Locked-in Costs</strong></td>
+        <td>Cost/difficulty of switching providers later</td>
+        <td>Cloud</td>
+        <td>Vendor lock-in — dependent on one provider</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> (1) Cost of Capital: paise uthane ki cost — on-premise mein zyada. (2) Sunk Costs: jo pehle kharch ho chuke — ignore karo. (3) Integration: naye system ko purane se connect karna. (4) Locked-in: ek provider par depend ho jaana.
+    </div>
+  </div>
+
+  <div class="callout-danger">
+    <div class="callout-icon">!</div>
+    <div class="callout-content">
+      <strong>Sunk Cost Trap:</strong> If asked <em>"should they consider existing paid-off servers in the decision?"</em> — Answer: <strong>NO.</strong> Sunk costs are irrelevant to future decisions. This is a very common exam question!
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Worked Example -->
+  <div class="question-card">
+    <div class="question-header"><span class="question-label">Worked Example</span><span class="question-tag">Additional Costs</span></div>
+    <div class="problem-statement">
+      <h4>Problem</h4>
+      <p>A company has $20,000 of existing servers (sunk cost). Migration integration cost = $15,000. They borrowed $50,000 at 5% annual interest for on-premise setup. What is the annual cost of capital?</p>
+    </div>
+    <div class="solution-card">
+      <div class="step-block"><div class="step-number">Step 1</div><div class="step-content">Cost of Capital = $50,000 &times; 5% = <strong>$2,500/year</strong></div></div>
+      <div class="step-block"><div class="step-number">Step 2</div><div class="step-content">Sunk cost ($20,000 existing servers) &rarr; <strong>IGNORE</strong> in decision-making</div></div>
+      <div class="step-block"><div class="step-number">Step 3</div><div class="step-content">Integration cost ($15,000) &rarr; <strong>Add to Cloud up-front cost</strong></div></div>
+      <div class="final-answer">
+        Annual Cost of Capital = <strong>$2,500</strong> (add to on-premise costs).<br>
+        Sunk costs = <strong>irrelevant</strong>. Integration = <strong>cloud upfront addition</strong>.
+      </div>
+    </div>
+    <div class="callout-roman">
+      <div class="callout-icon">&#9998;</div>
+      <div class="callout-content"><strong>Roman Urdu:</strong> $50,000 &times; 5% = $2,500 cost of capital per year. $20,000 sunk cost — ignore karo. $15,000 integration — cloud ke upfront mein add.</div>
+    </div>
+  </div>
+
+  <div class="quick-revision">
+    <h4>Quick Revision Summary</h4>
+    <ul>
+      <li><strong>Sunk costs:</strong> ALWAYS ignore in decisions</li>
+      <li><strong>Cost of Capital:</strong> Principal &times; Interest Rate = annual cost</li>
+      <li><strong>Integration costs:</strong> Add to cloud upfront</li>
+      <li><strong>Locked-in costs:</strong> Risk of vendor dependency</li>
+    </ul>
+  </div>
+  <div class="exam-trap">
+    <strong>Most Common Exam Trap:</strong> Including sunk costs in TCO comparison. Sunk costs are <strong>already spent</strong> — they should NEVER influence your migration decision.
+  </div>
+  <div class="memory-trick">
+    <strong>2-Line Memory Trick:</strong> "Sunk costs: spent and gone, never count them on. Capital cost: borrow rate, integration makes cloud wait."
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- DIAGRAM-BASED NUMERICALS & FIREWALLS                         -->
+<!-- ============================================================ -->
+<section class="section-card" id="diagram-numericals">
+  <div class="section-header-bar badge-b-bg" >
+    <span class="badge badge-b" >DIAGRAMS</span>
+    <h2 class="section-title">Diagram-Based Network &amp; Firewall Questions</h2>
+  </div>
+  <p class="section-intro">Master scenario-based firewall architecture, device placement, and stateful rule table design using premium interactive diagrams.</p>
+
+  <h3 class="subsection-title">1. Guide: Design &amp; Classify Any Firewall Scenario</h3>
+    <div class="table-container" style="text-align: center; padding: 20px; margin: 20px 0;">
+    <img src="diagrams/decision_guide.png" alt="Firewall Decision Guide" style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-default);">
+    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Logical decision guide for selecting and classifying firewall deployments based on network scenarios.</p>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Scenario 1: Hybrid Firewall (matching captured image) -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Scenario Question 1</span>
+      <span class="question-tag">Hybrid Network Firewall Architecture &amp; Rules</span>
+    </div>
+    <div class="problem-statement">
+      <p><strong>Scenario:</strong> A medium-sized company has three departments: HR, Finance, and IT. The company wants to secure its network from unauthorized access while allowing employees to access the internet and internal resources safely.</p>
+      <p><strong>Requirements:</strong></p>
+      <ol>
+        <li>Only the Finance department should access the accounting server.</li>
+        <li>Employees can browse the web but cannot access social media websites during office hours (08:00 - 18:00).</li>
+        <li>External users should only access the company's public web server.</li>
+        <li>The IT department should have full network access for maintenance.</li>
+        <li>The network must be protected from malware and unauthorized login attempts.</li>
+      </ol>
+      <p><strong>Tasks:</strong></p>
+      <ul>
+        <li><strong>(a)</strong> Design a firewall architecture for the company network and explain the rationale.</li>
+        <li><strong>(b)</strong> Draw/reference a simple network diagram showing firewall placement and zones.</li>
+        <li><strong>(c)</strong> Write at least four firewall rules based on the requirements.</li>
+      </ul>
+    </div>
+
+    <details class="solution-toggle">
+      <summary>Show Solution &amp; Diagram</summary>
+      <div class="solution-card" style="border-left-color: var(--accent-green);">
+        <span class="solution-label">Solution &amp; Diagram</span>
+        
+        <h4>(a) Design &amp; Rationale</h4>
+        <p>A <strong>Hybrid Firewall Architecture</strong> is recommended because the company needs to support both external users accessing public services and strict, stateful departmental access controls internally:</p>
+        <ul>
+          <li><strong>Outer Firewall (Packet-Filtering):</strong> Placed at the network perimeter. It filters traffic by IP and port, blocking initial untrusted packets and ensuring external traffic only reaches the DMZ.</li>
+          <li><strong>DMZ (Demilitarized Zone):</strong> An isolated zone containing the <strong>Public Web Server</strong> (reachable from the internet on ports 80/443) and an <strong>Application Proxy Server</strong> (to inspect and filter content such as social media URLs).</li>
+          <li><strong>Inner Firewall (Stateful Packet Inspection - SPI):</strong> Placed between the DMZ and the internal department LANs. It maintains a state table, permits bidirectional employee web traffic initiated from inside, strictly separates internal departments (HR, Finance, IT), and blocks all traffic to the Accounting Server except from the Finance IP subnet.</li>
+          <li><strong>IDS/IPS (Intrusion Detection/Prevention):</strong> Integrated into the inner firewall or proxy to satisfy Requirement 5 (malware detection and threat prevention).</li>
+        </ul>
+
+        <h4>(b) Network Diagram (Interactive)</h4>
+                <div class="table-container" style="text-align: center; padding: 20px; margin: 20px 0;">
+          <img src="diagrams/q1_network.png" alt="DMZ Firewall Network Topology" style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-default);">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Premium multi-zone DMZ network architecture diagram.</p>
+        </div>
+
+        <h4>(c) Firewall Rules Table</h4>
+        <div class="table-container"><table class="comparison-table" style="font-size: 0.9rem; margin-top: 15px;">
+          <thead>
+            <tr>
+              <th>Rule #</th>
+              <th>Source IP / Zone</th>
+              <th>Destination IP</th>
+              <th>Port</th>
+              <th>Protocol</th>
+              <th>Time</th>
+              <th>Action</th>
+              <th>Rationale (Requirement)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: var(--tint-green);">
+              <td><strong>1</strong></td>
+              <td>Finance (10.0.2.0/24)</td>
+              <td>Acct Server (10.0.5.10)</td>
+              <td>443</td>
+              <td>TCP</td>
+              <td>Any</td>
+              <td><strong>ALLOW</strong></td>
+              <td>Only Finance accesses Accounting Server (Req 1)</td>
+            </tr>
+            <tr style="background: var(--tint-red);">
+              <td><strong>2</strong></td>
+              <td>HR, IT, Internet</td>
+              <td>Acct Server (10.0.5.10)</td>
+              <td>Any</td>
+              <td>Any</td>
+              <td>Any</td>
+              <td><strong>DENY</strong></td>
+              <td>Block non-Finance access to Accounting (Req 1)</td>
+            </tr>
+            <tr style="background: var(--tint-red);">
+              <td><strong>3</strong></td>
+              <td>Internal LAN (10.0.x.0/24)</td>
+              <td>Social Media IPs</td>
+              <td>80, 443</td>
+              <td>TCP</td>
+              <td>08:00 - 18:00</td>
+              <td><strong>DENY</strong></td>
+              <td>Block social media during office hours (Req 2)</td>
+            </tr>
+            <tr style="background: var(--tint-green);">
+              <td><strong>4</strong></td>
+              <td>External (0.0.0.0/0)</td>
+              <td>Web Server (10.0.4.5)</td>
+              <td>80, 443</td>
+              <td>TCP</td>
+              <td>Any</td>
+              <td><strong>ALLOW</strong></td>
+              <td>External public access to Web Server (Req 3)</td>
+            </tr>
+            <tr style="background: var(--tint-green);">
+              <td><strong>5</strong></td>
+              <td>IT Dept (10.0.3.0/24)</td>
+              <td>Any Internal</td>
+              <td>Any</td>
+              <td>Any</td>
+              <td>Any</td>
+              <td><strong>ALLOW</strong></td>
+              <td>IT full access for maintenance (Req 4)</td>
+            </tr>
+            <tr style="background: var(--tint-green);">
+              <td><strong>6</strong></td>
+              <td>Internal LAN (10.0.x.0/24)</td>
+              <td>Internet (0.0.0.0/0)</td>
+              <td>80, 443</td>
+              <td>TCP</td>
+              <td>Any</td>
+              <td><strong>ALLOW</strong></td>
+              <td>Allow employees general web browsing (Req 2)</td>
+            </tr>
+            <tr style="background: var(--tint-red);">
+              <td><strong>7</strong></td>
+              <td>Any (0.0.0.0/0)</td>
+              <td>Any (0.0.0.0/0)</td>
+              <td>Any</td>
+              <td>Any</td>
+              <td>Any</td>
+              <td><strong>DENY ALL</strong></td>
+              <td>Default Deny: drop all other traffic (Security best practice)</td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Scenario 2: Simple Packet-Filter (Small Business) -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Scenario Question 2</span>
+      <span class="question-tag">Packet-Filtering Router for Small Office</span>
+    </div>
+    <div class="problem-statement">
+      <p><strong>Scenario:</strong> A small start-up office with 15 employees uses a single flat LAN subnet (192.168.1.0/24). They have a locally hosted database server containing public catalog metadata (IP: 192.168.1.200) and need to block external Telnet access (Port 23) to protect workstations, while allowing employees to browse the web freely.</p>
+    </div>
+
+    <details class="solution-toggle">
+      <summary>Show Solution &amp; Diagram</summary>
+      <div class="solution-card" style="border-left-color: var(--accent-green);">
+        <span class="solution-label">Solution &amp; Diagram</span>
+        
+        <h4>(a) Recommendation &amp; Rationale</h4>
+        <p>A <strong>Simple Packet-Filtering Router/Firewall</strong> is sufficient here. Since this is a office with a flat network and no separate departments, a basic edge router inspecting headers secures the perimeter at minimal cost.</p>
+
+        <h4>(b) Firewall Placement Diagram (Interactive)</h4>
+                <div class="table-container" style="text-align: center; padding: 20px; margin: 20px 0;">
+          <img src="diagrams/simple_fw.png" alt="Simple Packet-Filtering Firewall Placement" style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-default);">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Perimeter Packet Filtering Router Placement topology.</p>
+        </div>
+
+        <h4>(c) Firewall Rules Table</h4>
+        <div class="table-container"><table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Rule #</th>
+              <th>Source IP</th>
+              <th>Destination IP</th>
+              <th>Port</th>
+              <th>Protocol</th>
+              <th>Action</th>
+              <th>Requirement Met</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: var(--tint-red);">
+              <td><strong>1</strong></td>
+              <td>Any (0.0.0.0/0)</td>
+              <td>LAN (192.168.1.0/24)</td>
+              <td>23 (Telnet)</td>
+              <td>TCP</td>
+              <td><strong>DENY</strong></td>
+              <td>Block external Telnet access to office LAN</td>
+            </tr>
+            <tr style="background: var(--tint-green);">
+              <td><strong>2</strong></td>
+              <td>LAN (192.168.1.0/24)</td>
+              <td>Any (0.0.0.0/0)</td>
+              <td>80, 443</td>
+              <td>TCP</td>
+              <td><strong>ALLOW</strong></td>
+              <td>Allow employee web browsing (HTTP/HTTPS)</td>
+            </tr>
+            <tr style="background: var(--tint-red);">
+              <td><strong>3</strong></td>
+              <td>Any (0.0.0.0/0)</td>
+              <td>Any (0.0.0.0/0)</td>
+              <td>Any</td>
+              <td>Any</td>
+              <td><strong>DENY ALL</strong></td>
+              <td>Default deny all other traffic</td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Scenario 3: Zero Trust Architecture -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Scenario Question 3</span>
+      <span class="question-tag">Zero Trust Network Architecture (ZTN)</span>
+    </div>
+    <div class="problem-statement">
+      <p><strong>Scenario:</strong> A modern cloud-native software firm operates with fully remote engineers. They access high-value code repositories and customer databases. The CTO states: <em>"We want to move away from IP-based perimeter firewalls completely. No user or device should be trusted by default."</em></p>
+    </div>
+
+    <details class="solution-toggle">
+      <summary>Show Solution &amp; Diagram</summary>
+      <div class="solution-card" style="border-left-color: var(--accent-green);">
+        <span class="solution-label">Solution &amp; Diagram</span>
+        
+        <h4>(a) Paradigm, PDP, and PEP</h4>
+        <p>The paradigm is <strong>Zero Trust Network Architecture (ZTN)</strong>. In Zero Trust, perimeter security is discarded in favor of identity- and context-aware microsegmentation:</p>
+        <ul>
+          <li><strong>Policy Decision Point (PDP):</strong> Evaluates user credentials (IAM/MFA), device health posture, and context to emit a verdict.</li>
+          <li><strong>Policy Enforcement Point (PEP):</strong> Data plane component that intercepts connections and allows or blocks access to specific resources based on PDP guidance.</li>
+        </ul>
+
+        <h4>(b) Zero Trust Diagram (Interactive)</h4>
+                <div class="table-container" style="text-align: center; padding: 20px; margin: 20px 0;">
+          <img src="diagrams/ztn_diagram.png" alt="Zero Trust Architecture" style="max-width: 100%; height: auto; border-radius: var(--radius-md); border: 1px solid var(--border-default);">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: center; font-style: italic;">Modern Zero Trust Architecture with PEP & PDP validation layers.</p>
+        </div>
+
+        <h4>(c) The 3 Core Principles vs Traditional Firewalls</h4>
+        <ol>
+          <li><strong>Never Trust, Always Verify:</strong> assess posture dynamically on every connection, not just at perimeter.</li>
+          <li><strong>Least Privilege Access:</strong> restrict access strictly based on user roles and identity.</li>
+          <li><strong>Assume Breach:</strong> isolate resources in secure micro-segments and encrypt all traffic.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+  <div class="section-header-bar badge-c-bg">
+    <span class="badge badge-c">MIXED</span>
+    <h2 class="section-title">Comprehensive Mixed Practice Questions</h2>
+  </div>
+  <p class="section-intro">These questions mix multiple types — just like the real exam.</p>
+
+  <!-- Q13 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Question 13</span>
+      <div><span class="badge badge-a">TYPE A</span> <span class="badge badge-c">TYPE C</span> <span class="badge badge-d">TYPE D</span></div>
+    </div>
+    <div class="problem-statement">
+      <p>A company plans to move to cloud (3-year horizon).</p>
+      <div class="given-grid">
+        <div class="given-col">
+          <strong>On-Premise</strong>
+          <ul>
+            <li>4 servers at $6,000 each</li>
+            <li>Software $18,000, Labor $4,000</li>
+            <li>Monthly: Env=$600, Licensing=$400, Maint=$200, Labor=$2,500</li>
+          </ul>
+        </div>
+        <div class="given-col">
+          <strong>Cloud</strong>
+          <ul>
+            <li>Upfront: $6,500 labor only</li>
+            <li>3 VMs at $1.25/hr (auto-scale &rarr; 1.8 effective)</li>
+            <li>DB 400GB &times; $1.09, WAN 350GB &times; $0.10, Labor $750</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <details class="solution-toggle"><summary>Show Full Solution</summary>
+      <div class="solution-card">
+        <div class="step-block"><div class="step-number">Step 1</div><div class="step-content"><div class="step-title">ON-PREMISE UP-FRONT</div>Hardware: 4 &times; $6,000 = $24,000 | Software: $18,000 | Labor: $4,000<div class="step-result">Total = <strong>$46,000</strong></div></div></div>
+        <div class="step-block"><div class="step-number">Step 2</div><div class="step-content"><div class="step-title">ON-PREMISE MONTHLY</div><div class="step-result">$600 + $400 + $200 + $2,500 = <strong>$3,700/month</strong></div></div></div>
+        <div class="step-block"><div class="step-number">Step 3</div><div class="step-content"><div class="step-title">CLOUD UP-FRONT</div><div class="step-result"><strong>$6,500</strong> (labor only)</div></div></div>
+        <div class="step-block"><div class="step-number">Step 4</div><div class="step-content">
+          <div class="step-title">CLOUD MONTHLY</div>
+          <ul>
+            <li>Server: 1.8 &times; ($1.25 &times; 720) = 1.8 &times; $900 = $1,620</li>
+            <li>DB: 400 &times; $1.09 = $436</li>
+            <li>WAN: 350 &times; $0.10 = $35</li>
+            <li>Labor: $750</li>
+          </ul>
+          <div class="step-result">Total = $1,620 + $436 + $35 + $750 = <strong>$2,841/month</strong></div>
+        </div></div>
+        <div class="step-block"><div class="step-number">Step 5</div><div class="step-content">
+          <div class="step-title">3-YEAR TCO</div>
+          <div class="formula-box formula-inline"><div class="formula-content">On-Premise = $46,000 + ($3,700 &times; 36) = $46,000 + $133,200 = <strong>$179,200</strong></div></div>
+          <div class="formula-box formula-inline"><div class="formula-content">Cloud = $6,500 + ($2,841 &times; 36) = $6,500 + $102,276 = <strong>$108,776</strong></div></div>
+        </div></div>
+        <div class="final-answer">Cloud ($108,776) saves <strong>$70,424</strong> vs On-Premise ($179,200) &rarr; <strong>MIGRATE TO CLOUD</strong></div>
+        <div class="callout-roman"><div class="callout-icon">&#9998;</div><div class="callout-content"><strong>Roman Urdu:</strong> On-premise upfront: 4&times;6000 + 18000 + 4000 = $46,000. Monthly: $3,700. Cloud upfront: $6,500. Monthly: 1.8 VMs &times; $900 + DB + WAN + labor = $2,841. TCO: OP=$179,200, Cloud=$108,776. Cloud sasta — migrate karo!</div></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Question 14</span>
+      <div><span class="badge badge-e">TYPE E</span> <span class="badge badge-f">TYPE F</span></div>
+    </div>
+    <div class="problem-statement">
+      <p>A logistics company:</p>
+      <ul>
+        <li><strong>(a)</strong> 6 separate teams working on GPS tracking, billing, notifications, driver mgmt, route optimization, analytics. Each deploys weekly.</li>
+        <li><strong>(b)</strong> They want to offer the finished GPS app to 500 enterprise customers who pay monthly.</li>
+        <li><strong>(c)</strong> On-premise GPS servers hit 100% CPU every December.</li>
+      </ul>
+      <p>Recommend: architecture for (a), pricing model for (b), architecture for (c).</p>
+    </div>
+    <details class="solution-toggle"><summary>Show Solution</summary>
+      <div class="solution-card">
+        <div class="step-block"><div class="step-number">(a)</div><div class="step-content"><strong>Microservices Architecture</strong> — 6 independent services, each deployable separately by their team, communicating via APIs.</div></div>
+        <div class="step-block"><div class="step-number">(b)</div><div class="step-content"><strong>SaaS Pricing Model</strong> — subscription per customer per month, possibly + per-user fee for enterprise seats.</div></div>
+        <div class="step-block"><div class="step-number">(c)</div><div class="step-content"><strong>Cloud Bursting Architecture</strong> — on-premise threshold exceeded in December; burst to cloud for extra capacity, burst back in January.</div></div>
+        <div class="callout-roman"><div class="callout-icon">&#9998;</div><div class="callout-content"><strong>Roman Urdu:</strong> (a) 6 teams, alag alag deployment &rarr; Microservices. (b) Finished app, 500 customers monthly &rarr; SaaS pricing. (c) December peak, 100% CPU &rarr; Cloud Bursting.</div></div>
+      </div>
+    </details>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="question-label">Question 15</span>
+      <div><span class="badge badge-c">TYPE C</span> <span class="badge badge-g">TYPE G</span></div>
+    </div>
+    <div class="problem-statement">
+      <p>On-Demand VM: $0.15/hr. Reserved: $80 upfront + $0.07/hr.</p>
+      <ul>
+        <li><strong>(a)</strong> Monthly cost of each?</li>
+        <li><strong>(b)</strong> At how many hours does Reserved become cheaper?</li>
+      </ul>
+    </div>
+    <details class="solution-toggle"><summary>Show Solution</summary>
+      <div class="solution-card">
+        <h4>(a) Monthly Cost (720 hours)</h4>
+        <div class="step-block"><div class="step-number">On-Demand</div><div class="step-content">$0.15 &times; 720 = <strong>$108/month</strong></div></div>
+        <div class="step-block"><div class="step-number">Reserved</div><div class="step-content">$80 + ($0.07 &times; 720) = $80 + $50.40 = <strong>$130.40</strong> (first month)<br><em>Month 2 onwards: $0.07 &times; 720 = $50.40/month ($80 is one-time)</em></div></div>
+
+        <h4>(b) Break-Even Hours</h4>
+        <p>Set On-Demand total = Reserved total:</p>
+        <div class="formula-box formula-inline"><div class="formula-content">$0.15 &times; H = $80 + ($0.07 &times; H)</div></div>
+        <div class="formula-box formula-inline"><div class="formula-content">$0.15H - $0.07H = $80</div></div>
+        <div class="formula-box formula-inline"><div class="formula-content">$0.08H = $80 &rarr; <strong>H = 1,000 hours</strong></div></div>
+        <div class="final-answer">Break-even = <strong>1,000 hours</strong>. After 1,000 hours &rarr; Reserved is cheaper. Before 1,000 hours &rarr; On-Demand is cheaper.</div>
+        <div class="callout-roman"><div class="callout-icon">&#9998;</div><div class="callout-content"><strong>Roman Urdu:</strong> 0.15H = 80 + 0.07H &rarr; 0.08H = 80 &rarr; H = 1000 hours. 1000 ghante ke baad reserved sasta.</div></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- MASTER CHEAT SHEET                                           -->
+<!-- ============================================================ -->
+<section class="section-card cheat-sheet-section" id="cheat-sheet">
+  <div class="section-header-bar badge-g-bg">
+    <span class="badge badge-g">MASTER</span>
+    <h2 class="section-title">Master Cheat Sheet — Last-Minute Revision</h2>
+  </div>
+
+  <!-- ALL FORMULAS -->
+  <h3 class="subsection-title">All Formulas in One Place</h3>
+  <div class="table-container"><table class="comparison-table">
+    <thead><tr><th>Formula Name</th><th>Formula</th><th>When to Use</th></tr></thead>
+    <tbody>
+      <tr><td><strong>3-Year TCO</strong></td><td><code>Up-Front + (Monthly &times; 36)</code></td><td>Any cloud vs on-premise comparison</td></tr>
+      <tr><td><strong>N-Year TCO</strong></td><td><code>Up-Front + (Monthly &times; N&times;12)</code></td><td>If time frame is not 3 years</td></tr>
+      <tr><td><strong>Basic Revenue</strong></td><td><code>Price &times; Usage</code></td><td>Simple revenue questions</td></tr>
+      <tr><td><strong>Total Revenue</strong></td><td><code>&Sigma;(Price<sub>i</sub> &times; Usage<sub>i</sub>)</code></td><td>Multiple services</td></tr>
+      <tr><td><strong>On-Demand VM Monthly</strong></td><td><code>VMs &times; Rate &times; 720</code></td><td>Monthly VM cost (no reservation)</td></tr>
+      <tr><td><strong>On-Demand VM (scaled)</strong></td><td><code>Effective_VMs &times; Rate &times; 720</code></td><td>When auto-scaling reduces consumption</td></tr>
+      <tr><td><strong>Reserved Cost</strong></td><td><code>Upfront + (Discounted_Rate &times; Hours)</code></td><td>Reserved VM total cost</td></tr>
+      <tr><td><strong>Storage Monthly</strong></td><td><code>GB &times; $/GB/month</code></td><td>Storage cost</td></tr>
+      <tr><td><strong>Network Cost</strong></td><td><code>GB &times; $/GB</code></td><td>Outbound/intra-cloud network</td></tr>
+      <tr><td><strong>I/O Cost</strong></td><td><code>GB &times; $/GB</code></td><td>Storage I/O transfers</td></tr>
+      <tr><td><strong>SaaS Revenue</strong></td><td><code>Sub + (Users &times; Rate) + (Txns&divide;1000 &times; Rate)</code></td><td>SaaS billing</td></tr>
+      <tr><td><strong>Break-Even (months)</strong></td><td><code>(OP_Up - Cloud_Up) &divide; (Cloud_Mo - OP_Mo)</code></td><td>When cloud monthly &gt; OP monthly</td></tr>
+      <tr><td><strong>Break-Even (hours)</strong></td><td><code>Fixed_Cost &divide; (Rate_A - Rate_B)</code></td><td>On-demand vs reserved hours</td></tr>
+      <tr><td><strong>Cost of Capital</strong></td><td><code>Principal &times; Interest_Rate</code></td><td>Borrowing cost for on-premise</td></tr>
+      <tr><td><strong>Clustered Surcharge</strong></td><td><code>Base &times; 2.0 (100% surcharge)</code></td><td>DTGOV clustered VMs</td></tr>
+      <tr><td><strong>Resilient Surcharge</strong></td><td><code>Base &times; 2.5 (150% surcharge)</code></td><td>DTGOV resilient VMs</td></tr>
+      <tr><td><strong>Hours/month</strong></td><td><code>720 = 24 &times; 30</code></td><td>Always use unless told otherwise</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="separator"></div>
+
+  <!-- ARCHITECTURE DECISION -->
+  <h3 class="subsection-title">Architecture Decision Cheat Sheet</h3>
+  <table class="comparison-table decision-table">
+    <thead><tr><th>Problem Keyword</th><th>&rarr; Architecture</th><th>Key Tech</th></tr></thead>
+    <tbody>
+      <tr><td>Server fails / heartbeat / hypervisor failure</td><td><strong>Hypervisor Clustering</strong></td><td>VIM, Heartbeat, Live VM Migration</td></tr>
+      <tr><td>Uneven load / overloaded / under-utilized</td><td><strong>Load Balanced VM Instances</strong></td><td>Capacity Watchdog, Planner, Live Migration</td></tr>
+      <tr><td>Maintenance / migration / no disruption</td><td><strong>Non-Disruptive Relocation</strong></td><td>Scaling Listener, Duplicate, Sync, Remove</td></tr>
+      <tr><td>Physical server down / zero downtime guarantee</td><td><strong>Zero Downtime</strong></td><td>Fault Tolerance, Shared Volume, Live Migration</td></tr>
+      <tr><td>On-premise spike / peak traffic / burst</td><td><strong>Cloud Bursting</strong></td><td>Scaling Listener, Resource Replication</td></tr>
+      <tr><td>IoT / real-time / low latency / near device</td><td><strong>Fog Computing</strong></td><td>Fog/Edge Nodes</td></tr>
+      <tr><td>Independent teams / separate features / APIs</td><td><strong>Microservices</strong></td><td>API Gateway, Service Discovery, Own DB</td></tr>
+      <tr><td>Trust nobody / always verify / ZTN</td><td><strong>Zero Trust Networking</strong></td><td>IAM, ZTNA, Microsegmentation, Monitoring</td></tr>
+    </tbody>
+  </table>
+
+  <div class="separator"></div>
+
+  <!-- COST TYPE REFERENCE -->
+  <h3 class="subsection-title">Cost Type Quick Reference</h3>
+  <div class="table-container"><table class="comparison-table">
+    <thead><tr><th>Cost</th><th>Direction</th><th>Usually Free?</th><th>Rate in Lectures</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Inbound Network</strong></td><td>Into cloud</td><td class="highlight-success">YES</td><td>$0.001/GB (almost free)</td></tr>
+      <tr><td><strong>Outbound Network</strong></td><td>Out of cloud</td><td class="highlight-danger">NO</td><td>$0.01/GB to $0.10/GB</td></tr>
+      <tr><td><strong>Intra-Cloud WAN</strong></td><td>Same cloud, diff regions</td><td>Partial</td><td>$0.005–$0.01/GB</td></tr>
+      <tr><td><strong>Storage Allocation</strong></td><td>Space reserved</td><td class="highlight-danger">NO</td><td>$0.10/GB/month</td></tr>
+      <tr><td><strong>I/O Data Transfer</strong></td><td>Read/write to storage</td><td>Sometimes</td><td>$0.10/TB = $0.0001/GB</td></tr>
+      <tr><td><strong>On-Demand VM</strong></td><td>Per hour running</td><td class="highlight-danger">NO</td><td>$0.10–$0.90/hr</td></tr>
+      <tr><td><strong>Reserved VM</strong></td><td>Upfront + discounted hourly</td><td class="highlight-danger">NO</td><td>$55.10–$249.90 upfront</td></tr>
+      <tr><td><strong>SaaS Subscription</strong></td><td>Per month flat fee</td><td class="highlight-danger">NO</td><td>$69.90/month</td></tr>
+      <tr><td><strong>SaaS Per User</strong></td><td>Per extra user/month</td><td>Base users included</td><td>$0.90/user/month</td></tr>
+      <tr><td><strong>SaaS Per Transaction</strong></td><td>Per 1,000 transactions</td><td class="highlight-danger">NO</td><td>$0.05/1,000 txns</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="separator"></div>
+
+  <!-- EXAM DECISION FLOWCHART -->
+  <h3 class="subsection-title">Exam Decision Flowchart — Step by Step</h3>
+
+  <div class="flowchart">
+    <div class="flow-step">
+      <div class="flow-number">1</div>
+      <div class="flow-content">
+        <strong>READ THE QUESTION</strong><br>
+        Look for keywords: TCO/migrate, revenue/price, VM/hours, GB/network, architecture, IaaS/PaaS/SaaS, break-even.
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-number">2</div>
+      <div class="flow-content">
+        <strong>IDENTIFY THE TYPE</strong><br>
+        A=TCO, B=Revenue, C=VM pricing, D=Network/Storage, E=Architecture, F=Pricing model, G=Break-even
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-number">3</div>
+      <div class="flow-content">
+        <strong>GATHER THE NUMBERS</strong><br>
+        List all given values: upfront costs, monthly costs, rates, GB, hours, VMs, months.
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-number">4</div>
+      <div class="flow-content">
+        <strong>APPLY THE FORMULA</strong><br>
+        Use the correct formula from the cheat sheet. <strong>Show every multiplication and addition.</strong>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-number">5</div>
+      <div class="flow-content">
+        <strong>COMPARE &amp; CONCLUDE</strong><br>
+        TCO: which is lower? Architecture: which matches? Break-even: state the month/hours clearly.
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> Exam mein question dekh ke: (1) Keywords dhundho. (2) Type identify karo (A-G). (3) Given numbers list karo. (4) Sahi formula apply karo — sab steps show karo. (5) Compare karo aur conclusion likho. Sirf answer likhne se marks nahi milte — working dikhao!
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- COMMON MISTAKES -->
+  <h3 class="subsection-title">Common Exam Mistakes to Avoid</h3>
+
+  <div class="mistakes-grid">
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Forgetting to multiply by <strong>36 months</strong> (not 3, not 12 — it's 36 for 3 years)</span>
+    </div>
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Using "number of VMs installed" instead of <strong>"effective VMs after auto-scaling"</strong></span>
+    </div>
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Treating <strong>INBOUND</strong> traffic as chargeable (it's usually FREE — don't add it)</span>
+    </div>
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Forgetting hardware cost in on-premise upfront (servers &times; price each)</span>
+    </div>
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Including <strong>sunk costs</strong> in the TCO decision (they are irrelevant — ignore them)</span>
+    </div>
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Adding up-front to monthly <strong>without multiplying</strong> monthly by time period</span>
+    </div>
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Using $0.10/hr as monthly cost instead of $0.10 &times; 720 = <strong>$72/month</strong></span>
+    </div>
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Confusing <strong>"clustered" (×2)</strong> with <strong>"resilient" (×2.5)</strong></span>
+    </div>
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Recommending cloud when client has old legacy app with <strong>high porting cost</strong></span>
+    </div>
+    <div class="mistake-item">
+      <span class="mistake-icon">&times;</span>
+      <span>Not showing working steps — <strong>always show every calculation!</strong></span>
+    </div>
+  </div>
+
+  <div class="callout-roman">
+    <div class="callout-icon">&#9998;</div>
+    <div class="callout-content">
+      <strong>Roman Urdu:</strong> Aam galtiyaan: 36 mahine bhoolna, inbound ko charge karna, sunk costs include karna, auto-scale ke baad effective VMs use na karna, clustered aur resilient ka surcharge mix karna, aur sirf answer likhna bina working dikha'e.
+    </div>
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- INTERACTIVE NUMERICAL SOLVER                                 -->
+<!-- ============================================================ -->
+<section class="section-card" id="numerical-solver" style="border-left: 4px solid var(--accent-blue);">
+  <div class="section-header-bar badge-a-bg" >
+    <span class="badge badge-a" >SOLVER</span>
+    <h2 class="section-title">Interactive CC Numerical Solver</h2>
+  </div>
+  <p class="section-intro">Select your question type, enter the values, and click Solve to instantly see step-by-step mathematical solutions and explanations!</p>
+
+  <div class="solver-container" style="background: var(--bg-surface-hover); border-radius: var(--radius-md); padding: var(--sp-6); border: 1px solid var(--border-default); margin-bottom: var(--sp-6);">
+    <label for="solver-type" style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Select Question Type to Solve:</label>
+    <select id="solver-type" onchange="toggleSolverInputs()" style="width: 100%; padding: 10px; border-radius: var(--radius-sm); background: var(--bg-elevated); border: 1px solid var(--border-default); color: var(--text-primary); font-family: var(--font-body); font-size: 1rem; margin-bottom: 20px;">
+      <option value="tco">TYPE A: TCO Analysis (Cloud vs On-Premise)</option>
+      <option value="revenue">TYPE B: Revenue &amp; Cost (Price &times; Usage)</option>
+      <option value="vm">TYPE C: VM Instance Pricing (On-Demand vs Reserved)</option>
+      <option value="network">TYPE D: Network &amp; Storage Cost Calculations</option>
+      <option value="break-even">TYPE G: Break-Even Analysis (Crossover Point)</option>
+    </select>
+
+    <!-- Inputs for TCO -->
+    <div id="inputs-tco" class="solver-input-group">
+      <h4 style="margin-bottom: 12px; color: var(--accent-blue);">On-Premise Parameters</h4>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Upfront Hardware ($):</label>
+          <input type="number" id="tco-op-hw" value="15000" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Upfront Software ($):</label>
+          <input type="number" id="tco-op-sw" value="30500" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Upfront Labor ($):</label>
+          <input type="number" id="tco-op-labor" value="5500" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Monthly Maintenance ($/mo):</label>
+          <input type="number" id="tco-op-monthly" value="3970" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+      </div>
+      <h4 style="margin-bottom: 12px; color: var(--accent-blue);">Cloud Parameters</h4>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Upfront Labor ($):</label>
+          <input type="number" id="tco-cl-upfront" value="5000" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Monthly Cloud Fee ($/mo):</label>
+          <input type="number" id="tco-cl-monthly" value="3239" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">TCO Timeline (Months):</label>
+          <input type="number" id="tco-months" value="36" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs for Revenue -->
+    <div id="inputs-revenue" class="solver-input-group" style="display:none;">
+      <h4 style="margin-bottom: 12px; color: var(--accent-blue);">Simple Service Revenue Matrix</h4>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Service 1 Price ($):</label>
+          <input type="number" id="rev-p1" value="10" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Service 1 Units Used:</label>
+          <input type="number" id="rev-u1" value="5" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Service 2 Price ($):</label>
+          <input type="number" id="rev-p2" value="20" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Service 2 Units Used:</label>
+          <input type="number" id="rev-u2" value="3" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Service 3 Price ($):</label>
+          <input type="number" id="rev-p3" value="30" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Service 3 Units Used:</label>
+          <input type="number" id="rev-u3" value="2" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+      </div>
+    </div>
+
+        <!-- Inputs for Bahria Matrix Billing -->
+    <div id="inputs-matrix-billing" class="solver-input-group" style="display:none;">
+      <h4 style="margin-bottom: 12px; color: var(--accent-blue);">Bahria Cloud Multi-User Matrix Billing Parameters</h4>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 15px;">
+        Edit the monthly pricing and the usage numbers below. The solver will automatically convert prices to rates (per hour = Price/720, per day = Price/30, per week = Price/4) before multiplying and summing.
+      </p>
+      <div class="table-container">
+        <div class="table-container"><table class="comparison-table" style="font-size: 0.8rem; min-width: 600px;">
+          <thead>
+            <tr>
+              <th>Cloud Service</th>
+              <th>Monthly Price ($/mo)</th>
+              <th>User-1 (Hours)</th>
+              <th>User-2 (Days)</th>
+              <th>User-3 (Weeks)</th>
+              <th>User-4 (Months)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Storage</strong></td>
+              <td><input type="number" id="mat-p-storage" value="33" style="width:100px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u1-storage" value="6" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u2-storage" value="19" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u3-storage" value="4" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u4-storage" value="2" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+            </tr>
+            <tr>
+              <td><strong>DB software</strong></td>
+              <td><input type="number" id="mat-p-db" value="45" style="width:100px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u1-db" value="17" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u2-db" value="13" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u3-db" value="3" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u4-db" value="1" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+            </tr>
+            <tr>
+              <td><strong>Android Platform</strong></td>
+              <td><input type="number" id="mat-p-android" value="75" style="width:100px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u1-android" value="9" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u2-android" value="8" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u3-android" value="4" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u4-android" value="4" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+            </tr>
+            <tr>
+              <td><strong>Computing Services</strong></td>
+              <td><input type="number" id="mat-p-compute" value="90" style="width:100px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u1-compute" value="22" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u2-compute" value="20" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u3-compute" value="2" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u4-compute" value="5" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+            </tr>
+            <tr>
+              <td><strong>Cloud Security</strong></td>
+              <td><input type="number" id="mat-p-security" value="50" style="width:100px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u1-security" value="10" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u2-security" value="21" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u3-security" value="1" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u4-security" value="6" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+            </tr>
+            <tr>
+              <td><strong>Linux OS Platform</strong></td>
+              <td><input type="number" id="mat-p-linux" value="20" style="width:100px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u1-linux" value="18" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u2-linux" value="4" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u3-linux" value="3" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+              <td><input type="number" id="mat-u4-linux" value="2" style="width:70px; padding:6px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;"></td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+
+
+    <!-- Inputs for VM Instance -->
+    <div id="inputs-vm" class="solver-input-group" style="display:none;">
+      <h4 style="margin-bottom: 12px; color: var(--accent-blue);">VM Parameters</h4>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 15px;">
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">On-Demand Rate ($/hour):</label>
+          <input type="number" step="0.01" id="vm-ondemand-rate" value="0.20" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Reserved Upfront ($):</label>
+          <input type="number" id="vm-reserved-upfront" value="99.90" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Reserved Hourly Rate ($/hour):</label>
+          <input type="number" step="0.01" id="vm-reserved-rate" value="0.10" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Number of VMs:</label>
+          <input type="number" id="vm-count" value="2" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Hours Used (Total):</label>
+          <input type="number" id="vm-hours" value="8640" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs for Network & Storage -->
+    <div id="inputs-network" class="solver-input-group" style="display:none;">
+      <h4 style="margin-bottom: 12px; color: var(--accent-blue);">Storage, Outbound, &amp; I/O Specs</h4>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Storage Allocated (GB):</label>
+          <input type="number" id="net-storage-gb" value="300" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Storage Price ($/GB/month):</label>
+          <input type="number" step="0.01" id="net-storage-rate" value="1.09" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Outbound Data (GB):</label>
+          <input type="number" id="net-outbound-gb" value="420" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Outbound Rate ($/GB):</label>
+          <input type="number" step="0.01" id="net-outbound-rate" value="0.10" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">I/O Data (GB, or 0 if none):</label>
+          <input type="number" id="net-io-gb" value="0" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">I/O Rate ($/GB):</label>
+          <input type="number" step="0.001" id="net-io-rate" value="0.001" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs for Break Even -->
+    <div id="inputs-break-even" class="solver-input-group" style="display:none;">
+      <h4 style="margin-bottom: 12px; color: var(--accent-blue);">Break-Even Monthly Specs</h4>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">On-Premise Upfront ($):</label>
+          <input type="number" id="be-op-up" value="10000" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">On-Premise Monthly ($/mo):</label>
+          <input type="number" id="be-op-mo" value="2000" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Cloud Upfront ($):</label>
+          <input type="number" id="be-cl-up" value="1000" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; color:var(--text-secondary);">Cloud Monthly ($/mo):</label>
+          <input type="number" id="be-cl-mo" value="2500" style="width:100%; padding:8px; border-radius:4px; background:var(--bg-elevated); border:1px solid var(--border-default); color:white;">
+        </div>
+      </div>
+    </div>
+
+    <button onclick="calculateNumerical()" class="solve-btn">Calculate Step-by-Step Solution</button>
+  </div>
+
+  <div id="solver-result-container" class="solver-result" style="display:none;">
+    <div class="solver-result-header">🔢 Output Solution Steps:</div>
+    <div id="solver-steps-div"></div>
+    <div id="solver-final-div" style="margin-top:20px;"></div>
+  </div>
+</section>
+
+<div class="separator-thick"></div>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                       -->
+<!-- ============================================================ -->
+<footer class="page-footer">
+  <div class="footer-content">
+    <p class="footer-title">CC Finals Numericals &nbsp;&middot;&nbsp; Cloud Computing</p>
+    <p class="footer-subtitle">Engr. Dr. Mahawish &nbsp;&middot;&nbsp; Spring 2026</p>
+    <p class="footer-cta">Best of Luck!</p>
+  </div>
+</footer>
+
+</main>
+
+<script>
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Sticky nav shadow on scroll
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// Animate elements on scroll
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.question-card, .formula-box, .callout-tip, .callout-warning, .callout-danger, .callout-roman, .callout-info, .quick-revision, .exam-trap, .memory-trick').forEach(el => {
+  el.classList.add('animate-in');
+  observer.observe(el);
+});
+
+// Numerical Solver JS logic
+function toggleSolverInputs() {
+  const selectedType = document.getElementById('solver-type').value;
+  document.querySelectorAll('.solver-input-group').forEach(group => {
+    group.style.display = 'none';
+  });
+  document.getElementById(`inputs-${selectedType}`).style.display = 'block';
+}
+
+function calculateNumerical() {
+  const selectedType = document.getElementById('solver-type').value;
+  const stepsDiv = document.getElementById('solver-steps-div');
+  const finalDiv = document.getElementById('solver-final-div');
+  const container = document.getElementById('solver-result-container');
+  
+  stepsDiv.innerHTML = '';
+  finalDiv.innerHTML = '';
+  container.style.display = 'block';
+
+  if (selectedType === 'tco') {
+    const opHw = parseFloat(document.getElementById('tco-op-hw').value) || 0;
+    const opSw = parseFloat(document.getElementById('tco-op-sw').value) || 0;
+    const opLabor = parseFloat(document.getElementById('tco-op-labor').value) || 0;
+    const opMonthly = parseFloat(document.getElementById('tco-op-monthly').value) || 0;
+
+    const clUpfront = parseFloat(document.getElementById('tco-cl-upfront').value) || 0;
+    const clMonthly = parseFloat(document.getElementById('tco-cl-monthly').value) || 0;
+    const months = parseInt(document.getElementById('tco-months').value) || 36;
+
+    const opUpfrontTotal = opHw + opSw + opLabor;
+    const opMonthlyTotal = opMonthly * months;
+    const opTco = opUpfrontTotal + opMonthlyTotal;
+
+    const clTco = clUpfront + (clMonthly * months);
+
+    stepsDiv.innerHTML = `
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">Calculate On-Premise Upfront Cost</div>
+          <p>Formula: Hardware + Software + Labor</p>
+          <p class="step-formula">$${opHw} + $${opSw} + $${opLabor} = <strong>$${opUpfrontTotal}</strong></p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">Calculate On-Premise Monthly Cost over ${months} Months</div>
+          <p>Formula: Monthly Cost &times; ${months} months</p>
+          <p class="step-formula">$${opMonthly} &times; ${months} = <strong>$${opMonthlyTotal}</strong></p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 3</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Total On-Premise TCO</div>
+          <p>Formula: Upfront + Monthly Total</p>
+          <p class="step-formula">$${opUpfrontTotal} + $${opMonthlyTotal} = <strong>$${opTco}</strong></p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 4</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Cloud TCO over ${months} Months</div>
+          <p>Formula: Cloud Upfront + (Cloud Monthly &times; ${months} months)</p>
+          <p class="step-formula">$${clUpfront} + ($${clMonthly} &times; ${months}) = $${clUpfront} + $${clMonthly * months} = <strong>$${clTco}</strong></p>
+        </div>
+      </div>
+    `;
+
+    if (clTco < opTco) {
+      finalDiv.innerHTML = `
+        <div class="final-answer">
+          Cloud TCO ($${clTco}) &lt; On-Premise TCO ($${opTco}) &rarr; <strong>MIGRATE TO CLOUD</strong><br>
+          Savings: <strong>$${opTco - clTco}</strong> over ${months} months.
+        </div>
+      `;
+    } else {
+      finalDiv.innerHTML = `
+        <div class="final-answer">
+          On-Premise TCO ($${opTco}) &lt; Cloud TCO ($${clTco}) &rarr; <strong>DO NOT MIGRATE (Stay On-Premise)</strong><br>
+          Savings: <strong>$${clTco - opTco}</strong> by staying on-premise.
+        </div>
+      `;
+    }
+  }
+
+  else if (selectedType === 'revenue') {
+    const p1 = parseFloat(document.getElementById('rev-p1').value) || 0;
+    const u1 = parseFloat(document.getElementById('rev-u1').value) || 0;
+    const p2 = parseFloat(document.getElementById('rev-p2').value) || 0;
+    const u2 = parseFloat(document.getElementById('rev-u2').value) || 0;
+    const p3 = parseFloat(document.getElementById('rev-p3').value) || 0;
+    const u3 = parseFloat(document.getElementById('rev-u3').value) || 0;
+
+    const r1 = p1 * u1;
+    const r2 = p2 * u2;
+    const r3 = p3 * u3;
+    const totalRev = r1 + r2 + r3;
+
+    stepsDiv.innerHTML = `
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Individual Service Revenues</div>
+          <ul>
+            <li>Service 1: $${p1} &times; ${u1} = <strong>$${r1}</strong></li>
+            <li>Service 2: $${p2} &times; ${u2} = <strong>$${r2}</strong></li>
+            <li>Service 3: $${p3} &times; ${u3} = <strong>$${r3}</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">Sum all revenues</div>
+          <p class="step-formula">$${r1} + $${r2} + $${r3} = <strong>$${totalRev}</strong></p>
+        </div>
+      </div>
+    `;
+
+    finalDiv.innerHTML = `
+      <div class="final-answer">
+        Total Revenue = <strong>$${totalRev}</strong>
+      </div>
+    `;
+  }
+
+    else if (selectedType === 'matrix-billing') {
+    const services = [
+      { id: 'storage', name: 'Storage' },
+      { id: 'db', name: 'DB software' },
+      { id: 'android', name: 'Android Platform' },
+      { id: 'compute', name: 'Computing Services' },
+      { id: 'security', name: 'Cloud Security' },
+      { id: 'linux', name: 'Linux OS Platform' }
+    ];
+
+    let tableHtml = `<div class="table-container">
+      <div class="table-container"><table class="comparison-table" style="font-size:0.85rem; margin-bottom:20px;">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Monthly Price</th>
+          <th>Hourly Rate (Price/720)</th>
+          <th>Daily Rate (Price/30)</th>
+          <th>Weekly Rate (Price/4)</th>
+        </tr>
+      </thead>
+      <tbody>`;
+
+    const data = services.map(s => {
+      const p = parseFloat(document.getElementById(`mat-p-${s.id}`).value) || 0;
+      const u1 = parseFloat(document.getElementById(`mat-u1-${s.id}`).value) || 0;
+      const u2 = parseFloat(document.getElementById(`mat-u2-${s.id}`).value) || 0;
+      const u3 = parseFloat(document.getElementById(`mat-u3-${s.id}`).value) || 0;
+      const u4 = parseFloat(document.getElementById(`mat-u4-${s.id}`).value) || 0;
+      
+      const rHr = p / 720;
+      const rDay = p / 30;
+      const rWk = p / 4;
+      
+      tableHtml += `<tr>
+        <td><strong>${s.name}</strong></td>
+        <td>$${p}</td>
+        <td>$${rHr.toFixed(4)}</td>
+        <td>$${rDay.toFixed(4)}</td>
+        <td>$${rWk.toFixed(4)}</td>
+      </tr>`;
+      
+      return { name: s.name, price: p, u1, u2, u3, u4, rHr, rDay, rWk };
+    });
+    tableHtml += `</tbody></table></div></div>`;
+
+    // Calculate individual users
+    let u1Total = 0, u2Total = 0, u3Total = 0, u4Total = 0;
+    
+    let u1Details = '<ul>', u2Details = '<ul>', u3Details = '<ul>', u4Details = '<ul>';
+    
+    data.forEach(item => {
+      const c1 = item.u1 * item.rHr;
+      u1Total += c1;
+      u1Details += `<li>${item.name}: ${item.u1} hrs &times; $${item.rHr.toFixed(4)} = <strong>$${c1.toFixed(2)}</strong></li>`;
+      
+      const c2 = item.u2 * item.rDay;
+      u2Total += c2;
+      u2Details += `<li>${item.name}: ${item.u2} days &times; $${item.rDay.toFixed(4)} = <strong>$${c2.toFixed(2)}</strong></li>`;
+      
+      const c3 = item.u3 * item.rWk;
+      u3Total += c3;
+      u3Details += `<li>${item.name}: ${item.u3} weeks &times; $${item.rWk.toFixed(4)} = <strong>$${c3.toFixed(2)}</strong></li>`;
+      
+      const c4 = item.u4 * item.price;
+      u4Total += c4;
+      u4Details += `<li>${item.name}: ${item.u4} months &times; $${item.price.toFixed(2)} = <strong>$${c4.toFixed(2)}</strong></li>`;
+    });
+    
+    u1Details += '</ul>';
+    u2Details += '</ul>';
+    u3Details += '</ul>';
+    u4Details += '</ul>';
+    
+    const combinedTotal = u1Total + u2Total + u3Total + u4Total;
+    
+    stepsDiv.innerHTML = `
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Unit-Converted Rates (1 Month = 720 Hours = 30 Days = 4 Weeks)</div>
+          ${tableHtml}
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">Calculate User-1 Billing (Hours-based &times; Hourly Rate)</div>
+          ${u1Details}
+          <div class="step-result">User-1 Total = <strong>$${u1Total.toFixed(2)}</strong></div>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 3</div>
+        <div class="step-content">
+          <div class="step-title">Calculate User-2 Billing (Days-based &times; Daily Rate)</div>
+          ${u2Details}
+          <div class="step-result">User-2 Total = <strong>$${u2Total.toFixed(2)}</strong></div>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 4</div>
+        <div class="step-content">
+          <div class="step-title">Calculate User-3 Billing (Weeks-based &times; Weekly Rate)</div>
+          ${u3Details}
+          <div class="step-result">User-3 Total = <strong>$${u3Total.toFixed(2)}</strong></div>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 5</div>
+        <div class="step-content">
+          <div class="step-title">Calculate User-4 Billing (Months-based &times; Monthly Price)</div>
+          ${u4Details}
+          <div class="step-result">User-4 Total = <strong>$${u4Total.toFixed(2)}</strong></div>
+        </div>
+      </div>
+    `;
+    
+    finalDiv.innerHTML = `
+      <div class="final-answer">
+        Total Combined Revenue = $${u1Total.toFixed(2)} + $${u2Total.toFixed(2)} + $${u3Total.toFixed(2)} + $${u4Total.toFixed(2)} = <strong>$${combinedTotal.toFixed(2)}</strong>
+      </div>
+    `;
+  }
+
+  else if (selectedType === 'vm') {
+    const odRate = parseFloat(document.getElementById('vm-ondemand-rate').value) || 0;
+    const resUpfront = parseFloat(document.getElementById('vm-reserved-upfront').value) || 0;
+    const resRate = parseFloat(document.getElementById('vm-reserved-rate').value) || 0;
+    const count = parseInt(document.getElementById('vm-count').value) || 1;
+    const hours = parseFloat(document.getElementById('vm-hours').value) || 0;
+
+    const odCost = count * odRate * hours;
+    const resCost = (resUpfront * count) + (count * resRate * hours);
+
+    stepsDiv.innerHTML = `
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">Calculate On-Demand Total Cost</div>
+          <p>Formula: VMs &times; Rate &times; Hours</p>
+          <p class="step-formula">${count} &times; $${odRate} &times; ${hours} = <strong>$${odCost.toFixed(2)}</strong></p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Reserved Total Cost</div>
+          <p>Formula: (Upfront &times; VMs) + (VMs &times; Reserved Rate &times; Hours)</p>
+          <p class="step-formula">($${resUpfront} &times; ${count}) + (${count} &times; $${resRate} &times; ${hours}) = $${(resUpfront*count).toFixed(2)} + $${(count*resRate*hours).toFixed(2)} = <strong>$${resCost.toFixed(2)}</strong></p>
+        </div>
+      </div>
+    `;
+
+    if (resCost < odCost) {
+      finalDiv.innerHTML = `
+        <div class="final-answer">
+          Reserved Pricing ($${resCost.toFixed(2)}) is cheaper than On-Demand ($${odCost.toFixed(2)})<br>
+          Recommend: <strong>RESERVED VM INSTANCES</strong>. Savings = <strong>$${(odCost - resCost).toFixed(2)}</strong>.
+        </div>
+      `;
+    } else {
+      finalDiv.innerHTML = `
+        <div class="final-answer">
+          On-Demand Pricing ($${odCost.toFixed(2)}) is cheaper than Reserved ($${resCost.toFixed(2)})<br>
+          Recommend: <strong>ON-DEMAND VM INSTANCES</strong>. Savings = <strong>$${(resCost - odCost).toFixed(2)}</strong>.
+        </div>
+      `;
+    }
+  }
+
+  else if (selectedType === 'network') {
+    const storageGb = parseFloat(document.getElementById('net-storage-gb').value) || 0;
+    const storageRate = parseFloat(document.getElementById('net-storage-rate').value) || 0;
+    const outboundGb = parseFloat(document.getElementById('net-outbound-gb').value) || 0;
+    const outboundRate = parseFloat(document.getElementById('net-outbound-rate').value) || 0;
+    const ioGb = parseFloat(document.getElementById('net-io-gb').value) || 0;
+    const ioRate = parseFloat(document.getElementById('net-io-rate').value) || 0;
+
+    const storageCost = storageGb * storageRate;
+    const outboundCost = outboundGb * outboundRate;
+    const ioCost = ioGb * ioRate;
+    const totalCost = storageCost + outboundCost + ioCost;
+
+    stepsDiv.innerHTML = `
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Storage Cost</div>
+          <p>Formula: Storage GB &times; Monthly Storage Rate</p>
+          <p class="step-formula">${storageGb} GB &times; $${storageRate}/GB = <strong>$${storageCost.toFixed(2)}</strong></p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Outbound Network Traffic Cost</div>
+          <p>Formula: Outbound GB &times; Outbound Rate</p>
+          <p class="step-formula">${outboundGb} GB &times; $${outboundRate}/GB = <strong>$${outboundCost.toFixed(2)}</strong></p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 3</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Storage I/O Cost</div>
+          <p>Formula: I/O GB &times; I/O Rate</p>
+          <p class="step-formula">${ioGb} GB &times; $${ioRate}/GB = <strong>$${ioCost.toFixed(2)}</strong></p>
+        </div>
+      </div>
+    `;
+
+    finalDiv.innerHTML = `
+      <div class="final-answer">
+        Total Network &amp; Storage Cost = $${storageCost.toFixed(2)} + $${outboundCost.toFixed(2)} + $${ioCost.toFixed(2)} = <strong>$${totalCost.toFixed(2)}/month</strong>
+      </div>
+    `;
+  }
+
+  else if (selectedType === 'break-even') {
+    const opUp = parseFloat(document.getElementById('be-op-up').value) || 0;
+    const opMo = parseFloat(document.getElementById('be-op-mo').value) || 0;
+    const clUp = parseFloat(document.getElementById('be-cl-up').value) || 0;
+    const clMo = parseFloat(document.getElementById('be-cl-mo').value) || 0;
+
+    if (clMo <= opMo) {
+      stepsDiv.innerHTML = `
+        <div class="step-block">
+          <div class="step-number">Warning</div>
+          <div class="step-content">
+            <p>Cloud Monthly fee ($${clMo}) is lower than or equal to On-Premise Monthly fee ($${opMo}).</p>
+            <p>Because Cloud has a lower monthly fee and a lower upfront fee, <strong>Cloud is cheaper from Month 1 onwards</strong>. There is no crossover break-even point.</p>
+          </div>
+        </div>
+      `;
+      finalDiv.innerHTML = `
+        <div class="final-answer">
+          Break-even = <strong>Immediate (Month 1)</strong>. Cloud is cheaper from the start.
+        </div>
+      `;
+      return;
+    }
+
+    const upfrontDiff = opUp - clUp;
+    const monthlyDiff = clMo - opMo;
+    const breakEvenMonths = upfrontDiff / monthlyDiff;
+
+    stepsDiv.innerHTML = `
+      <div class="step-block">
+        <div class="step-number">Step 1</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Upfront Cost Difference</div>
+          <p>Formula: On-Premise Upfront - Cloud Upfront</p>
+          <p class="step-formula">$${opUp} - $${clUp} = <strong>$${upfrontDiff}</strong></p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 2</div>
+        <div class="step-content">
+          <div class="step-title">Calculate Monthly Cost Difference</div>
+          <p>Formula: Cloud Monthly - On-Premise Monthly</p>
+          <p class="step-formula">$${clMo} - $${opMo} = <strong>$${monthlyDiff}</strong></p>
+        </div>
+      </div>
+      <div class="step-block">
+        <div class="step-number">Step 3</div>
+        <div class="step-content">
+          <div class="step-title">Divide Upfront Difference by Monthly Difference</div>
+          <p>Formula: Upfront Diff &divide; Monthly Diff</p>
+          <p class="step-formula">$${upfrontDiff} &divide; $${monthlyDiff} = <strong>${breakEvenMonths.toFixed(2)} Months</strong></p>
+        </div>
+      </div>
+    `;
+
+    finalDiv.innerHTML = `
+      <div class="final-answer">
+        Break-Even Point = <strong>${breakEvenMonths.toFixed(1)} Months</strong> (or ~${Math.ceil(breakEvenMonths)} months).<br>
+        Before ${breakEvenMonths.toFixed(1)} Months: <strong>Cloud is cheaper</strong>. <br>
+        After ${breakEvenMonths.toFixed(1)} Months: <strong>On-Premise is cheaper</strong>.
+      </div>
+    `;
+  }
+}
+
+// Theme toggle logic
+const toggleBtn = document.getElementById('theme-toggle');
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+    localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+  });
+}
+
+// Load saved preference
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light-theme');
+}
+
+</script>
+
+</body>
+</html>
